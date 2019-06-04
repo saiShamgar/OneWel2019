@@ -1,0 +1,9 @@
+<resources>
+	<string name="app_name">OneWel</string>
+	<string name="registration_ok">Thanks For Your Registration</string>
+	<string name="registration_ok_message">
+		We are very much happy for being with us.
+		You can check your status by using your registered phone number
+	</string>
+	<string name="shop_category">Shop/category</string>
+</resources>

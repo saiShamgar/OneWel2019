@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/round_background"
+		android:layout_marginLeft="@dimen/margin_xxlarge"
+		android:layout_marginRight="@dimen/margin_xxlarge">
+	
+	<TextView
+			android:id="@+id/custom_heading"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Select Anyone"
+			android:layout_centerHorizontal="true"
+			android:textColor="@color/font_color"
+			android:textSize="18dp"
+			android:textStyle="bold"
+			android:layout_margin="@dimen/margin_large"/>
+	<TextView
+			android:id="@+id/custom_line"
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="@color/font_color"
+			android:layout_below="@+id/custom_heading"/>
+	
+	<LinearLayout
+			android:layout_below="@+id/custom_line"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="@dimen/margin_xlarge">
+		
+		<LinearLayout
+				android:id="@+id/promoterLayout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:weightSum="4"
+				android:gravity="center">
+			
+			<RelativeLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1">
+				
+				<ImageView
+						android:id="@+id/img_ic_promoter"
+						android:layout_width="wrap_content"
+						android:layout_height="80dp"
+						android:src="@drawable/ic_promoter"/>
+				<TextView
+						android:layout_alignBottom="@+id/img_ic_promoter"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="promoter"
+						android:layout_centerInParent="true"
+						android:textColor="@color/font_color"
+						android:textStyle="bold"/>
+				
+			</RelativeLayout>
+			
+			<RelativeLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="2">
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="hello everey on i am your promoter"
+						android:layout_centerInParent="true"
+						android:layout_centerVertical="true"
+						android:textColor="@color/light_font_color"
+				/>
+			
+			</RelativeLayout>
+			
+			<RelativeLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1">
+				<RadioButton
+						android:id="@+id/radio_btn_promoter"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerInParent="true"
+						android:layout_centerVertical="true"
+						android:textStyle="bold"/>
+			
+			</RelativeLayout>
+			
+		</LinearLayout>
+		
+		<TextView
+				android:layout_marginTop="5dp"
+				android:layout_marginBottom="5dp"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/color_gray"/>
+		
+		<LinearLayout
+				android:id="@+id/advertiseLayout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:weightSum="4"
+				android:gravity="center">
+			
+			<RelativeLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1">
+				
+				<ImageView
+						android:id="@+id/img_ic_add"
+						android:layout_width="wrap_content"
+						android:layout_height="80dp"
+						android:src="@drawable/ic_add"/>
+				<TextView
+						android:layout_alignBottom="@+id/img_ic_add"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Add"
+						android:layout_centerInParent="true"
+						android:textColor="@color/font_color"
+						android:textStyle="bold"/>
+			
+			</RelativeLayout>
+			
+			<RelativeLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="2">
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="hello everey on i am your promoter"
+						android:layout_centerInParent="true"
+						android:layout_centerVertical="true"
+						android:textColor="@color/light_font_color"/>
+			
+			</RelativeLayout>
+			
+			<RelativeLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1">
+				<RadioButton
+						android:id="@+id/radio_btn_add"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerInParent="true"
+						android:layout_centerVertical="true"
+						android:textStyle="bold"/>
+			
+			</RelativeLayout>
+		
+		</LinearLayout>
+		
+		<TextView
+				android:layout_marginTop="5dp"
+				android:layout_marginBottom="5dp"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/color_gray"/>
+		
+		<LinearLayout
+				android:id="@+id/customerLayout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:weightSum="4"
+				android:gravity="center">
+			
+			<RelativeLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1">
+				
+				<ImageView
+						android:id="@+id/img_ic_cusomer"
+						android:layout_width="wrap_content"
+						android:layout_height="80dp"
+						android:src="@drawable/ic_cusomer"/>
+				<TextView
+						android:layout_alignBottom="@+id/img_ic_cusomer"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Customer"
+						android:layout_centerInParent="true"
+						android:textColor="@color/font_color"
+						android:textStyle="bold"/>
+			
+			</RelativeLayout>
+			
+			<RelativeLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="2">
+				<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="hello everey on i am your promoter"
+						android:layout_centerInParent="true"
+						android:layout_centerVertical="true"
+						android:textColor="@color/light_font_color"/>
+			
+			</RelativeLayout>
+			
+			<RelativeLayout
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1">
+				<RadioButton
+						android:id="@+id/radio_btn_customer"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerInParent="true"
+						android:layout_centerVertical="true"
+						android:textStyle="bold"/>
+			
+			</RelativeLayout>
+		
+		</LinearLayout>
+		
+		<TextView
+				android:layout_marginTop="5dp"
+				android:layout_marginBottom="5dp"
+				android:layout_width="match_parent"
+				android:layout_height="1dp"
+				android:background="@color/color_gray"/>
+		
+			<Button
+					android:id="@+id/txt_go_to_next_level"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Go to next level"
+					android:gravity="center"
+					android:textColor="@color/color_white"
+					android:textStyle="bold"
+					android:background="@drawable/gradient_background"
+					android:drawableRight="@drawable/ic_next_level"
+					android:layout_marginRight="@dimen/margin_xxxxxxlarge"
+					android:layout_marginLeft="@dimen/margin_xxxxxxlarge"
+					android:layout_marginTop="@dimen/margin_xxlarge"
+					android:layout_marginBottom="@dimen/margin_xlarge"
+					android:padding="@dimen/margin_large"/>
+		
+		
+	</LinearLayout>
+	
+	
+</RelativeLayout>

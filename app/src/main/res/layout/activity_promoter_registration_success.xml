@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".Activities.Promoter.PromoterRegistrationSuccess"
+		android:background="@color/act_background">
+	
+	<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+		
+		<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+			
+			<ImageView
+					android:id="@+id/img_registration_ok"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/bg_ok"
+					android:layout_centerHorizontal="true"
+					android:layout_marginTop="120dp"/>
+			
+			<TextView
+					android:id="@+id/txt_registration_greetings"
+					android:layout_below="@+id/img_registration_ok"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/extra_large_30dp"
+					android:text="@string/registration_ok"
+					android:layout_centerHorizontal="true"
+					android:textSize="22dp"
+					android:textColor="@color/font_color"/>
+			
+			<TextView
+					android:id="@+id/txt_greeting_description"
+					android:layout_below="@+id/txt_registration_greetings"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/margin_large"
+					android:text="@string/registration_ok_message"
+					android:layout_centerHorizontal="true"
+					android:textSize="16dp"
+					android:layout_marginLeft="@dimen/margin_xxxlarge"
+					android:layout_marginRight="@dimen/margin_xxxlarge"
+					android:gravity="center_horizontal"
+					android:textColor="@color/light_font_color"/>
+			
+			
+			<Button
+					android:id="@+id/btn_next_promoter_details"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@+id/txt_greeting_description"
+					android:background="@drawable/gradient_background"
+					android:layout_marginTop="@dimen/margin_xxxxxxlarge"
+					android:layout_centerHorizontal="true"
+					android:paddingLeft="@dimen/margin_xxxxxxlarge"
+					android:paddingRight="@dimen/margin_xxxxxxlarge"
+					android:text="Go to Home Page"
+					android:textColor="@color/color_white"
+					android:layout_marginBottom="@dimen/margin_xlarge"/>
+			
+		</RelativeLayout>
+		
+	</ScrollView>
+	
+	
+	
+</RelativeLayout>

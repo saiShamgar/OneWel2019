@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#515c6f</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#515c6f</color>
+    
+    <color name="light_gray_pop">#F0EEEF</color>
+    <color name="color_app_orange">#EF7F1A</color>
+    <color name="color_lite_grey">#AAAAAA</color>
+    <color name="color_black">#000000</color>
+    <color name="app_color">#ff6969</color>
+    <color name="color_grey_light">#626262</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_gray">#f2f2f2</color>
+    <color name="color_line">#eeeeee</color>
+    <color name="color_text">#343434</color>
+    <color name="color_blue">#329bf7</color>
+    <color name="order_txt_color">#5e5e5e</color>
+    <color name="color_app_blue">#0f204b</color>
+    <color name="color_red">#FF0000</color>
+    <color name="color_ripple">#7B000000</color>
+    
+    <color name="color_alert">#C0FE0F</color>
+    <color name="table_child_color">#d6d6d6</color>
+    <color name="table_header_color">#4d4d4d</color>
+    <color name="table_color">#F1F3F2</color>
+    <color name="color_transparent">#00000000 </color>
+    
+    <color name="act_background">#f5f6f8 </color>
+    <color name="font_color">#515c6f </color>
+    <color name="font_heading">#a7adb6 </color>
+    <color name="edt_line_color">#e2e2e2 </color>
+    <color name="app_dark_color">#ff4057 </color>
+    <color name="light_font_color">#b0b0b0 </color>
+    <color name="app_color_violet">#662dbc </color>
+    <color name="app_color_gradient_pink">#FF74A4 </color>
+</resources>
