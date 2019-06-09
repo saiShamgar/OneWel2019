@@ -59,7 +59,7 @@
 							android:paddingLeft="@dimen/margin_xxlarge"
 							android:focusableInTouchMode="true">
 						
-						<EditText
+						<AutoCompleteTextView
 								android:textSize="16dp"
 								android:id="@+id/edt_name_add_shop_details"
 								android:layout_width="match_parent"
@@ -68,6 +68,7 @@
 								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
 								android:layout_marginRight="@dimen/margin_xxxlarge"
 								android:hint="Address"
+								android:singleLine="true"
 								android:inputType="text"
 								android:imeOptions="actionNext"
 								android:textColorHint="@color/font_color"
@@ -82,7 +83,7 @@
 						
 						<EditText
 								android:textSize="16dp"
-								android:id="@+id/edt_phone_num_add_shop_details"
+								android:id="@+id/edt_landmark_add_shop_details"
 								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
 								android:layout_below="@+id/edt_name_add_shop_details"
@@ -90,6 +91,10 @@
 								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
 								android:layout_marginRight="@dimen/margin_xxxlarge"
 								android:hint="LandMark"
+								android:inputType="text"
+								android:maxLength="200"
+								android:singleLine="true"
+								android:imeOptions="actionNext"
 								android:textColorHint="@color/font_color"
 								android:backgroundTint="@color/font_heading"/>
 						
@@ -103,7 +108,7 @@
 						
 						<LinearLayout
 								android:id="@+id/times_layout_add_shop_details"
-								android:layout_below="@+id/edt_phone_num_add_shop_details"
+								android:layout_below="@+id/edt_landmark_add_shop_details"
 								android:weightSum="5"
 								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
@@ -126,18 +131,32 @@
 									android:layout_marginLeft="@dimen/margin_large"
 									android:textSize="14dp"
 									android:layout_marginRight="@dimen/margin_large"/>
+						
+						</LinearLayout>
+						
+						<LinearLayout
+								android:id="@+id/times_layout_add_shop_details_act"
+								android:layout_below="@+id/times_layout_add_shop_details"
+								android:weightSum="5"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:layout_marginRight="@dimen/margin_xxxlarge"
+								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
+								android:orientation="horizontal">
 							
 							<LinearLayout
 									android:layout_width="0dp"
 									android:layout_height="wrap_content"
-									android:layout_weight="2"
+									android:layout_weight="2.4"
 									android:orientation="horizontal"
 									android:background="@drawable/stroke_background"
-									android:layout_marginTop="@dimen/margin_xxxlarge">
+									android:layout_marginTop="@dimen/margin_large">
 								
 								<Spinner
+										android:id="@+id/spin_add_from_time"
 										android:layout_width="match_parent"
 										android:layout_height="wrap_content"
+										android:entries="@array/time_array"
 										android:backgroundTint="@color/app_color_violet">
 								</Spinner>
 								
@@ -147,37 +166,43 @@
 									android:layout_width="wrap_content"
 									android:layout_height="wrap_content"
 									android:text="to"
+									android:gravity="center"
 									android:textColor="@color/font_color"
-									android:layout_marginTop="@dimen/margin_xxxlarge"
+									android:layout_marginTop="@dimen/margin_large"
 									android:layout_marginLeft="6dp"
 									android:textSize="16dp"/>
 							
 							<LinearLayout
 									android:layout_width="0dp"
 									android:layout_height="wrap_content"
-									android:layout_weight="2"
+									android:layout_weight="2.4"
 									android:orientation="horizontal"
 									android:background="@drawable/stroke_background"
-									android:layout_marginTop="@dimen/margin_xxxlarge"
+									android:layout_marginTop="@dimen/margin_large"
 									android:layout_marginLeft="6dp">
 								
 								<Spinner
+										android:id="@+id/spin_add_to_time"
 										android:layout_width="match_parent"
 										android:layout_height="wrap_content"
+										android:entries="@array/time_array"
 										android:backgroundTint="@color/app_color_violet">
 								</Spinner>
 							
 							</LinearLayout>
-							
+						
 						</LinearLayout>
+							
+						
 						
 						<TextView
 								android:id="@+id/txt_line_for_times_layout"
 								android:layout_width="match_parent"
 								android:layout_height="1dp"
-								android:layout_below="@+id/times_layout_add_shop_details"
+								android:layout_below="@+id/times_layout_add_shop_details_act"
 								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
 								android:layout_marginRight="@dimen/margin_xxxlarge"
+								android:layout_marginTop="@dimen/margin_large"
 								android:background="@color/light_font_color"/>
 						
 						<EditText
@@ -192,7 +217,9 @@
 								android:hint="Shop Description"
 								android:textColorHint="@color/font_color"
 								android:backgroundTint="@color/font_heading"
-								android:inputType="textMultiLine"
+								android:inputType="text"
+								android:maxLength="500"
+								android:singleLine="true"
 								android:imeOptions="actionDone"/>
 						
 						<ImageView
@@ -203,11 +230,40 @@
 								android:layout_below="@+id/txt_line_for_times_layout"
 								android:layout_marginTop="@dimen/margin_xxxxxlarge"/>
 						
+						
+						<RelativeLayout
+								android:id="@+id/add_shop_image_layout"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:orientation="horizontal"
+								android:layout_margin="@dimen/margin_large"
+								android:layout_below="@+id/edt_shop_description_add"
+								android:background="@drawable/round_background">
+							
+							
+							<ImageView
+									android:id="@+id/shop_image"
+									android:layout_width="match_parent"
+									android:layout_height="165dp"
+									android:scaleType="centerCrop"
+									android:src="@drawable/bg_img"/>
+							
+							<Button
+									android:id="@+id/Add_image"
+									android:text="Add pic"
+									android:layout_width="wrap_content"
+							        android:layout_height="wrap_content"
+									android:layout_alignParentRight="true"
+									android:layout_alignParentBottom="true"
+									android:layout_marginRight="@dimen/margin_large"/>
+								
+						</RelativeLayout>
+						
 						<Button
 								android:id="@+id/btn_next_add_shop_details"
 								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
-								android:layout_below="@+id/edt_shop_description_add"
+								android:layout_below="@+id/add_shop_image_layout"
 								android:background="@drawable/gradient_background"
 								android:layout_marginTop="@dimen/margin_xxxxxxlarge"
 								android:layout_marginBottom="@dimen/margin_xxxlarge"

@@ -6,4 +6,71 @@
 		You can check your status by using your registered phone number
 	</string>
 	<string name="shop_category">Shop/category</string>
+	<string name="places_key">AIzaSyDSw2E4sphfTp4veFpNiEX1HMc2awl-TxE</string>
+	<string name="login_prferance">com.Sairaa.onewel.Utils.login_preference</string>
+	<string name="check_login">com.Sairaa.onewel.Utils.check_login</string>
+	<string name="PromoterName">com.Sairaa.onewel.Utils.PromoterName</string>
+	<string name="PromoterPhone">com.Sairaa.onewel.Utils.PromoterPhone</string>
+	<string name="PromoterREF_num">com.Sairaa.onewel.Utils.PromoterREF_num</string>
+	<string name="PromoterAddress">com.Sairaa.onewel.Utils.PromoterAddress</string>
+	<string name="PromoterUPI_num">com.Sairaa.onewel.Utils.PromoterUPI_num</string>
+	<string name="PromoterLat">com.Sairaa.onewel.Utils.PromoterLat</string>
+	<string name="PromoterLon">com.Sairaa.onewel.Utils.PromoterLon</string>
+	<string name="Signed_image">com.Sairaa.onewel.Utils.Signed_image</string>
+	
+	//Advertise
+	<string name="AdvertiserName">com.Sairaa.onewel.Utils.AdvertiserName</string>
+	<string name="AdvertiserPhone">com.Sairaa.onewel.Utils.AdvertiserPhone</string>
+	<string name="AdvertiserRef_num">com.Sairaa.onewel.Utils.AdvertiserRef_num</string>
+	<string name="AdvertiserShopType">com.Sairaa.onewel.Utils.AdvertiserShopType</string>
+	<string name="AdvertiserAddress">com.Sairaa.onewel.Utils.AdvertiserAddress</string>
+	<string name="AdvertiserLandmark">com.Sairaa.onewel.Utils.AdvertiserLandmark</string>
+	<string name="AdvertiserFromTime">com.Sairaa.onewel.Utils.AdvertiserFromTime</string>
+	<string name="AdvertiserToTime">com.Sairaa.onewel.Utils.AdvertiserToTime</string>
+	<string name="AdvertiserShopDesc">com.Sairaa.onewel.Utils.AdvertiserShopDesc</string>
+	<string name="AdvertiserLat">com.Sairaa.onewel.Utils.AdvertiserLat</string>
+	<string name="AdvertiserLon">com.Sairaa.onewel.Utils.AdvertiserLon</string>
+	<string name="AdvertiserImage">com.Sairaa.onewel.Utils.AdvertiserImage</string>
+	
+	
+	<string name="shop_prompt">Choose a Shop</string>
+	
+	<string-array name="shop_arrays">
+		<item>Choose a Shop</item>
+		<item>Electronic</item>
+		<item>Jewellery</item>
+		<item>Electrical</item>
+		<item>Mechanics</item>
+		<item>Grocery</item>
+		<item>Super Market</item>
+		<item>Fancy</item>
+	</string-array>
+	
+	<string-array name="time_array">
+		<item>1am</item>
+		<item>2am</item>
+		<item>3am</item>
+		<item>4am</item>
+		<item>5am</item>
+		<item>6am</item>
+		<item>7am</item>
+		<item>8am</item>
+		<item>9am</item>
+		<item>10am</item>
+		<item>11am</item>
+		<item>12am</item>
+		<item>1pm</item>
+		<item>2pm</item>
+		<item>3pm</item>
+		<item>4pm</item>
+		<item>5pm</item>
+		<item>6pm</item>
+		<item>7pm</item>
+		<item>8pm</item>
+		<item>9pm</item>
+		<item>10pm</item>
+		<item>11pm</item>
+		<item>12pm</item>
+		
+	</string-array>
 </resources>

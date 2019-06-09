@@ -67,7 +67,7 @@
 								android:layout_marginTop="@dimen/margin_xxxxxxlarge"
 								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
 								android:layout_marginRight="@dimen/margin_xxxlarge"
-								android:hint="Name"
+								android:hint="Add Name"
 								android:inputType="text"
 								android:imeOptions="actionNext"
 								android:textColorHint="@color/font_color"
@@ -90,6 +90,9 @@
 								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
 								android:layout_marginRight="@dimen/margin_xxxlarge"
 								android:hint="Phone Number"
+								android:inputType="number"
+								android:maxLength="10"
+								android:imeOptions="actionNext"
 								android:textColorHint="@color/font_color"
 								android:backgroundTint="@color/font_heading"/>
 						
@@ -111,6 +114,9 @@
 								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
 								android:layout_marginRight="@dimen/margin_xxxlarge"
 								android:hint="Ref Number"
+								android:inputType="number"
+								android:maxLength="10"
+								android:imeOptions="actionDone"
 								android:textColorHint="@color/font_color"
 								android:backgroundTint="@color/font_heading"/>
 						
@@ -133,6 +139,8 @@
 								android:layout_marginRight="@dimen/margin_xlarge"
 								android:hint="@string/shop_category"
 								android:textColorHint="@color/font_color"
+								android:prompt="@string/shop_prompt"
+								android:entries="@array/shop_arrays"
 								android:backgroundTint="@color/font_heading"/>
 						
 						<TextView

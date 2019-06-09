@@ -90,6 +90,9 @@
 								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
 								android:layout_marginRight="@dimen/margin_xxxlarge"
 								android:hint="Phone Number"
+								android:imeOptions="actionNext"
+								android:inputType="number"
+								android:maxLength="10"
 								android:textColorHint="@color/font_color"
 								android:backgroundTint="@color/font_heading"/>
 						
@@ -111,6 +114,9 @@
 								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
 								android:layout_marginRight="@dimen/margin_xxxlarge"
 								android:hint="Ref Number"
+								android:imeOptions="actionNext"
+								android:maxLength="10"
+								android:inputType="number"
 								android:textColorHint="@color/font_color"
 								android:backgroundTint="@color/font_heading"/>
 						
@@ -122,12 +128,36 @@
 								android:layout_below="@+id/img_phone_icon"
 								android:layout_marginTop="@dimen/margin_xxxxxlarge"/>
 						
+						<AutoCompleteTextView
+								android:textSize="16dp"
+								android:id="@+id/edt_address_promoter"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:layout_below="@+id/edt_ref_num_promoter"
+								android:layout_marginTop="@dimen/margin_xxxxlarge"
+								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
+								android:layout_marginRight="@dimen/margin_xxxlarge"
+								android:hint="Address"
+								android:inputType="text"
+								android:singleLine="true"
+								android:imeOptions="actionDone"
+								android:textColorHint="@color/font_color"
+								android:backgroundTint="@color/font_heading"/>
+						
+						<ImageView
+								android:id="@+id/img_address_icon"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:src="@drawable/ic_addres"
+								android:layout_below="@+id/img_ref_num_icon"
+								android:layout_marginTop="@dimen/margin_xxxxxlarge"/>
+						
 						
 						<Button
 								android:id="@+id/btn_next_promoter_details"
 								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
-								android:layout_below="@+id/edt_ref_num_promoter"
+								android:layout_below="@+id/edt_address_promoter"
 								android:background="@drawable/gradient_background"
 								android:layout_marginTop="@dimen/margin_xxxxxxlarge"
 								android:layout_marginBottom="@dimen/margin_xxxlarge"

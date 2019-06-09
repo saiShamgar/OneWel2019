@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "167103183644",
+    "firebase_url": "https://onewel2019.firebaseio.com",
+    "project_id": "onewel2019",
+    "storage_bucket": "onewel2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167103183644:android:88640110636c1757",
+        "android_client_info": {
+          "package_name": "com.Sairaa.onewel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167103183644-sliv6p3osv90si1u02m2vtl0svp6qp97.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Sairaa.onewel",
+            "certificate_hash": "aa3451d676ffab206077c05c4893a8115367b22c"
+          }
+        },
+        {
+          "client_id": "167103183644-g57chnso0u0gdebocct9lnhih736m85k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Sairaa.onewel",
+            "certificate_hash": "9ac02ae2ba507bca3f60d33a42f8891717bff8f0"
+          }
+        },
+        {
+          "client_id": "167103183644-59siefn30o0a5obl81ulak9v706ahd2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXhEJqO2pB00cCh6pDwhK2ZCuV9M0IYn8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167103183644-59siefn30o0a5obl81ulak9v706ahd2c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
