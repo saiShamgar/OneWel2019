@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".Activities.Customer.CustomerVerficationStatus">
+	
+	
+	<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/verifiedLayout"
+				android:visibility="visible">
+
+				<ImageView
+					android:id="@+id/img_ic_hpy"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_hpy"
+					android:layout_centerHorizontal="true"
+					android:layout_marginTop="70dp">
+				</ImageView>
+				<TextView
+					android:id="@+id/verified_number"
+					android:layout_below="@+id/img_ic_hpy"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Number"
+					android:layout_centerHorizontal="true"
+					android:textSize="@dimen/margin_xxxlarge"
+					android:layout_margin="@dimen/margin_xxlarge"/>
+
+				<TextView
+					android:id="@+id/text_verified_hint"
+					android:layout_below="@+id/verified_number"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Verified"
+					android:layout_centerHorizontal="true"
+					android:textColor="@color/color_black"
+					android:textStyle="bold"
+					android:textSize="@dimen/margin_xxlarge" />
+
+				<Button
+					android:id="@+id/btn_verified_continue"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Continue"
+					android:textAllCaps="false"
+					android:background="@drawable/gradient_background"
+					android:layout_below="@+id/text_verified_hint"
+					android:layout_centerHorizontal="true"
+					android:layout_margin="70dp"
+					android:textColor="@color/color_white"
+					android:paddingRight="@dimen/margin_xxxxxlarge"
+					android:paddingLeft="@dimen/margin_xxxxxlarge"/>
+
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/not_verifiedLayout"
+				android:visibility="gone">
+
+				<ImageView
+					android:id="@+id/img_ic_hpy_not_verified"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_sad"
+					android:layout_centerHorizontal="true"
+					android:layout_marginTop="100dp">
+				</ImageView>
+				<TextView
+					android:id="@+id/verified_number_not_verified"
+					android:layout_below="@+id/img_ic_hpy_not_verified"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Number"
+					android:layout_centerHorizontal="true"
+					android:textSize="@dimen/margin_xxxlarge"
+					android:layout_margin="@dimen/margin_xxlarge"/>
+
+				<TextView
+					android:id="@+id/text_hint_not_verified"
+					android:layout_below="@+id/verified_number_not_verified"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Not Verified"
+					android:layout_centerHorizontal="true"
+					android:textColor="@color/color_black"
+					android:textStyle="bold"
+					android:textSize="@dimen/margin_xxlarge" />
+
+				<Button
+					android:id="@+id/btn_continue_not_verified"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Continue"
+					android:textAllCaps="false"
+					android:background="@drawable/gradient_background"
+					android:layout_below="@+id/text_hint_not_verified"
+					android:layout_centerHorizontal="true"
+					android:layout_margin="70dp"
+					android:textColor="@color/color_white"
+					android:paddingRight="@dimen/margin_xxxxxlarge"
+					android:paddingLeft="@dimen/margin_xxxxxlarge"/>
+
+			</RelativeLayout>
+
+		</LinearLayout>
+		
+
+		
+	</ScrollView>
+</RelativeLayout>
