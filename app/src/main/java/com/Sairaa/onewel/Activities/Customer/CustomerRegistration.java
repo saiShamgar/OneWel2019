@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.Sairaa.onewel.Activities.Promoter.PromoterRegistrationSuccess;
 import com.Sairaa.onewel.R;
 
 public class CustomerRegistration extends AppCompatActivity {
@@ -22,6 +23,8 @@ public class CustomerRegistration extends AppCompatActivity {
         btn_customer_reg_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent  reg=new Intent(CustomerRegistration.this, PromoterRegistrationSuccess.class);
+                startActivity(reg);
 
             }
         });

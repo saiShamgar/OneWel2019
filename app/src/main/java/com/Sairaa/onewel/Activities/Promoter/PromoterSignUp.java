@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import com.Sairaa.onewel.Adapters.PlaceArrayAdapter;
+import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.MainActivity;
 import com.Sairaa.onewel.Model.promoter.PromoterPersonalDetails;
 import com.Sairaa.onewel.R;
@@ -28,9 +29,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.*;
 
-public class PromoterSignUp extends AppCompatActivity implements
+public class PromoterSignUp extends BaseActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         GoogleApiClient.ConnectionCallbacks{
 
@@ -93,16 +94,70 @@ public class PromoterSignUp extends AppCompatActivity implements
     }
 
     private void savePromoterPersonalDetails() {
+        AppUtils.showCustomProgressDialog(mCustomProgressDialog,"Loading...");
+        Query query=FirebaseDatabase.getInstance().getReference().child(Contants.PROMOTER);
+        ValueEventListener valueEventListener=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    if (dataSnapshot.hasChild(edt_phone_num_promoter.getText().toString().trim())){
+                        AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                        edt_phone_num_promoter.requestFocus();
+                        edt_phone_num_promoter.setError("Phone number already registered");
+                        Log.e("status","Phone number already registered");
+                    }else {
+                        if (edt_ref_num_promoter.getText().toString().trim().length()>0){
+                            if (!dataSnapshot.hasChild(edt_ref_num_promoter.getText().toString().trim())){
+                                AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                                Log.e("status","Entered reference number is not valid");
+                                edt_ref_num_promoter.requestFocus();
+                                edt_ref_num_promoter.setError("Entered reference number is not valid");
+                            }
+                            else {
+                                AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                                Log.e("status","Entered reference number is valid");
+                                config.writePromoterName(edt_name_promoter.getText().toString().trim());
+                                config.writePromoterPhone(edt_phone_num_promoter.getText().toString().trim());
+                                config.writePromoterREF_num(edt_ref_num_promoter.getText().toString().trim());
+                                config.writePromoterAddress(edt_address_promoter.getText().toString().trim());
+                                config.writePromoterLat(String.valueOf(lat));
+                                config.writePromoterLon(String.valueOf(lon));
 
-        config.writePromoterName(edt_name_promoter.getText().toString().trim());
-        config.writePromoterPhone(edt_phone_num_promoter.getText().toString().trim());
-        config.writePromoterREF_num(edt_ref_num_promoter.getText().toString().trim());
-        config.writePromoterAddress(edt_address_promoter.getText().toString().trim());
-        config.writePromoterLat(String.valueOf(lat));
-        config.writePromoterLon(String.valueOf(lon));
+                                Intent gotoUpi=new Intent(PromoterSignUp.this,PromoterUPI.class);
+                                startActivity(gotoUpi);
+                            }
+                        }else {
+                            Log.e("status","Entered reference number  valid");
+                            AppUtils.dismissCustomProgress(mCustomProgressDialog);
 
-        Intent gotoUpi=new Intent(PromoterSignUp.this,PromoterUPI.class);
+                            config.writePromoterName(edt_name_promoter.getText().toString().trim());
+                            config.writePromoterPhone(edt_phone_num_promoter.getText().toString().trim());
+                            config.writePromoterREF_num(edt_ref_num_promoter.getText().toString().trim());
+                            config.writePromoterAddress(edt_address_promoter.getText().toString().trim());
+                            config.writePromoterLat(String.valueOf(lat));
+                            config.writePromoterLon(String.valueOf(lon));
+
+                            Intent gotoUpi=new Intent(PromoterSignUp.this,PromoterUPI.class);
                             startActivity(gotoUpi);
+                        }
+
+                    }
+                }
+                else {
+                    AppUtils.dismissCustomProgress(mCustomProgressDialog);
+
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                Log.e("error promoterSignUp",databaseError.toString());
+
+            }
+        };
+        query.addValueEventListener(valueEventListener);
+
+
     }
 
     private AdapterView.OnItemClickListener mAutocompleteClickListener

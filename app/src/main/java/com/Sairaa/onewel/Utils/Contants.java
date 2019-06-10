@@ -8,6 +8,7 @@ public interface Contants {
     String ADVERTISER="ADVERTISER";
     String CUMTOMER="CUSTOMER";
     String MATRIMONY="MATRIMONY";
+    String REFERENCES="REFERENCES";
 
 
     //User child nodes

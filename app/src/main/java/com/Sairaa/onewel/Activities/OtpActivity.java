@@ -35,6 +35,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.sql.Ref;
 import java.util.concurrent.TimeUnit;
 
 public class OtpActivity extends BaseActivity {
@@ -173,20 +174,14 @@ public class OtpActivity extends BaseActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
                             saveUserDetails();
-
-
                         } else {
 
                             //verification unsuccessful.. display an error message
-
                             String message = "Somthing is wrong, we will fix it soon...";
-
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 message = "Invalid code entered...";
                             }
-
                             Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), message, Snackbar.LENGTH_LONG);
                             snackbar.setAction("Dismiss", new View.OnClickListener() {
                                 @Override
@@ -218,12 +213,7 @@ public class OtpActivity extends BaseActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
-                                AppUtils.dismissCustomProgress(mCustomProgressDialog);
-                                //verification successful we will start the profile activity
-                                Intent intent = new Intent(OtpActivity.this, PromoterRegistrationSuccess.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent);
+                                saveRefNum(config.readPromoterPhone(),config.readPromoterREF_num(),1);
                             }
                             else {
                                 AppUtils.dismissCustomProgress(mCustomProgressDialog);
@@ -234,9 +224,7 @@ public class OtpActivity extends BaseActivity {
                     });
         }
         else if (status.contains("advertisement")){
-
             bitmap=StringToBitMap(config.readAdvertiserImage());
-
             if (bitmap!=null){
                 pushImageToFirebase();
             }
@@ -324,12 +312,11 @@ public class OtpActivity extends BaseActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
-                                    AppUtils.dismissCustomProgress(mCustomProgressDialog);
-                                    //verification successful we will start the profile activity
-                                    Intent intent = new Intent(OtpActivity.this, PromoterRegistrationSuccess.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                    startActivity(intent);
+
+                                    if (config.readAdvertiserRef_num()!=null){
+                                        saveRefNum(config.readAdvertiserPhone(),config.readAdvertiserRef_num(),2);
+                                    }
+
                                 }
                                 else {
                                     AppUtils.dismissCustomProgress(mCustomProgressDialog);
@@ -347,6 +334,53 @@ public class OtpActivity extends BaseActivity {
 
             }
         });
+    }
+
+    private void saveRefNum(String phone_num, String ref_num, int i) {
+
+        if (i==2){
+            FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
+                    .child(ref_num)
+                    .child(phone_num)
+                    .setValue("REFERRED")
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                                //verification successful we will start the profile activity
+                                Intent intent = new Intent(OtpActivity.this, PromoterRegistrationSuccess.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                            }
+
+                        }
+                    });
+        }
+         if (i==1){
+            FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
+                    .child(ref_num)
+                    .child(phone_num)
+                    .setValue("REFERRED")
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                                //verification successful we will start the profile activity
+                                Intent intent = new Intent(OtpActivity.this, PromoterRegistrationSuccess.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                            }
+
+                        }
+                    });
+
+        }
+
+
     }
 
 

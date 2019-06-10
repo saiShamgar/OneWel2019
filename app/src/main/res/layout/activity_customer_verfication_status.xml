@@ -96,7 +96,7 @@
 					android:layout_below="@+id/verified_number_not_verified"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:text="Not Verified"
+					android:text="Customer Not registered"
 					android:layout_centerHorizontal="true"
 					android:textColor="@color/color_black"
 					android:textStyle="bold"
