@@ -19,6 +19,7 @@ import com.Sairaa.onewel.Activities.Add.AddShopDetails;
 import com.Sairaa.onewel.Activities.Promoter.PromoterRegistrationSuccess;
 import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.Model.Advertisement.AdvertisementDetails;
+import com.Sairaa.onewel.Model.Customer.CustomerDetails;
 import com.Sairaa.onewel.Model.promoter.PromoterPersonalDetails;
 import com.Sairaa.onewel.R;
 import com.Sairaa.onewel.Utils.AppUtils;
@@ -108,7 +109,24 @@ public class OtpActivity extends BaseActivity {
                     verifyVerificationCode(code);
                 }
             });
+        }
+        else if (status.contains("customer")){
+            sendVerificationCode(config.readCustomer_phone());
 
+            findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String code = editTextCode.getText().toString().trim();
+                    if (code.isEmpty() || code.length() < 6) {
+                        editTextCode.setError("Enter valid code");
+                        editTextCode.requestFocus();
+                        return;
+                    }
+
+                    //verifying the code entered manually
+                    verifyVerificationCode(code);
+                }
+            });
 
         }
 
@@ -230,6 +248,32 @@ public class OtpActivity extends BaseActivity {
             }
 
         }
+
+        else if (status.contains("customer")){
+
+            CustomerDetails customerDetails=new CustomerDetails(config.readCustomer_name(),
+                    config.readCustomer_phone(),
+                    config.readCustomer_ref());
+            FirebaseDatabase.getInstance().getReference().child(Contants.CUMTOMER)
+                    .child(config.readCustomer_phone())
+                    .setValue(customerDetails)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                saveRefNum(config.readCustomer_phone(),config.readCustomer_ref(),3);
+                            }
+                            else {
+                                AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                                AppUtils.showToast(context,"Registration Failed please try again");
+                            }
+
+                        }
+                    });
+
+
+
+        }
     }
 
     public Bitmap StringToBitMap(String encodedString){
@@ -340,7 +384,7 @@ public class OtpActivity extends BaseActivity {
 
         if (i==2){
             FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
-                    .child(ref_num)
+                    .child(ref_num).push()
                     .child(phone_num)
                     .setValue("REFERRED")
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -360,7 +404,7 @@ public class OtpActivity extends BaseActivity {
         }
          if (i==1){
             FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
-                    .child(ref_num)
+                    .child(ref_num).push()
                     .child(phone_num)
                     .setValue("REFERRED")
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -379,6 +423,27 @@ public class OtpActivity extends BaseActivity {
                     });
 
         }
+         if (i==3){
+             FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
+                     .child(ref_num).push()
+                     .child(phone_num)
+                     .setValue("REFERRED")
+                     .addOnCompleteListener(new OnCompleteListener<Void>() {
+                         @Override
+                         public void onComplete(@NonNull Task<Void> task) {
+                             if (task.isSuccessful()){
+                                 AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                                 //verification successful we will start the profile activity
+                                 Intent intent = new Intent(OtpActivity.this, PromoterRegistrationSuccess.class);
+                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                 startActivity(intent);
+                             }
+
+                         }
+                     });
+
+         }
 
 
     }

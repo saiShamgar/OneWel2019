@@ -68,8 +68,8 @@
 								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
 								android:layout_marginRight="@dimen/margin_xxxlarge"
 								android:hint="Enter Customer reg number"
-								android:inputType="text"
-								android:imeOptions="actionNext"
+								android:inputType="number"
+								android:imeOptions="actionDone"
 								android:textColorHint="@color/font_color"
 								android:backgroundTint="@color/font_heading"/>
 						

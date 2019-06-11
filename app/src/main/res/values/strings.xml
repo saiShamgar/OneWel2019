@@ -30,6 +30,13 @@
     <string name="AdvertiserLat">com.Sairaa.onewel.Utils.AdvertiserLat</string>
     <string name="AdvertiserLon">com.Sairaa.onewel.Utils.AdvertiserLon</string>
     <string name="AdvertiserImage">com.Sairaa.onewel.Utils.AdvertiserImage</string>
+    
+    //customer
+    <string name="Customer_name">com.Sairaa.onewel.Utils.Customer_name</string>
+    <string name="Customer_phone">com.Sairaa.onewel.Utils.Customer_phone</string>
+    <string name="Customer_ref">com.Sairaa.onewel.Utils.Customer_ref</string>
+    
+    
     <string name="shop_prompt">Choose a Shop</string>
     <string-array name="shop_arrays">
         <item>Choose a Shop</item>

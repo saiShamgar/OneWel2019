@@ -67,9 +67,10 @@
                             android:layout_marginTop="@dimen/margin_xxxxxxlarge"
                             android:layout_marginLeft="@dimen/margin_xxxxxlarge"
                             android:layout_marginRight="@dimen/margin_xxxlarge"
-                            android:hint="Add Name"
-                            android:inputType="text"
+                            android:hint="Add Shop Registered number"
+                            android:inputType="number"
                             android:imeOptions="actionNext"
+                            android:maxLength="10"
                             android:textColorHint="@color/font_color"
                             android:backgroundTint="@color/font_heading"/>
 
@@ -77,7 +78,7 @@
                             android:id="@+id/img_name_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_name"
+                            android:src="@drawable/ic_cal"
                             android:layout_marginTop="60dp"/>
 
                         <EditText
@@ -137,9 +138,8 @@
                             android:layout_marginTop="@dimen/margin_xxxxlarge"
                             android:layout_marginLeft="@dimen/margin_xxxxxlarge"
                             android:layout_marginRight="@dimen/margin_xxxlarge"
-                            android:hint="Discount price"
-                            android:inputType="number"
-                            android:maxLength="10"
+                            android:hint="Description"
+                            android:inputType="text"
                             android:imeOptions="actionDone"
                             android:textColorHint="@color/font_color"
                             android:backgroundTint="@color/font_heading"/>

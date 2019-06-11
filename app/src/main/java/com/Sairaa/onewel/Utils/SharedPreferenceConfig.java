@@ -296,4 +296,46 @@ public class SharedPreferenceConfig {
         return url;
     }
 
+    public void writeCustomer_name(String url) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getResources().getString(R.string.Customer_name), String.valueOf(url));
+        Log.i("SharedPreferenceWrite: ", "" + url);
+        editor.apply();
+    }
+
+    public String readCustomer_name() {
+        String url;
+        url = sharedPreferences.getString(context.getResources().getString(R.string.Customer_name), "no");
+        Log.i("SharedPreferenceRead: ", "" + url);
+        return url;
+    }
+
+    public void writeCustomer_phone(String url) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getResources().getString(R.string.Customer_phone), String.valueOf(url));
+        Log.i("SharedPreferenceWrite: ", "" + url);
+        editor.apply();
+    }
+
+    public String readCustomer_phone() {
+        String url;
+        url = sharedPreferences.getString(context.getResources().getString(R.string.Customer_phone), "no");
+        Log.i("SharedPreferenceRead: ", "" + url);
+        return url;
+    }
+
+    public void writeCustomer_ref(String url) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getResources().getString(R.string.Customer_ref), String.valueOf(url));
+        Log.i("SharedPreferenceWrite: ", "" + url);
+        editor.apply();
+    }
+
+    public String readCustomer_ref() {
+        String url;
+        url = sharedPreferences.getString(context.getResources().getString(R.string.Customer_ref), "no");
+        Log.i("SharedPreferenceRead: ", "" + url);
+        return url;
+    }
+
 }

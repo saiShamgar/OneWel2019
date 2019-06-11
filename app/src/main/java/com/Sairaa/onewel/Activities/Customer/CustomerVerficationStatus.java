@@ -44,6 +44,7 @@ public class CustomerVerficationStatus extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent payDetails=new Intent(CustomerVerficationStatus.this,CustomerPayingDetails.class);
+                    payDetails.putExtra("number",number);
                     startActivity(payDetails);
                 }
             });
