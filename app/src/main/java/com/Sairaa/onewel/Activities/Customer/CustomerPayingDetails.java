@@ -95,6 +95,7 @@ public class CustomerPayingDetails extends BaseActivity {
                                            if (task.isSuccessful()){
                                                AppUtils.dismissCustomProgress(mCustomProgressDialog);
                                                Intent success=new Intent(CustomerPayingDetails.this,PromoterRegistrationSuccess.class);
+                                               success.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                startActivity(success);
                                            }
                                        }
