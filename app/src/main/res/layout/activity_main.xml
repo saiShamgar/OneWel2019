@@ -68,7 +68,8 @@
                     android:background="@color/color_white"
                     android:paddingTop="@dimen/margin_large"
                     android:paddingBottom="@dimen/margin_xxlarge"
-                    android:focusableInTouchMode="true">
+                    android:focusableInTouchMode="true"
+                    android:elevation="1dp">
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -154,7 +155,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/searchLayout"
-                     android:orientation="vertical">
+                     android:orientation="vertical"
+                     android:background="@color/act_background"
+                    android:paddingTop="@dimen/margin_xxlarge">
                 
                 <RelativeLayout
                         android:layout_width="match_parent"

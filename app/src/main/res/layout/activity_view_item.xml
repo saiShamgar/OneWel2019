@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".Activities.ViewItemActivity"
+		android:background="@color/act_background">
+	
+	<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+		
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+			
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:elevation="1dp">
+				
+				<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:src="@drawable/ic_back"
+						android:layout_margin="@dimen/margin_xxlarge"/>
+				
+				<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="Shop Name"
+						android:textColor="@color/color_black"
+						android:textSize="16dp"
+						android:textStyle="bold"
+						android:gravity="center"
+						android:layout_margin="@dimen/margin_large"/>
+				
+				<ImageView
+						android:layout_width="match_parent"
+						android:layout_height="220dp"
+						android:scaleType="centerCrop"
+						android:src="@drawable/un"/>
+				
+				<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="ksdhfisdnkfiewernkfif"
+						android:layout_margin="@dimen/margin_large"
+						android:textColor="@color/font_color"/>
+			
+			</LinearLayout>
+			
+			<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@color/color_white"
+					android:elevation="1dp"
+					android:orientation="vertical">
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:weightSum="2">
+				
+				<TextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:text="Opens\n 09Am to 10PM"
+						android:drawableLeft="@drawable/ic_time"
+						android:layout_margin="@dimen/margin_large"/>
+				
+				<TextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:text="250 meters"
+						android:gravity="center_vertical"
+						android:layout_gravity="center_vertical"
+						android:drawableLeft="@drawable/ic_walk"
+						android:layout_margin="@dimen/margin_large"/>
+			
+			</LinearLayout>
+				
+				<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+					
+					<TextView
+							android:id="@+id/item_report"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="Report"
+							android:paddingLeft="@dimen/margin_xxlarge"
+							android:paddingTop="@dimen/margin_large"
+							android:paddingBottom="@dimen/margin_large"
+							android:paddingRight="@dimen/margin_xxlarge"
+							android:background="@drawable/stroke_background"
+							android:drawableLeft="@drawable/ic_report"
+							android:layout_margin="@dimen/margin_large"/>
+					
+					<TextView
+							android:id="@+id/item_Call"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="    Call"
+							android:layout_alignParentRight="true"
+							android:paddingLeft="@dimen/margin_xxlarge"
+							android:paddingTop="@dimen/margin_large"
+							android:paddingBottom="@dimen/margin_large"
+							android:paddingRight="@dimen/margin_xxlarge"
+							android:background="@drawable/gradient_background"
+							android:textColor="@color/color_white"
+							android:drawableLeft="@drawable/ic_call"
+							android:layout_margin="@dimen/margin_large"/>
+				
+				
+				</RelativeLayout>
+				
+			</LinearLayout>
+			
+			
+			
+		</LinearLayout>
+		
+	
+		
+	</ScrollView>
+	
+	
+</RelativeLayout>

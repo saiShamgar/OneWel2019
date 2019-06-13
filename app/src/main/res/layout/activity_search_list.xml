@@ -24,7 +24,8 @@
 					android:background="@color/color_white"
 					android:paddingTop="@dimen/margin_large"
 					android:paddingBottom="@dimen/margin_xxlarge"
-					android:focusableInTouchMode="true">
+					android:focusableInTouchMode="true"
+					android:elevation="1dp">
 				<TextView
 						android:layout_toRightOf="@+id/searchBack"
 						android:layout_width="wrap_content"
@@ -122,6 +123,7 @@
 			</RelativeLayout>
 			
 			<android.support.v7.widget.RecyclerView
+					android:background="@color/act_background"
 					android:id="@+id/searchActivity_recyclerView"
 					android:layout_width="match_parent"
 					android:layout_height="match_parent">

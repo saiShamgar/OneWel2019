@@ -17,9 +17,14 @@
 			android:roundIcon="@mipmap/ic_launcher_round"
 			android:supportsRtl="true"
 			android:theme="@style/AppTheme">
-		<activity android:name=".Activities.SearchListActivity"
+		<activity android:name=".Activities.ViewItemActivity"
 				android:theme="@style/AppThemeWithNoAction"
 				android:screenOrientation="portrait">
+		</activity>
+		<activity
+				android:name=".Activities.SearchListActivity"
+				android:screenOrientation="portrait"
+				android:theme="@style/AppThemeWithNoAction">
 		</activity>
 		<activity
 				android:name=".Activities.Customer.CustomerRegistration"
