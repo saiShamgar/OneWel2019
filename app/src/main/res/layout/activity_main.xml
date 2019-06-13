@@ -130,6 +130,7 @@
                     </AutoCompleteTextView>
             
                     <TextView
+                            android:id="@+id/main_act_go"
                             android:padding="@dimen/margin_large"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"

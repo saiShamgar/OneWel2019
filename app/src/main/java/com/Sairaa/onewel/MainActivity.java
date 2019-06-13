@@ -16,6 +16,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+import com.Sairaa.onewel.Activities.SearchListActivity;
 import com.Sairaa.onewel.Adapters.PlaceArrayAdapter;
 import com.Sairaa.onewel.Adapters.PlaceAutocompleteAdapter;
 import com.Sairaa.onewel.Utils.AppUtils;
@@ -49,8 +50,11 @@ public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks{
 
     private CircleImageView img_ic_profile;
-    private AutoCompleteTextView mSearchText;
+    private AutoCompleteTextView mSearchText,main_act_enter_items;
     private Context context;
+    private TextView main_act_go;
+
+    boolean validate;
 
     private static final String LOG_TAG = "MainActivity";
     private static final int GOOGLE_API_CLIENT_ID = 0;
@@ -74,6 +78,38 @@ public class MainActivity extends AppCompatActivity implements
         FirebaseUser user = mAuth.getCurrentUser();
         img_ic_profile=findViewById(R.id.img_ic_profile);
         mAutocompleteTextView=findViewById(R.id.main_act_Location);
+        main_act_enter_items=findViewById(R.id.main_act_enter_items);
+        main_act_go=findViewById(R.id.main_act_go);
+
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_dropdown_item_1line,
+                getResources().getStringArray(R.array.shop_arrays));
+
+       // textView = (AutoCompleteTextView) v.findViewById(R.id.txtViewNames);
+        main_act_enter_items.setAdapter(arrayAdapter);
+        main_act_enter_items.setThreshold(2);
+        main_act_enter_items.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View arg0) {
+                main_act_enter_items.showDropDown();
+            }
+        });
+
+        main_act_go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (doValidation()){
+                    Intent search=new Intent(MainActivity.this, SearchListActivity.class);
+                    search.putExtra("address",mAutocompleteTextView.getText().toString().trim());
+                    search.putExtra("lat",lat);
+                    search.putExtra("lon",lon);
+                    search.putExtra("item",main_act_enter_items.getText().toString());
+                    startActivity(search);
+                }
+
+            }
+        });
+
 
         Glide.with(this)
                 .load(user.getPhotoUrl())
@@ -106,6 +142,30 @@ public class MainActivity extends AppCompatActivity implements
 
 
 
+    }
+
+    boolean doValidation() {
+        validate = true;
+
+        if (mAutocompleteTextView.getText().toString().trim().length() == 0) {
+            validate = false;
+            mAutocompleteTextView.setError("Enter Location");
+            mAutocompleteTextView.requestFocus();
+
+        }
+       else if (mAutocompleteTextView.getText().toString().trim().length() > 0) {
+           if (lat==0){
+               validate = false;
+               mAutocompleteTextView.setError("Please select location");
+               mAutocompleteTextView.requestFocus();
+           }
+        }else if (main_act_enter_items.getText().toString().trim().length() == 0 ) {
+            validate = false;
+            main_act_enter_items.requestFocus();
+            main_act_enter_items.setError("Enter correct Phone number");
+
+        }
+        return validate;
     }
 
     @Override
