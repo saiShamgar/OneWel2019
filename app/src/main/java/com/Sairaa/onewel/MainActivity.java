@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import com.Sairaa.onewel.Activities.SearchListActivity;
+import com.Sairaa.onewel.Activities.UserHistory;
 import com.Sairaa.onewel.Adapters.PlaceArrayAdapter;
 import com.Sairaa.onewel.Adapters.PlaceAutocompleteAdapter;
 import com.Sairaa.onewel.Utils.AppUtils;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements
     private AutoCompleteTextView mSearchText,main_act_enter_items;
     private Context context;
     private TextView main_act_go;
+    private ImageView img_ic_history;
 
     boolean validate;
 
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements
     private double lat,lon;
 
     FirebaseAuth mAuth;
+    private FirebaseUser user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,11 +79,13 @@ public class MainActivity extends AppCompatActivity implements
         requestMultiplePermissions();
 
         mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
+         user = mAuth.getCurrentUser();
         img_ic_profile=findViewById(R.id.img_ic_profile);
         mAutocompleteTextView=findViewById(R.id.main_act_Location);
         main_act_enter_items=findViewById(R.id.main_act_enter_items);
         main_act_go=findViewById(R.id.main_act_go);
+        img_ic_history=findViewById(R.id.img_ic_history);
+
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this, android.R.layout.simple_dropdown_item_1line,
@@ -111,20 +117,20 @@ public class MainActivity extends AppCompatActivity implements
         });
 
 
-        Glide.with(this)
-                .load(user.getPhotoUrl())
-                .error(R.drawable.ic_profile)
-                .into(img_ic_profile);
+
 
         img_ic_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppUtils.showCustomDialog(context, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                AppUtils.showCustomDialog(context, null);
+            }
+        });
+        img_ic_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent userHistory=new Intent(MainActivity.this, UserHistory.class);
+                startActivity(userHistory);
 
-                    }
-                });
             }
         });
 
@@ -166,6 +172,15 @@ public class MainActivity extends AppCompatActivity implements
 
         }
         return validate;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Glide.with(this)
+                .load(user.getPhotoUrl())
+                .error(R.drawable.ic_profile)
+                .into(img_ic_profile);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.Sairaa.onewel.Model.Advertisement;
 
-public class AdvertisementDetails {
+import java.io.Serializable;
+
+public class AdvertisementDetails implements Serializable {
 
     String shop_name;
     String phone_num;
@@ -28,6 +30,10 @@ public class AdvertisementDetails {
         this.closes_to = closes_to;
         this.shop_desc = shop_desc;
         this.image_url = image_url;
+    }
+
+    public AdvertisementDetails() {
+
     }
 
     public String getShop_name() {

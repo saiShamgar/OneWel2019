@@ -27,9 +27,10 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:src="@drawable/ic_back"
-						android:layout_margin="@dimen/margin_xxlarge"/>
+						android:layout_margin="@dimen/margin_large"/>
 				
 				<TextView
+						android:id="@+id/view_item_shop_name"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:text="Shop Name"
@@ -40,12 +41,14 @@
 						android:layout_margin="@dimen/margin_large"/>
 				
 				<ImageView
+						android:id="@+id/view_item_shop_image"
 						android:layout_width="match_parent"
 						android:layout_height="220dp"
 						android:scaleType="centerCrop"
 						android:src="@drawable/un"/>
 				
 				<TextView
+						android:id="@+id/view_item_shop_desc"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:text="ksdhfisdnkfiewernkfif"
@@ -68,14 +71,17 @@
 					android:weightSum="2">
 				
 				<TextView
+						android:id="@+id/view_item_shop_timings"
 						android:layout_width="0dp"
 						android:layout_height="wrap_content"
 						android:layout_weight="1"
 						android:text="Opens\n 09Am to 10PM"
 						android:drawableLeft="@drawable/ic_time"
-						android:layout_margin="@dimen/margin_large"/>
+						android:layout_margin="@dimen/margin_large"
+						android:paddingLeft="@dimen/margin_large"/>
 				
 				<TextView
+						android:id="@+id/view_item_shop_distance_in_meters"
 						android:layout_width="0dp"
 						android:layout_height="wrap_content"
 						android:layout_weight="1"
@@ -87,43 +93,96 @@
 			
 			</LinearLayout>
 				
-				<RelativeLayout
+				<LinearLayout
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:orientation="horizontal">
+						android:orientation="horizontal"
+						android:weightSum="2"
+						android:layout_margin="@dimen/margin_large">
 					
-					<TextView
-							android:id="@+id/item_report"
-							android:layout_width="wrap_content"
+					<LinearLayout
+							android:layout_width="0dp"
 							android:layout_height="wrap_content"
-							android:text="Report"
-							android:paddingLeft="@dimen/margin_xxlarge"
-							android:paddingTop="@dimen/margin_large"
-							android:paddingBottom="@dimen/margin_large"
-							android:paddingRight="@dimen/margin_xxlarge"
-							android:background="@drawable/stroke_background"
-							android:drawableLeft="@drawable/ic_report"
-							android:layout_margin="@dimen/margin_large"/>
+							android:layout_weight="1"
+							android:orientation="vertical">
+						
+						<TextView
+								android:id="@+id/item_report"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="Report"
+								android:paddingLeft="@dimen/margin_xxlarge"
+								android:paddingTop="@dimen/card_elevation_4dp"
+								android:paddingBottom="@dimen/card_elevation_4dp"
+								android:paddingRight="@dimen/margin_xxlarge"
+								android:background="@drawable/stroke_background"
+								android:drawableLeft="@drawable/ic_report"
+								android:layout_marginLeft="@dimen/margin_xxlarge"/>
+						
+					</LinearLayout>
 					
-					<TextView
-							android:id="@+id/item_Call"
-							android:layout_width="wrap_content"
+					<LinearLayout
+							android:layout_width="0dp"
 							android:layout_height="wrap_content"
-							android:text="    Call"
-							android:layout_alignParentRight="true"
-							android:paddingLeft="@dimen/margin_xxlarge"
-							android:paddingTop="@dimen/margin_large"
-							android:paddingBottom="@dimen/margin_large"
-							android:paddingRight="@dimen/margin_xxlarge"
-							android:background="@drawable/gradient_background"
-							android:textColor="@color/color_white"
-							android:drawableLeft="@drawable/ic_call"
-							android:layout_margin="@dimen/margin_large"/>
+							android:layout_weight="1"
+							android:orientation="vertical">
+						
+						<TextView
+								android:id="@+id/item_call"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:text="   Call"
+								android:layout_gravity="right"
+								android:textColor="@color/color_white"
+								android:paddingLeft="@dimen/margin_xxlarge"
+								android:paddingTop="@dimen/card_elevation_4dp"
+								android:paddingBottom="@dimen/card_elevation_4dp"
+								android:paddingRight="@dimen/margin_xxlarge"
+								android:background="@drawable/gradient_background"
+								android:drawableLeft="@drawable/ic_call"/>
+					
+					</LinearLayout>
+					
+					
+					
 				
 				
-				</RelativeLayout>
+				</LinearLayout>
 				
 			</LinearLayout>
+			
+			<android.support.v7.widget.CardView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/margin_large"
+					android:layout_marginLeft="2dp"
+					android:layout_marginRight="2dp"
+					app:cardElevation="2dp"
+					app:cardCornerRadius="@dimen/card_radius_8dp">
+				
+				<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:padding="@dimen/margin_large">
+					
+					<ImageView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:src="@drawable/ic_addres"/>
+					
+					<TextView
+							android:id="@+id/view_item_shop_address"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"/>
+				
+				</LinearLayout>
+				
+			</android.support.v7.widget.CardView>
+			
+			
+		
 			
 			
 			

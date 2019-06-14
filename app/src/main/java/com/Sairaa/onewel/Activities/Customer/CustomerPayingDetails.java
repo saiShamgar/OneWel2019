@@ -135,10 +135,16 @@ public class CustomerPayingDetails extends BaseActivity {
             edt_name_customer.setError("Enter Shop Registered number");
             edt_name_customer.requestFocus();
 
-        } else if (edt_total_price_customer.getText().toString().trim().length() == 10 ) {
+        }
+        else if (edt_name_customer.getText().toString().trim().length() != 10 ) {
+            validate = false;
+            edt_name_customer.requestFocus();
+            edt_name_customer.setError("Enter correct Phone number");
+
+        }else if (edt_total_price_customer.getText().toString().trim().length() == 0 ) {
             validate = false;
             edt_total_price_customer.requestFocus();
-            edt_total_price_customer.setError("Enter correct Phone number");
+            edt_total_price_customer.setError("Enter Price");
 
         } else if (edt_discount_price_customer.getText().toString().trim().length() == 0) {
             validate = false;

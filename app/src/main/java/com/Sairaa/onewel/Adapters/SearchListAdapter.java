@@ -3,19 +3,31 @@ package com.Sairaa.onewel.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.widget.CircularProgressDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.Sairaa.onewel.Activities.ViewItemActivity;
+import com.Sairaa.onewel.Model.Advertisement.AdvertisementDetails;
 import com.Sairaa.onewel.R;
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 
 public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.ViewHolder> {
 
     private Context context;
+    private ArrayList<AdvertisementDetails> details;
 
-    public SearchListAdapter(Context context) {
-        this.context = context;
+
+
+    public SearchListAdapter(Context applicationContext, ArrayList<AdvertisementDetails> details) {
+        this.context=applicationContext;
+        this.details=details;
+
     }
 
     @NonNull
@@ -27,27 +39,53 @@ public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int i) {
 
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent viewItem=new Intent(context, ViewItemActivity.class);
+                viewItem.putExtra("viewDetails",details.get(i));
                 context.startActivity(viewItem);
             }
         });
+
+        CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(context);
+        circularProgressDrawable.setStrokeWidth(5f);
+        circularProgressDrawable.setCenterRadius(30f);
+        circularProgressDrawable.start();
+        Glide.with(context)
+                .load(details.get(i).getImage_url())
+                .placeholder(circularProgressDrawable)
+                .error(R.drawable.ic_gallery)
+                .into(holder.search_list_shop_image);
+
+        holder.search_list_shop_name.setText(details.get(i).getShop_name());
+        holder.search_list_shop_description.setText(details.get(i).getShop_desc());
+
+
+
+
 
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return details.size();
     }
 
     public class  ViewHolder extends RecyclerView.ViewHolder{
+        private ImageView search_list_shop_image;
+        private TextView search_list_shop_name,search_list_shop_description,search_list_shop_dist_meters,search_list_shop_call;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            search_list_shop_image=itemView.findViewById(R.id.search_list_shop_image);
+            search_list_shop_name=itemView.findViewById(R.id.search_list_shop_name);
+            search_list_shop_description=itemView.findViewById(R.id.search_list_shop_description);
+            search_list_shop_dist_meters=itemView.findViewById(R.id.search_list_shop_dist_meters);
+            search_list_shop_call=itemView.findViewById(R.id.search_list_shop_call);
         }
     }
 }

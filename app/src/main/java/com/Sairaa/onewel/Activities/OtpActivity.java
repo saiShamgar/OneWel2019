@@ -14,6 +14,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.Sairaa.onewel.Activities.Add.AddShopDetails;
 import com.Sairaa.onewel.Activities.Promoter.PromoterRegistrationSuccess;
@@ -45,6 +46,7 @@ public class OtpActivity extends BaseActivity {
 
     //The edittext to input the code
     private EditText editTextCode;
+    private TextView txt_resend_otp;
 
     //firebase auth object
     private FirebaseAuth mAuth;
@@ -52,7 +54,7 @@ public class OtpActivity extends BaseActivity {
     private SharedPreferenceConfig config;
     private Context context;
 
-    private String status;
+    private String status,number;
     private Bitmap bitmap;
     private String imageId;
     private String image_path;
@@ -69,8 +71,10 @@ public class OtpActivity extends BaseActivity {
         mAuth = FirebaseAuth.getInstance();
 
         status=getIntent().getExtras().getString("status");
+        number=getIntent().getExtras().getString("number");
 
         editTextCode = findViewById(R.id.edt_verify_otp);
+        txt_resend_otp = findViewById(R.id.txt_resend_otp);
 
 
         if (status.contains("promoter")){
@@ -91,6 +95,40 @@ public class OtpActivity extends BaseActivity {
                 }
             });
 
+            txt_resend_otp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sendVerificationCode(config.readPromoterPhone());
+                }
+            });
+
+        }
+         if (status.contains("refPromoter")){
+            sendVerificationCode(number);
+
+            findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String code = editTextCode.getText().toString().trim();
+                    if (code.isEmpty() || code.length() < 6) {
+                        editTextCode.setError("Enter valid code");
+                        editTextCode.requestFocus();
+                        return;
+                    }
+
+                    //verifying the code entered manually
+                    verifyVerificationCode(code);
+                }
+            });
+            txt_resend_otp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    sendVerificationCode(number);
+                }
+            });
+
+
         }
         else if (status.contains("advertisement")){
             sendVerificationCode(config.readAdvertiserPhone());
@@ -109,6 +147,13 @@ public class OtpActivity extends BaseActivity {
                     verifyVerificationCode(code);
                 }
             });
+            txt_resend_otp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    sendVerificationCode(config.readAdvertiserPhone());
+                }
+            });
         }
         else if (status.contains("customer")){
             sendVerificationCode(config.readCustomer_phone());
@@ -125,6 +170,12 @@ public class OtpActivity extends BaseActivity {
 
                     //verifying the code entered manually
                     verifyVerificationCode(code);
+                }
+            });
+            txt_resend_otp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sendVerificationCode(config.readCustomer_phone());
                 }
             });
 
@@ -170,6 +221,8 @@ public class OtpActivity extends BaseActivity {
         @Override
         public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
+
+            AppUtils.showToast(context,"Code sent");
 
             //storing the verification id that is sent to the user
             mVerificationId = s;
@@ -271,8 +324,12 @@ public class OtpActivity extends BaseActivity {
                         }
                     });
 
-
-
+        }
+        else if (status.contains("refPromoter")){
+            Intent referenceList=new Intent(OtpActivity.this,ReferenceList.class);
+            referenceList.putExtra("number",number);
+            referenceList.putExtra("status",status);
+            startActivity(referenceList);
         }
     }
 
@@ -385,8 +442,8 @@ public class OtpActivity extends BaseActivity {
         if (i==2){
             FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
                     .child(ref_num).push()
-                    .child(phone_num)
-                    .setValue("REFERRED")
+                    .child("REFERRED")
+                    .setValue(phone_num)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -405,8 +462,8 @@ public class OtpActivity extends BaseActivity {
          if (i==1){
             FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
                     .child(ref_num).push()
-                    .child(phone_num)
-                    .setValue("REFERRED")
+                    .child("REFERRED")
+                    .setValue(phone_num)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -426,8 +483,8 @@ public class OtpActivity extends BaseActivity {
          if (i==3){
              FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
                      .child(ref_num).push()
-                     .child(phone_num)
-                     .setValue("REFERRED")
+                     .child("REFERRED")
+                     .setValue(phone_num)
                      .addOnCompleteListener(new OnCompleteListener<Void>() {
                          @Override
                          public void onComplete(@NonNull Task<Void> task) {

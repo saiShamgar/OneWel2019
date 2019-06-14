@@ -45,6 +45,12 @@
 		<item>Super Market</item>
 		<item>Fancy</item>
 	</string-array>
+	<string-array name="type_of_user">
+		<item>Type of user</item>
+		<item>Promoter</item>
+		<item>Advertiser</item>
+		<item>Customer</item>
+	</string-array>
 	<string-array name="time_array">
 		<item>1am</item>
 		<item>2am</item>

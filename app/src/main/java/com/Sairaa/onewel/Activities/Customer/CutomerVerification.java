@@ -95,7 +95,13 @@ public class CutomerVerification extends BaseActivity {
 
         if (edt_name_cus.getText().toString().trim().length() == 0) {
             validate = false;
-            edt_name_cus.setError("Enter Add Name");
+            edt_name_cus.setError("Enter Add number");
+            edt_name_cus.requestFocus();
+
+        }
+        if (edt_name_cus.getText().toString().trim().length() != 10) {
+            validate = false;
+            edt_name_cus.setError("Enter correct phone number");
             edt_name_cus.requestFocus();
 
         }
