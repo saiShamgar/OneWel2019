@@ -40,7 +40,6 @@ public class UserHistory extends AppCompatActivity {
                     otp.putExtra("status","refPromoter");
                     otp.putExtra("number",edt_number_history.getText().toString());
                     startActivity(otp);
-
                 }
             }
         });

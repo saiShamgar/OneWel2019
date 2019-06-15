@@ -103,7 +103,7 @@ public class OtpActivity extends BaseActivity {
             });
 
         }
-         if (status.contains("refPromoter")){
+        else if (status.contains("refPromoter")){
             sendVerificationCode(number);
 
             findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
