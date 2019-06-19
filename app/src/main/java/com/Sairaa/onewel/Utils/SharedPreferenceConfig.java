@@ -338,4 +338,18 @@ public class SharedPreferenceConfig {
         return url;
     }
 
+    public void writeGoogle_image(String url) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getResources().getString(R.string.Google_image), String.valueOf(url));
+        Log.i("SharedPreferenceWrite: ", "" + url);
+        editor.apply();
+    }
+
+    public String readGoogle_image() {
+        String url;
+        url = sharedPreferences.getString(context.getResources().getString(R.string.Google_image), "no");
+        Log.i("SharedPreferenceRead: ", "" + url);
+        return url;
+    }
+
 }

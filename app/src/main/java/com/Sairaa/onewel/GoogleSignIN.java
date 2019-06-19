@@ -85,6 +85,8 @@ public class GoogleSignIN extends BaseActivity {
             if(currentUser.getEmail()!=null && !currentUser.getEmail().equals("")){
                // sharedPreferences.writeEmail(currentUser.getEmail());
 //                sharedPreferences.writeName(currentUser.getDisplayName());
+
+                config.writeGoogle_image(currentUser.getPhotoUrl().toString());
             }
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);

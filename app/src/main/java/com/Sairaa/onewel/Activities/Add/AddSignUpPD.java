@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,7 +32,7 @@ public class AddSignUpPD extends BaseActivity implements AdapterView.OnItemSelec
     private Context mContext;
     private SharedPreferenceConfig config;
 
-
+    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class AddSignUpPD extends BaseActivity implements AdapterView.OnItemSelec
         mContext=AddSignUpPD.this;
         config=new SharedPreferenceConfig(this);
 
+        position=getIntent().getExtras().getInt("position");
+
         btn_next_add_details=findViewById(R.id.btn_next_add_details);
         edt_name_add=findViewById(R.id.edt_name_add);
         edt_phone_num_add=findViewById(R.id.edt_phone_num_add);
@@ -49,7 +52,9 @@ public class AddSignUpPD extends BaseActivity implements AdapterView.OnItemSelec
 
         spin_shop_category_add.setOnItemSelectedListener(this);
 
-
+        if (position!=0){
+            spin_shop_category_add.setSelection(position);
+        }
 
         btn_next_add_details.setOnClickListener(new View.OnClickListener() {
             @Override

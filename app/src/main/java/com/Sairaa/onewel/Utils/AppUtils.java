@@ -235,6 +235,7 @@ public class AppUtils {
                     }
                     else if (radio_btn_add.isChecked()==true){
                         Intent add=new Intent(context, AddSignUpPD.class);
+                        add.putExtra("position",0);
                         context.startActivity(add);
                     }else if (radio_btn_customer.isChecked()==true){
                         Intent add=new Intent(context, CutomerVerification.class);

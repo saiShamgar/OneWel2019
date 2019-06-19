@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.R;
 import com.Sairaa.onewel.Utils.AppUtils;
 import com.Sairaa.onewel.Utils.Contants;
 import com.google.firebase.database.*;
 
-public class UserHistory extends AppCompatActivity {
+public class UserHistory extends BaseActivity {
 
     private EditText edt_number_history;
     private Spinner spinner_type_of_user;
@@ -36,10 +37,7 @@ public class UserHistory extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (doValidation()){
-                    Intent otp=new Intent(UserHistory.this,OtpActivity.class);
-                    otp.putExtra("status","refPromoter");
-                    otp.putExtra("number",edt_number_history.getText().toString());
-                    startActivity(otp);
+                    checkUser(type_of_user);
                 }
             }
         });
@@ -58,6 +56,41 @@ public class UserHistory extends AppCompatActivity {
         });
     }
 
+    private void checkUser(final String type_of_user) {
+
+        AppUtils.showCustomProgressDialog(mCustomProgressDialog,"Loading..");
+
+        Query query=FirebaseDatabase.getInstance().getReference().child(type_of_user);
+
+        ValueEventListener valueEventListener=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    if (dataSnapshot.hasChild(edt_number_history.getText().toString().trim())){
+                        AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                        Intent otp=new Intent(UserHistory.this,OtpActivity.class);
+                        otp.putExtra("status",type_of_user);
+                        otp.putExtra("number",edt_number_history.getText().toString());
+                        startActivity(otp);
+                    }
+                    else {
+                        AppUtils.dismissCustomProgress(mCustomProgressDialog);
+
+                        AppUtils.showToast(context,"This is not a registered number");
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                AppUtils.showToast(context,databaseError.toString());
+            }
+        };
+
+        query.addValueEventListener(valueEventListener);
+    }
 
 
     boolean doValidation() {

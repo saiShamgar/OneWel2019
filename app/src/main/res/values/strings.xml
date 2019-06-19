@@ -34,6 +34,7 @@
 	<string name="Customer_name">com.Sairaa.onewel.Utils.Customer_name</string>
 	<string name="Customer_phone">com.Sairaa.onewel.Utils.Customer_phone</string>
 	<string name="Customer_ref">com.Sairaa.onewel.Utils.Customer_ref</string>
+	<string name="Google_image">com.Sairaa.onewel.Utils.Google_image</string>
 	<string name="shop_prompt">Choose a Shop</string>
 	<string-array name="shop_arrays">
 		<item>Choose a Shop</item>
@@ -44,12 +45,18 @@
 		<item>Grocery</item>
 		<item>Super Market</item>
 		<item>Fancy</item>
+		<item>Tailor</item>
+		<item>Beauty</item>
+		<item>Shoes</item>
+		<item>Stationary</item>
+		<item>Furniture</item>
+		<item>Home Appliances</item>
 	</string-array>
 	<string-array name="type_of_user">
 		<item>Type of user</item>
-		<item>Promoter</item>
-		<item>Advertiser</item>
-		<item>Customer</item>
+		<item>PROMOTER</item>
+		<item>ADVERTISER</item>
+		<item>CUSTOMER</item>
 	</string-array>
 	<string-array name="time_array">
 		<item>1am</item>

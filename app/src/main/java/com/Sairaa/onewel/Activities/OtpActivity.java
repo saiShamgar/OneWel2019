@@ -103,7 +103,7 @@ public class OtpActivity extends BaseActivity {
             });
 
         }
-        else if (status.contains("refPromoter")){
+        else if (status.contains("ADVERTISER")||status.contains("PROMOTER")||status.contains("CUSTOMER")){
             sendVerificationCode(number);
 
             findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
@@ -130,6 +130,7 @@ public class OtpActivity extends BaseActivity {
 
 
         }
+
         else if (status.contains("advertisement")){
             sendVerificationCode(config.readAdvertiserPhone());
 
@@ -180,9 +181,6 @@ public class OtpActivity extends BaseActivity {
             });
 
         }
-
-
-
     }
 
     private void sendVerificationCode(String readPromoterPhone) {
@@ -325,7 +323,8 @@ public class OtpActivity extends BaseActivity {
                     });
 
         }
-        else if (status.contains("refPromoter")){
+        else if (status.contains("ADVERTISER")||status.contains("PROMOTER")||status.contains("CUSTOMER")){
+            AppUtils.dismissCustomProgress(mCustomProgressDialog);
             Intent referenceList=new Intent(OtpActivity.this,ReferenceList.class);
             referenceList.putExtra("number",number);
             referenceList.putExtra("status",status);
@@ -383,7 +382,6 @@ public class OtpActivity extends BaseActivity {
         // Create a storage reference from our app
         StorageReference storageRef = storage.getReferenceFromUrl("gs://onewel2019.appspot.com/");
         final StorageReference pathReference = storageRef.child(imageId);
-
         pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -499,12 +497,7 @@ public class OtpActivity extends BaseActivity {
 
                          }
                      });
-
          }
-
-
     }
-
-
 }
 

@@ -16,11 +16,16 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+import com.Sairaa.onewel.Activities.Add.AddSignUpPD;
+import com.Sairaa.onewel.Activities.Matrimony.MatrimonyRegistration;
 import com.Sairaa.onewel.Activities.SearchListActivity;
 import com.Sairaa.onewel.Activities.UserHistory;
+import com.Sairaa.onewel.Activities.ViewAllActivity;
 import com.Sairaa.onewel.Adapters.PlaceArrayAdapter;
 import com.Sairaa.onewel.Adapters.PlaceAutocompleteAdapter;
+import com.Sairaa.onewel.Adapters.ViewAllAdapter;
 import com.Sairaa.onewel.Utils.AppUtils;
+import com.Sairaa.onewel.Utils.SharedPreferenceConfig;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.gms.common.ConnectionResult;
@@ -53,8 +58,8 @@ public class MainActivity extends AppCompatActivity implements
     private CircleImageView img_ic_profile;
     private AutoCompleteTextView mSearchText,main_act_enter_items;
     private Context context;
-    private TextView main_act_go;
-    private ImageView img_ic_history;
+    private TextView main_act_go,txt_matrimony;
+    private ImageView img_ic_history,img_ic_all,img_ic_tailor,img_ic_home,img_ic_beauty,img_ic_shoes,img_ic_stationary,img_ic_furniture,img_ic_electronics;
 
     boolean validate;
 
@@ -68,7 +73,9 @@ public class MainActivity extends AppCompatActivity implements
     private double lat,lon;
 
     FirebaseAuth mAuth;
-    private FirebaseUser user;
+
+
+    private SharedPreferenceConfig config;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,15 +83,26 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
         context=MainActivity.this;
 
+        config=new SharedPreferenceConfig(this);
+
         requestMultiplePermissions();
 
         mAuth = FirebaseAuth.getInstance();
-         user = mAuth.getCurrentUser();
         img_ic_profile=findViewById(R.id.img_ic_profile);
         mAutocompleteTextView=findViewById(R.id.main_act_Location);
         main_act_enter_items=findViewById(R.id.main_act_enter_items);
         main_act_go=findViewById(R.id.main_act_go);
         img_ic_history=findViewById(R.id.img_ic_history);
+        img_ic_all=findViewById(R.id.img_ic_all);
+
+        img_ic_tailor=findViewById(R.id.img_ic_tailor);
+        img_ic_beauty=findViewById(R.id.img_ic_beauty);
+        img_ic_shoes=findViewById(R.id.img_ic_shoes);
+        img_ic_stationary=findViewById(R.id.img_ic_stationary);
+        img_ic_furniture=findViewById(R.id.img_ic_furniture);
+        img_ic_home=findViewById(R.id.img_ic_home);
+        img_ic_electronics=findViewById(R.id.img_ic_electronics);
+        txt_matrimony=findViewById(R.id.txt_matrimony);
 
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
@@ -101,6 +119,11 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
+        Glide.with(this)
+                .load(config.readGoogle_image())
+                .error(R.drawable.ic_profile)
+                .into(img_ic_profile);
+
         main_act_go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +135,86 @@ public class MainActivity extends AppCompatActivity implements
                     search.putExtra("item",main_act_enter_items.getText().toString());
                     startActivity(search);
                 }
+
+            }
+        });
+
+
+        img_ic_tailor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewAll=new Intent(MainActivity.this, AddSignUpPD.class);
+                viewAll.putExtra("position",8);
+                startActivity(viewAll);
+            }
+        });
+
+        img_ic_beauty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewAll=new Intent(MainActivity.this, AddSignUpPD.class);
+                viewAll.putExtra("position",9);
+                startActivity(viewAll);
+            }
+        });
+
+        img_ic_shoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewAll=new Intent(MainActivity.this, AddSignUpPD.class);
+                viewAll.putExtra("position",10);
+                startActivity(viewAll);
+            }
+        });
+
+        img_ic_stationary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewAll=new Intent(MainActivity.this, AddSignUpPD.class);
+                viewAll.putExtra("position",11);
+                startActivity(viewAll);
+            }
+        });
+
+        img_ic_furniture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewAll=new Intent(MainActivity.this, AddSignUpPD.class);
+                viewAll.putExtra("position",12);
+                startActivity(viewAll);
+            }
+        });
+        img_ic_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewAll=new Intent(MainActivity.this, AddSignUpPD.class);
+                viewAll.putExtra("position",13);
+                startActivity(viewAll);
+            }
+        });
+
+        img_ic_electronics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewAll=new Intent(MainActivity.this, AddSignUpPD.class);
+                viewAll.putExtra("position",1);
+                startActivity(viewAll);
+            }
+        });
+
+        img_ic_all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewAll=new Intent(MainActivity.this, ViewAllActivity.class);
+                startActivity(viewAll);
+            }
+        });
+
+        txt_matrimony.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewAll=new Intent(MainActivity.this, MatrimonyRegistration.class);
+                startActivity(viewAll);
 
             }
         });
@@ -178,7 +281,7 @@ public class MainActivity extends AppCompatActivity implements
     protected void onResume() {
         super.onResume();
         Glide.with(this)
-                .load(user.getPhotoUrl())
+                .load(config.readGoogle_image())
                 .error(R.drawable.ic_profile)
                 .into(img_ic_profile);
     }
