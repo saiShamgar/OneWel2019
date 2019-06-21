@@ -163,11 +163,14 @@
 								android:weightSum="2"
 								android:orientation="horizontal">
 							<RadioButton
+									android:id="@+id/gender_male"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
-									android:text="Male"/>
+									android:text="Male"
+									android:checked="true"/>
 							<RadioButton
+									android:id="@+id/gender_female"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -248,6 +251,7 @@
 								android:orientation="horizontal"
 								android:layout_margin="@dimen/card_elevation_4dp">
 							<RadioButton
+									android:id="@+id/radio_single"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -255,6 +259,7 @@
 									android:ellipsize="end"
 									android:singleLine="true"/>
 							<RadioButton
+									android:id="@+id/radio_divorced"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -262,6 +267,7 @@
 									android:ellipsize="end"
 									android:singleLine="true"/>
 							<RadioButton
+									android:id="@+id/radio_widowed"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -269,6 +275,7 @@
 									android:ellipsize="end"
 									android:singleLine="true"/>
 							<RadioButton
+									android:id="@+id/radio_separated"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -291,7 +298,7 @@
 								android:layout_height="wrap_content"
 								android:layout_weight="0.8"
 								android:textStyle="bold"
-								android:text="Religion"/>
+								android:text="Religion :"/>
 						<Spinner
 								android:id="@+id/edt_mat_reg_religion"
 								android:layout_width="0dp"
@@ -312,7 +319,7 @@
 								android:layout_height="wrap_content"
 								android:layout_weight="0.8"
 								android:textStyle="bold"
-								android:text="Mother Tongue"
+								android:text="Mother Tongue :"
 								android:singleLine="true"
 								android:ellipsize="end"/>
 						<Spinner
@@ -335,7 +342,7 @@
 								android:layout_height="wrap_content"
 								android:layout_weight="0.8"
 								android:textStyle="bold"
-								android:text="Caste/division:"
+								android:text="Caste/division :"
 								android:singleLine="true"
 								android:ellipsize="end"/>
 						<Spinner
@@ -367,6 +374,7 @@
 								android:orientation="horizontal"
 								android:layout_margin="@dimen/card_radius_8dp">
 							<RadioButton
+									android:id="@+id/radio_normal"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -374,6 +382,7 @@
 									android:ellipsize="end"
 									android:singleLine="true"/>
 							<RadioButton
+									android:id="@+id/radio_physically_cahllenged"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -613,11 +622,11 @@
 								android:layout_height="wrap_content"
 								android:layout_weight="0.8"
 								android:textStyle="bold"
-								android:text="City :"
+								android:text="City/Division :"
 								android:singleLine="true"
 								android:ellipsize="end"/>
 						
-						<Spinner
+						<EditText
 								android:id="@+id/edt_mat_reg_city"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
@@ -726,7 +735,7 @@
 								android:singleLine="true"
 								android:ellipsize="end"/>
 						
-						<Spinner
+						<EditText
 								android:id="@+id/edt_mat_reg_gothra"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
@@ -782,6 +791,7 @@
 								android:orientation="horizontal"
 								android:layout_margin="@dimen/card_elevation_4dp">
 							<RadioButton
+									android:id="@+id/radio_all"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -789,6 +799,7 @@
 									android:ellipsize="end"
 									android:singleLine="true"/>
 							<RadioButton
+									android:id="@+id/radio_veg"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -796,6 +807,7 @@
 									android:ellipsize="end"
 									android:singleLine="true"/>
 							<RadioButton
+									android:id="@+id/radio_non_veg"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -829,6 +841,7 @@
 								android:orientation="horizontal"
 								android:layout_margin="@dimen/card_elevation_4dp">
 							<RadioButton
+									android:id="@+id/radio_non_drinker"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -836,6 +849,7 @@
 									android:ellipsize="end"
 									android:singleLine="true"/>
 							<RadioButton
+									android:id="@+id/radio_light_drinker"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -843,6 +857,7 @@
 									android:ellipsize="end"
 									android:singleLine="true"/>
 							<RadioButton
+									android:id="@+id/radio_heavy_drinker"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -875,6 +890,7 @@
 								android:orientation="horizontal"
 								android:layout_margin="@dimen/card_elevation_4dp">
 							<RadioButton
+									android:id="@+id/radio_non_smoker"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -882,6 +898,7 @@
 									android:ellipsize="end"
 									android:singleLine="true"/>
 							<RadioButton
+									android:id="@+id/radio_light_smoker"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -889,6 +906,7 @@
 									android:ellipsize="end"
 									android:singleLine="true"/>
 							<RadioButton
+									android:id="@+id/radio_heavy_smoker"
 									android:layout_width="0dp"
 									android:layout_weight="1"
 									android:layout_height="wrap_content"
@@ -897,10 +915,6 @@
 									android:singleLine="true"/>
 						</RadioGroup>
 					</LinearLayout>
-				
-				
-				
-				
 				</LinearLayout>
 			
 			</android.support.v7.widget.CardView>
