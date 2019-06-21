@@ -84,7 +84,6 @@
 		<item>11pm</item>
 		<item>12pm</item>
 	</string-array>
-	
 	<string-array name="religion_array">
 		<item>Select Religion</item>
 		<item>Hindu</item>
@@ -103,7 +102,6 @@
 		<item>Buddhist</item>
 		<item>No Religious Belief</item>
 	</string-array>
-	
 	<string-array name="mother_tongue_hindu">
 		<item>Select Mother Tongue</item>
 		<item>Telugu</item>
@@ -113,7 +111,6 @@
 		<item>Urdu</item>
 		<item>Bengali</item>
 	</string-array>
-	
 	<string-array name="hindi_hindu_castes">
 		<item>- Select -</item>
 		<item>96 Kuli Maratha</item>
@@ -129,13 +126,13 @@
 		<item>Balai</item>
 		<item>Baniya</item>
 		<item>Barnwal</item>
-		<item>Bhatt  Brahmin</item>
+		<item>Bhatt Brahmin</item>
 		<item>Bhoyar</item>
-		<item>Bhumihar  Brahmin</item>
+		<item>Bhumihar Brahmin</item>
 		<item>Bishnoi/Vishnoi</item>
 		<item>Bondili</item>
-		<item>Brahmin  Jijhotia</item>
-		<item>Brahmin  Malviya</item>
+		<item>Brahmin Jijhotia</item>
+		<item>Brahmin Malviya</item>
 		<item>Brahmin - Anaviln Desai</item>
 		<item>Brahmin - Baidhiki/Vaidhiki</item>
 		<item>Brahmin - Bardai</item>
@@ -181,7 +178,7 @@
 		<item>Deshmukh</item>
 		<item>Devang Koshthi</item>
 		<item>Dhanak</item>
-		<item>Dhiman  Brahmin</item>
+		<item>Dhiman Brahmin</item>
 		<item>Dhobi</item>
 		<item>Dosar / Dusra</item>
 		<item>Dusadh (Paswan)</item>
@@ -189,11 +186,11 @@
 		<item>Ganda</item>
 		<item>Gandha Vanika</item>
 		<item>Garhwali</item>
-		<item>Garhwali  Brahmin</item>
-		<item>Gaur  Brahmin</item>
+		<item>Garhwali Brahmin</item>
+		<item>Gaur Brahmin</item>
 		<item>Goan</item>
-		<item>Goswami/Gosavi  Brahmin</item>
-		<item>Gujar  Gaur</item>
+		<item>Goswami/Gosavi Brahmin</item>
+		<item>Gujar Gaur</item>
 		<item>Gujjar</item>
 		<item>Gulahre</item>
 		<item>Gupta</item>
@@ -201,7 +198,7 @@
 		<item>Gurjar</item>
 		<item>Intercaste</item>
 		<item>Jaiswal</item>
-		<item>Jangid  Brahmin</item>
+		<item>Jangid Brahmin</item>
 		<item>Jangra - Brahmin</item>
 		<item>Jat</item>
 		<item>Jatav</item>
@@ -217,7 +214,7 @@
 		<item>Kamboj</item>
 		<item>Kanakkan Padanna</item>
 		<item>Kandara</item>
-		<item>Kanyakubj  Brahmin</item>
+		<item>Kanyakubj Brahmin</item>
 		<item>Kanykubj Bania</item>
 		<item>Kasaundhan</item>
 		<item>Kashyap</item>
@@ -235,7 +232,7 @@
 		<item>Kori/Koli</item>
 		<item>Kshatriya</item>
 		<item>Kshatriya Raju</item>
-		<item>Kumaoni  Brahmin</item>
+		<item>Kumaoni Brahmin</item>
 		<item>Kumaoni Rajput</item>
 		<item>Kumhar</item>
 		<item>Kunbi Lonari</item>
@@ -257,7 +254,7 @@
 		<item>Mahor</item>
 		<item>Mahuri</item>
 		<item>Mair Rajput Swarnkar</item>
-		<item>Maithil  Brahmin</item>
+		<item>Maithil Brahmin</item>
 		<item>Mali</item>
 		<item>Mallah</item>
 		<item>Malviya Brahmin</item>
@@ -273,7 +270,7 @@
 		<item>Mehra</item>
 		<item>Modi</item>
 		<item>Nai</item>
-		<item>Narmadiya  Brahmin</item>
+		<item>Narmadiya Brahmin</item>
 		<item>Nath</item>
 		<item>Nema</item>
 		<item>Oswal</item>
@@ -281,7 +278,7 @@
 		<item>Pal</item>
 		<item>Pallan / Devandra Kula Vellalan</item>
 		<item>Panan</item>
-		<item>Pandit  Brahmin</item>
+		<item>Pandit Brahmin</item>
 		<item>Paravan / Bharatar</item>
 		<item>Parit</item>
 		<item>Pasi</item>
@@ -292,7 +289,7 @@
 		<item>Patwa</item>
 		<item>Porwal / Porwar</item>
 		<item>Poundra</item>
-		<item>Pulaya /  Cheruman</item>
+		<item>Pulaya / Cheruman</item>
 		<item>Raigar</item>
 		<item>Rajbhar</item>
 		<item>Rajpurohit</item>
@@ -307,12 +304,12 @@
 		<item>ST</item>
 		<item>Sahu</item>
 		<item>Saini</item>
-		<item>Sakaldwipi  Brahmin</item>
+		<item>Sakaldwipi Brahmin</item>
 		<item>Samagar</item>
 		<item>Sambava</item>
-		<item>Sanadya  Brahmin</item>
-		<item>Saraswat  Brahmin</item>
-		<item>Saryuparin  Brahmin</item>
+		<item>Sanadya Brahmin</item>
+		<item>Saraswat Brahmin</item>
+		<item>Saryuparin Brahmin</item>
 		<item>Satnami</item>
 		<item>Shaw / Sahu/Teli</item>
 		<item>Shilpkar</item>
@@ -321,7 +318,7 @@
 		<item>Teli</item>
 		<item>Thakur</item>
 		<item>Thandan</item>
-		<item>Tyagi  Brahmin</item>
+		<item>Tyagi Brahmin</item>
 		<item>Ummar / Umre / Bagaria</item>
 		<item>Vaish</item>
 		<item>Vaishnav</item>
@@ -342,11 +339,10 @@
 		<item>Vishwakarma</item>
 		<item>Yadav</item>
 	</string-array>
-	
 	<string-array name="telugu_hindu_castes">
 		<item>Select Caste</item>
 		<item>24 Manai Telugu Chettiar</item>
-		<item>96 Kuli <Maratha></Maratha></item>
+		<item>96 Kuli Maratha</item>
 		<item>Achirapakkam Chettiar</item>
 		<item>Agamudayar / Arcot / Thuluva Vellala</item>
 		<item>Adi Andhra</item>
@@ -402,7 +398,7 @@
 		<item>Devanga Chettiar</item>
 		<item>Dhanak</item>
 		<item>Dommala</item>
-		<item>Dravida  Brahmin</item>
+		<item>Dravida Brahmin</item>
 		<item>Ediga /Goud (Balija)</item>
 		<item>Elur Chetty</item>
 		<item>Gajula / Kavarai</item>
@@ -452,7 +448,7 @@
 		<item>Kuruva</item>
 		<item>Linga Balija</item>
 		<item>Lingayath</item>
-		<item>Madhwa  Brahmin</item>
+		<item>Madhwa Brahmin</item>
 		<item>Mahendra</item>
 		<item>Mair Rajput Swarnkar</item>
 		<item>Mala</item>
@@ -479,7 +475,7 @@
 		<item>Nattukottai Chettiar</item>
 		<item>Neeli</item>
 		<item>Neeli Saali</item>
-		<item>Niyogi  Brahmin</item>
+		<item>Niyogi Brahmin</item>
 		<item>Ontari</item>
 		<item>Padmasali</item>
 		<item>Padmashali</item>
@@ -499,7 +495,7 @@
 		<item>Perika</item>
 		<item>Poosala</item>
 		<item>Poundra</item>
-		<item>Pulaya /  Cheruman</item>
+		<item>Pulaya / Cheruman</item>
 		<item>Rajaka</item>
 		<item>Rajput</item>
 		<item>Reddy</item>
@@ -519,10 +515,10 @@
 		<item>Setty Balija</item>
 		<item>Shettigar</item>
 		<item>Shilpkar</item>
-		<item>Smartha  Brahmin</item>
+		<item>Smartha Brahmin</item>
 		<item>Sonkar</item>
 		<item>Sozhia Chetty</item>
-		<item>Sri  Vaishnava</item>
+		<item>Sri Vaishnava</item>
 		<item>Srisayana</item>
 		<item>Sugali (Naika)</item>
 		<item>Surya Balija</item>
@@ -538,8 +534,8 @@
 		<item>Vadambar</item>
 		<item>Vaddera</item>
 		<item>Vadugan</item>
-		<item>Vaidiki  Brahmin</item>
-		<item>Vaikhanasa  Brahmin</item>
+		<item>Vaidiki Brahmin</item>
+		<item>Vaikhanasa Brahmin</item>
 		<item>Vaishnava</item>
 		<item>Valmiki</item>
 		<item>Vani</item>
@@ -547,7 +543,7 @@
 		<item>Vanjara</item>
 		<item>Veerakodi Vellala</item>
 		<item>Velama</item>
-		<item>Velanadu  Brahmin</item>
+		<item>Velanadu Brahmin</item>
 		<item>Vellan Chettiars</item>
 		<item>Viswabrahmin</item>
 		<item>Vokkaliga</item>
@@ -555,9 +551,8 @@
 		<item>Yadava Naidu</item>
 		<item>Yellapu</item>
 		<item>Viswabrahmin</item>
-		<item>Don't wish to specify</item>
+		<item>Do not wish to specify</item>
 	</string-array>
-	
 	<string-array name="musilim_castes">
 		<item>- Select -</item>
 		<item>Muslim - Ansari</item>
@@ -585,9 +580,8 @@
 		<item>Muslim - Siddiqui</item>
 		<item>Muslim - Syed</item>
 		<item>Muslim - UnSpecified</item>
-		<item>Don't wish to specify</item>
+		<item>Do not wish to specify</item>
 	</string-array>
-	
 	<string-array name="christian_castes">
 		<item>- Select -</item>
 		<item>Born Again</item>
@@ -610,9 +604,8 @@
 		<item>Syrian Jacobite</item>
 		<item>Syrian Orthodox</item>
 		<item>Syro Malabar</item>
-		<item>Don't wish to specify</item>
+		<item>Do not wish to specify</item>
 	</string-array>
-	
 	<string-array name="sikh_caste">
 		<item>- Select -</item>
 		<item>Sikh - Ahluwalia</item>
@@ -636,9 +629,8 @@
 		<item>Sikh - Saini</item>
 		<item>Sikh - Tonk Kshatriya</item>
 		<item>Sikh - Unspecified</item>
-		<item>Don't wish to specify</item>
+		<item>Do not wish to specify</item>
 	</string-array>
-	
 	<string-array name="jain_castes">
 		<item>- Select -</item>
 		<item>Jain - Agarwal</item>
@@ -653,24 +645,21 @@
 		<item>Jain - Porwal</item>
 		<item>Jain - Unspecified</item>
 		<item>Jain - Vaishya</item>
-		<item>Don't wish to specify</item>
+		<item>Do not wish to specify</item>
 	</string-array>
-	
 	<string-array name="parsi_castes">
 		<item>- Select -</item>
 		<item>Intercaste</item>
 		<item>Irani</item>
 		<item>Parsi</item>
 		<item>Others</item>
-		<item>Don't wish to specify</item>
+		<item>Do not wish to specify</item>
 	</string-array>
-	
 	<string-array name="buddhist_castes">
 		<item>- Select -</item>
 		<item>Others</item>
-		<item>Don't wish to specify</item>
+		<item>Do not wish to specify</item>
 	</string-array>
-	
 	<string-array name="kannada_castes">
 		<item>- Select -</item>
 		<item>24 Manai Telugu Chettiar</item>
@@ -721,8 +710,8 @@
 		<item>Chennadasar</item>
 		<item>Chettiar</item>
 		<item>Coorgi</item>
-		<item>Daivadnya  Brahmin</item>
-		<item>Deshastha  Brahmin</item>
+		<item>Daivadnya Brahmin</item>
+		<item>Deshastha Brahmin</item>
 		<item>Devadiga</item>
 		<item>Devanga</item>
 		<item>Devanga Chettiar</item>
@@ -734,13 +723,13 @@
 		<item>Ganiga</item>
 		<item>Gowda</item>
 		<item>Gowda - Kuruba Gowda</item>
-		<item>Havyaka  Brahmin</item>
+		<item>Havyaka Brahmin</item>
 		<item>Helava</item>
-		<item>Hoysala  Brahmin</item>
+		<item>Hoysala Brahmin</item>
 		<item>Hugar (Jeer)</item>
 		<item>Isai Vellalar</item>
-		<item>Iyengar  Brahmin</item>
-		<item>Iyer  Brahmin</item>
+		<item>Iyengar Brahmin</item>
+		<item>Iyer Brahmin</item>
 		<item>Jeer</item>
 		<item>Julaha</item>
 		<item>Kaikaala</item>
@@ -748,7 +737,7 @@
 		<item>Kanakkan Padanna</item>
 		<item>Kandara</item>
 		<item>Karakala Bhakthula</item>
-		<item>Karhade  Brahmin</item>
+		<item>Karhade Brahmin</item>
 		<item>Karni Bhakthula</item>
 		<item>Kasukara</item>
 		<item>Kerala Mudali</item>
@@ -756,7 +745,7 @@
 		<item>Kongu Chettiar</item>
 		<item>Korama</item>
 		<item>Kori/Koli</item>
-		<item>Kota  Brahmin</item>
+		<item>Kota Brahmin</item>
 		<item>Kshatriya Raju</item>
 		<item>Kulal</item>
 		<item>Kumaoni Rajput</item>
@@ -767,7 +756,7 @@
 		<item>Kuruva</item>
 		<item>Lambadi</item>
 		<item>Lingayath</item>
-		<item>Madhwa  Brahmin</item>
+		<item>Madhwa Brahmin</item>
 		<item>Mair Rajput Swarnkar</item>
 		<item>Mangalorean</item>
 		<item>Manjapudur Chettiar</item>
@@ -792,7 +781,7 @@
 		<item>Pattinavar</item>
 		<item>Pattusali</item>
 		<item>Poundra</item>
-		<item>Pulaya /  Cheruman</item>
+		<item>Pulaya / Cheruman</item>
 		<item>Rajput</item>
 		<item>Reddy</item>
 		<item>Rohit / Chamar</item>
@@ -803,20 +792,20 @@
 		<item>Saiva Pillai Tirunelveli</item>
 		<item>Samagar</item>
 		<item>Sambava</item>
-		<item>Sanketi  Brahmin</item>
-		<item>Saraswat  Brahmin</item>
+		<item>Sanketi Brahmin</item>
+		<item>Saraswat Brahmin</item>
 		<item>Satnami</item>
 		<item>Sengunthar/Kaikolar</item>
 		<item>Savji</item>
 		<item>Shettigar</item>
 		<item>Shetty</item>
 		<item>Shilpkar</item>
-		<item>Shivhalli  Brahmin</item>
-		<item>Smartha  Brahmin</item>
+		<item>Shivhalli Brahmin</item>
+		<item>Smartha Brahmin</item>
 		<item>Sonkar</item>
 		<item>Sozhia Chetty</item>
-		<item>Sri  Vaishnava</item>
-		<item>Stanika  Brahmin</item>
+		<item>Sri Vaishnava</item>
+		<item>Stanika Brahmin</item>
 		<item>Telugupatti</item>
 		<item>Thandan</item>
 		<item>Thigala</item>
@@ -845,9 +834,8 @@
 		<item>Yadava Naidu</item>
 		<item>intercaste</item>
 		<item>kshatriya</item>
-		<item>Don't wish to specify</item>
+		<item>Do not wish to specify</item>
 	</string-array>
-	
 	<string-array name="tamil_castes">
 		<item>- Select -</item>
 		<item>24 Manai Telugu Chettiar</item>
@@ -901,12 +889,12 @@
 		<item>Gounder - Vanniya Kula Kshatriyar</item>
 		<item>Gounder - Vettuva Gounder</item>
 		<item>Gramani</item>
-		<item>Gurukkal  Brahmin</item>
+		<item>Gurukkal Brahmin</item>
 		<item>Illaththu Pillai</item>
 		<item>Intercaste</item>
 		<item>Isai Vellalar</item>
-		<item>Iyengar  Brahmin</item>
-		<item>Iyer  Brahmin</item>
+		<item>Iyengar Brahmin</item>
+		<item>Iyer Brahmin</item>
 		<item>Julaha</item>
 		<item>Kamma Naidu</item>
 		<item>Kanakkan Padanna</item>
@@ -963,7 +951,7 @@
 		<item>Pattusali</item>
 		<item>Pillai</item>
 		<item>Poundra</item>
-		<item>Pulaya /  Cheruman</item>
+		<item>Pulaya / Cheruman</item>
 		<item>Reddy</item>
 		<item>Rohit / Chamar</item>
 		<item>SC</item>
@@ -1001,9 +989,8 @@
 		<item>Vokkaliga</item>
 		<item>Yadav</item>
 		<item>Yadava Naidu</item>
-		<item>Don't wish to specify</item>
+		<item>Do not wish to specify</item>
 	</string-array>
-	
 	<string-array name="bengali_castes">
 		<item>- Select -</item>
 		<item>Agarwal</item>
@@ -1015,7 +1002,7 @@
 		<item>Baishya</item>
 		<item>Balai</item>
 		<item>Banik</item>
-		<item>Barendra  Brahmin</item>
+		<item>Barendra Brahmin</item>
 		<item>Barujibi</item>
 		<item>Brahmin - Anaviln Desai</item>
 		<item>Brahmin - Baidhiki/Vaidhiki</item>
@@ -1051,7 +1038,7 @@
 		<item>Kshatriya</item>
 		<item>Kshatriya Kurmi</item>
 		<item>Kshatriya Raju</item>
-		<item>Kulin  Brahmin</item>
+		<item>Kulin Brahmin</item>
 		<item>Kumaoni Rajput</item>
 		<item>Kumbhakar</item>
 		<item>Kurmi/Kurmi Kshatriya</item>
@@ -1069,11 +1056,11 @@
 		<item>Paswan / Dusadh</item>
 		<item>Perika/Puragiri Kshatriya</item>
 		<item>Poundra</item>
-		<item>Pulaya /  Cheruman</item>
+		<item>Pulaya / Cheruman</item>
 		<item>Rajput</item>
-		<item>Rarhi  Brahmin</item>
+		<item>Rarhi Brahmin</item>
 		<item>Rohit / Chamar</item>
-		<item>Rudraj  Brahmin</item>
+		<item>Rudraj Brahmin</item>
 		<item>SC</item>
 		<item>ST</item>
 		<item>Sadgope</item>
@@ -1089,6 +1076,6 @@
 		<item>Thogata Veera Kshatriya</item>
 		<item>Tili</item>
 		<item>Vishwakarma</item>
-		<item>Don't wish to specify</item>
+		<item>Do not wish to specify</item>
 	</string-array>
 </resources>

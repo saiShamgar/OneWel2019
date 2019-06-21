@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import com.Sairaa.onewel.Activities.Add.AddSignUpPD;
+import com.Sairaa.onewel.Activities.Matrimony.MatrimonyMainScreen;
 import com.Sairaa.onewel.Activities.Matrimony.MatrimonyRegistration;
 import com.Sairaa.onewel.Activities.SearchListActivity;
 import com.Sairaa.onewel.Activities.UserHistory;
@@ -213,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements
         txt_matrimony.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewAll=new Intent(MainActivity.this, MatrimonyRegistration.class);
+                Intent viewAll=new Intent(MainActivity.this, MatrimonyMainScreen.class);
                 startActivity(viewAll);
 
             }

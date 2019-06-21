@@ -5,8 +5,34 @@
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:orientation="vertical"
 		tools:context=".Activities.Matrimony.MatrimonyRegistration"
 		android:background="@color/act_background">
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:weightSum="2"
+			android:padding="@dimen/margin_large"
+			android:gravity="center"
+			android:background="@color/color_white">
+		
+		<ImageView android:layout_width="0dp"
+		           android:layout_height="wrap_content"
+		           android:layout_weight="0.3"
+		           android:src="@drawable/ic_back"/>
+		<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1.7"
+				android:padding="@dimen/margin_large"
+				android:text="Matrimony Registration"
+				android:textColor="@color/color_black"
+				android:textStyle="bold"
+				android:textSize="16dp"/>
+	
+	</LinearLayout>
 	
 	
 	<ScrollView
@@ -53,6 +79,7 @@
 								android:textStyle="bold"
 								android:text="Name :"/>
 						<EditText
+								android:id="@+id/edt_mat_reg_name"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"
@@ -77,6 +104,7 @@
 								android:textStyle="bold"
 								android:text="Surname :"/>
 						<EditText
+								android:id="@+id/edt_mat_reg_surname"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"
@@ -85,7 +113,6 @@
 								android:imeOptions="actionNext"
 								android:inputType="text"/>
 					</LinearLayout>
-					
 					<LinearLayout
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
@@ -102,6 +129,7 @@
 								android:textStyle="bold"
 								android:text="Phone No :"/>
 						<EditText
+								android:id="@+id/edt_mat_reg_phone_num"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"
@@ -128,6 +156,7 @@
 								android:text="Gender :"
 								android:layout_gravity="center"/>
 						<RadioGroup
+								android:id="@+id/edt_mat_reg_gender"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="2"
@@ -145,7 +174,6 @@
 									android:text="Female"/>
 						</RadioGroup>
 					</LinearLayout>
-					
 					<LinearLayout
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
@@ -155,7 +183,6 @@
 							android:layout_marginRight="@dimen/margin_xxlarge"
 							android:layout_marginTop="@dimen/card_radius_8dp"
 							android:layout_marginBottom="@dimen/margin_large">
-						
 						<TextView
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
@@ -164,14 +191,12 @@
 								android:text="Age :"
 								android:singleLine="true"
 								android:ellipsize="end"/>
-						
 						<Spinner
+								android:id="@+id/edt_mat_reg_age"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
-					
 					</LinearLayout>
-					
 					<LinearLayout
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
@@ -181,7 +206,6 @@
 							android:layout_marginRight="@dimen/margin_xxlarge"
 							android:layout_marginTop="@dimen/card_radius_8dp"
 							android:layout_marginBottom="@dimen/margin_large">
-						
 						<TextView
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
@@ -190,16 +214,16 @@
 								android:text="Height :"
 								android:singleLine="true"
 								android:ellipsize="end"/>
-						
 						<Spinner
+								android:id="@+id/edt_mat_reg_height_in_feet"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
 						<Spinner
+								android:id="@+id/edt_mat_reg_heightin_inch"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
-					
 					</LinearLayout>
 					<LinearLayout
 							android:layout_width="match_parent"
@@ -217,6 +241,7 @@
 								android:text="Marital Status :"
 								android:layout_marginBottom="@dimen/card_elevation_4dp"/>
 						<RadioGroup
+								android:id="@+id/edt_mat_reg_marital_status"
 								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
 								android:weightSum="4"
@@ -268,6 +293,7 @@
 								android:textStyle="bold"
 								android:text="Religion"/>
 						<Spinner
+								android:id="@+id/edt_mat_reg_religion"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -290,11 +316,11 @@
 								android:singleLine="true"
 								android:ellipsize="end"/>
 						<Spinner
+								android:id="@+id/edt_mat_reg_mother_tongue"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
 					</LinearLayout>
-					
 					<LinearLayout
 							android:layout_width="match_parent"
 							android:layout_height="wrap_content"
@@ -304,47 +330,19 @@
 							android:layout_marginRight="@dimen/margin_xxlarge"
 							android:layout_marginTop="@dimen/card_radius_8dp"
 							android:layout_marginBottom="@dimen/margin_large">
-						
 						<TextView
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="0.8"
 								android:textStyle="bold"
-								android:text="Caste :"
+								android:text="Caste/division:"
 								android:singleLine="true"
 								android:ellipsize="end"/>
-						
 						<Spinner
+								android:id="@+id/edt_mat_reg_caste_devision"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
-					
-					</LinearLayout>
-					
-					<LinearLayout
-							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:weightSum="2"
-							android:orientation="horizontal"
-							android:layout_marginLeft="@dimen/margin_xxlarge"
-							android:layout_marginRight="@dimen/margin_xxlarge"
-							android:layout_marginTop="@dimen/card_radius_8dp"
-							android:layout_marginBottom="@dimen/margin_large">
-						
-						<TextView
-								android:layout_width="0dp"
-								android:layout_height="wrap_content"
-								android:layout_weight="0.8"
-								android:textStyle="bold"
-								android:text="Sub-Caste :"
-								android:singleLine="true"
-								android:ellipsize="end"/>
-						
-						<Spinner
-								android:layout_width="0dp"
-								android:layout_height="wrap_content"
-								android:layout_weight="1.2"/>
-					
 					</LinearLayout>
 					<LinearLayout
 							android:layout_width="match_parent"
@@ -362,6 +360,7 @@
 								android:text="Physical Status :"
 								android:layout_marginBottom="@dimen/card_elevation_4dp"/>
 						<RadioGroup
+								android:id="@+id/edt_mat_reg_physical_status"
 								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
 								android:weightSum="2"
@@ -383,8 +382,6 @@
 									android:singleLine="true"/>
 						</RadioGroup>
 					</LinearLayout>
-					
-					
 				</LinearLayout>
 			
 			</android.support.v7.widget.CardView>
@@ -431,6 +428,7 @@
 								android:ellipsize="end"/>
 						
 						<Spinner
+								android:id="@+id/edt_mat_reg_highest_study"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -457,6 +455,7 @@
 								android:ellipsize="end"/>
 						
 						<Spinner
+								android:id="@+id/edt_mat_reg_occupation"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -483,6 +482,7 @@
 								android:ellipsize="end"/>
 						
 						<Spinner
+								android:id="@+id/edt_mat_reg_annual_income"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -537,6 +537,7 @@
 								android:ellipsize="end"/>
 						
 						<Spinner
+								android:id="@+id/edt_mat_reg_country"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -563,6 +564,7 @@
 								android:ellipsize="end"/>
 						
 						<Spinner
+								android:id="@+id/edt_mat_reg_state"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -589,6 +591,7 @@
 								android:ellipsize="end"/>
 						
 						<Spinner
+								android:id="@+id/edt_mat_reg_district"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -615,6 +618,7 @@
 								android:ellipsize="end"/>
 						
 						<Spinner
+								android:id="@+id/edt_mat_reg_city"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -669,6 +673,7 @@
 								android:ellipsize="end"/>
 						
 						<Spinner
+								android:id="@+id/edt_mat_reg_rashi"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -690,11 +695,12 @@
 								android:layout_height="wrap_content"
 								android:layout_weight="0.8"
 								android:textStyle="bold"
-								android:text="Star :"
+								android:text="Nakshatra :"
 								android:singleLine="true"
 								android:ellipsize="end"/>
 						
 						<Spinner
+								android:id="@+id/edt_mat_reg_star"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -716,11 +722,12 @@
 								android:layout_height="wrap_content"
 								android:layout_weight="0.8"
 								android:textStyle="bold"
-								android:text="Nakshatra :"
+								android:text="Gothra :"
 								android:singleLine="true"
 								android:ellipsize="end"/>
 						
 						<Spinner
+								android:id="@+id/edt_mat_reg_gothra"
 								android:layout_width="0dp"
 								android:layout_height="wrap_content"
 								android:layout_weight="1.2"/>
@@ -747,7 +754,7 @@
 						android:orientation="vertical">
 					<TextView android:layout_width="match_parent"
 					          android:layout_height="wrap_content"
-					          android:text="4. Habits"
+					          android:text="5. Habits"
 					          android:layout_margin="@dimen/margin_large"
 					          android:textColor="@color/color_black"
 					          android:textStyle="bold"/>
@@ -768,6 +775,7 @@
 								android:text="Eating :"
 								android:layout_marginBottom="@dimen/card_elevation_4dp"/>
 						<RadioGroup
+								android:id="@+id/edt_mat_reg_eating"
 								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
 								android:weightSum="3"
@@ -814,6 +822,7 @@
 								android:text="Drinking :"
 								android:layout_marginBottom="@dimen/card_elevation_4dp"/>
 						<RadioGroup
+								android:id="@+id/edt_mat_reg_drinking"
 								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
 								android:weightSum="3"
@@ -859,6 +868,7 @@
 								android:text="Smoking :"
 								android:layout_marginBottom="@dimen/card_elevation_4dp"/>
 						<RadioGroup
+								android:id="@+id/edt_mat_reg_smoking"
 								android:layout_width="match_parent"
 								android:layout_height="wrap_content"
 								android:weightSum="3"
@@ -894,10 +904,6 @@
 				</LinearLayout>
 			
 			</android.support.v7.widget.CardView>
-			
-			
-			
-			
 			
 		</LinearLayout>
 		
