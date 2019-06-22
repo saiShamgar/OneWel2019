@@ -9,9 +9,13 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
@@ -60,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements
     private AutoCompleteTextView mSearchText,main_act_enter_items;
     private Context context;
     private TextView main_act_go,txt_matrimony;
-    private ImageView img_ic_history,img_ic_all,img_ic_tailor,img_ic_home,img_ic_beauty,img_ic_shoes,img_ic_stationary,img_ic_furniture,img_ic_electronics;
+    private ImageView img_ic_history,img_ic_all,navigatinButtonMainActivity,img_ic_tailor,img_ic_home,img_ic_beauty,img_ic_shoes,img_ic_stationary,img_ic_furniture,img_ic_electronics;
 
     boolean validate;
 
@@ -74,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements
     private double lat,lon;
 
     FirebaseAuth mAuth;
+    private Toolbar toolBarLayout;
 
 
     private SharedPreferenceConfig config;
@@ -85,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements
         context=MainActivity.this;
 
         config=new SharedPreferenceConfig(this);
-
         requestMultiplePermissions();
 
         mAuth = FirebaseAuth.getInstance();
@@ -104,6 +108,15 @@ public class MainActivity extends AppCompatActivity implements
         img_ic_home=findViewById(R.id.img_ic_home);
         img_ic_electronics=findViewById(R.id.img_ic_electronics);
         txt_matrimony=findViewById(R.id.txt_matrimony);
+        toolBarLayout=findViewById(R.id.toolBarLayout);
+
+        setSupportActionBar(toolBarLayout);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolBarLayout,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
@@ -252,6 +265,16 @@ public class MainActivity extends AppCompatActivity implements
 
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     boolean doValidation() {

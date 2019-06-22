@@ -1,10 +1,16 @@
 <resources>
 	<string name="app_name">OneWel</string>
 	<string name="registration_ok">Thanks For Your Registration</string>
+	<string name="razorpaykeytext">rzp_test_XZhkhiMzBkJjZf</string>
+	
+	<string name="razorpaykeyLive">rzp_live_ES25AxnwXmZbHA</string>
 	<string name="registration_ok_message">
 		We are very much happy for being with us.
 		You can check your status by using your registered phone number
 	</string>
+	
+	<string name="navigation_drawer_open">Drawer Open</string>
+	<string name="navigation_drawer_close">Drawer Closed</string>
 	<string name="shop_category">Shop/category</string>
 	<string name="places_key">AIzaSyDSw2E4sphfTp4veFpNiEX1HMc2awl-TxE</string>
 	<string name="login_prferance">com.Sairaa.onewel.Utils.login_preference</string>
@@ -51,6 +57,70 @@
 		<item>Stationary</item>
 		<item>Furniture</item>
 		<item>Home Appliances</item>
+	</string-array>
+	
+	<string-array name="feet_array">
+		<item>- Select -</item>
+		<item>3 Feet</item>
+		<item>4 Feet</item>
+		<item>5 Feet</item>
+		<item>6 Feet</item>
+	</string-array>
+	
+	<string-array name="inches_array">
+		<item>- Select -</item>
+		<item>0 Inch</item>
+		<item>1 Inch</item>
+		<item>2 Inch</item>
+		<item>3 Inch</item>
+		<item>4 Inch</item>
+		<item>5 Inch</item>
+		<item>6 Inch</item>
+		<item>7 Inch</item>
+		<item>8 Inch</item>
+		<item>9 Inch</item>
+		<item>10 Inch</item>
+		<item>11Inch</item>
+	</string-array>
+	
+	<string-array name="age_array">
+		<item>- Select -</item>
+		<item>18 years</item>
+		<item>19 years</item>
+		<item>20 years</item>
+		<item>21 years</item>
+		<item>22 years</item>
+		<item>23 years</item>
+		<item>24 years</item>
+		<item>25 years</item>
+		<item>26 years</item>
+		<item>27 years</item>
+		<item>28 years</item>
+		<item>29 years</item>
+		<item>30 years</item>
+		<item>31 years</item>
+		<item>32 years</item>
+		<item>33 years</item>
+		<item>34 years</item>
+		<item>35 years</item>
+		<item>36 years</item>
+		<item>37 years</item>
+		<item>38 years</item>
+		<item>39 years</item>
+		<item>40 years</item>
+		<item>41 years</item>
+		<item>42 years</item>
+		<item>43 years</item>
+		<item>44 years</item>
+		<item>45 years</item>
+		<item>46 years</item>
+		<item>47 years</item>
+		<item>48 years</item>
+		<item>49 years</item>
+		<item>50 years</item>
+		<item>50+ years</item>
+		
+		
 	</string-array>
 	<string-array name="type_of_user">
 		<item>Type of user</item>
@@ -1834,7 +1904,6 @@
 		<item>Unakoti</item>
 		<item>West Tripura</item>
 	</string-array>
-	
 	
 	<string-array name="Uttar_Pradesh">
 		<item>- Select -</item>

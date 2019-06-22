@@ -61,6 +61,9 @@ public class MatrimonyRegistration extends BaseActivity  {
         SetAdapter(edt_mat_reg_state,getResources().getStringArray(R.array.india_states));
         SetAdapter(edt_mat_reg_rashi,getResources().getStringArray(R.array.Rashi));
         SetAdapter(edt_mat_reg_star,getResources().getStringArray(R.array.Nakshatras));
+        SetAdapter(edt_mat_reg_age,getResources().getStringArray(R.array.age_array));
+        SetAdapter(edt_mat_reg_height_in_feet,getResources().getStringArray(R.array.feet_array));
+        SetAdapter(edt_mat_reg_heightin_inch,getResources().getStringArray(R.array.inches_array));
 
         edt_mat_reg_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

@@ -3,7 +3,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.Sairaa.onewel"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -52,6 +52,12 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
+
+    //razorpay
+
+   // implementation 'com.razorpay:checkout:1.5.5'
+ //   implementation files('libs\\razorpay-upi-intent-sdk.jar')
+
 }
 
 apply plugin: 'com.google.gms.google-services'

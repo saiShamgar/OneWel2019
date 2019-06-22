@@ -7,12 +7,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +38,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import com.razorpay.Razorpay;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.sql.Ref;
 import java.util.concurrent.TimeUnit;
@@ -58,6 +63,7 @@ public class OtpActivity extends BaseActivity {
     private Bitmap bitmap;
     private String imageId;
     private String image_path;
+    private PhoneAuthProvider.ForceResendingToken token;
 
 
     @Override
@@ -79,109 +85,65 @@ public class OtpActivity extends BaseActivity {
 
         if (status.contains("promoter")){
             sendVerificationCode(config.readPromoterPhone());
-
-            findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String code = editTextCode.getText().toString().trim();
-                    if (code.isEmpty() || code.length() < 6) {
-                        editTextCode.setError("Enter valid code");
-                        editTextCode.requestFocus();
-                        return;
-                    }
-
-                    //verifying the code entered manually
-                    verifyVerificationCode(code);
-                }
-            });
-
-            txt_resend_otp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    sendVerificationCode(config.readPromoterPhone());
-                }
-            });
-
         }
         else if (status.contains("ADVERTISER")||status.contains("PROMOTER")||status.contains("CUSTOMER")){
             sendVerificationCode(number);
-
-            findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String code = editTextCode.getText().toString().trim();
-                    if (code.isEmpty() || code.length() < 6) {
-                        editTextCode.setError("Enter valid code");
-                        editTextCode.requestFocus();
-                        return;
-                    }
-
-                    //verifying the code entered manually
-                    verifyVerificationCode(code);
-                }
-            });
-            txt_resend_otp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    sendVerificationCode(number);
-                }
-            });
-
-
         }
 
         else if (status.contains("advertisement")){
             sendVerificationCode(config.readAdvertiserPhone());
 
-            findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String code = editTextCode.getText().toString().trim();
-                    if (code.isEmpty() || code.length() < 6) {
-                        editTextCode.setError("Enter valid code");
-                        editTextCode.requestFocus();
-                        return;
-                    }
-
-                    //verifying the code entered manually
-                    verifyVerificationCode(code);
-                }
-            });
-            txt_resend_otp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    sendVerificationCode(config.readAdvertiserPhone());
-                }
-            });
         }
         else if (status.contains("customer")){
             sendVerificationCode(config.readCustomer_phone());
-
-            findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String code = editTextCode.getText().toString().trim();
-                    if (code.isEmpty() || code.length() < 6) {
-                        editTextCode.setError("Enter valid code");
-                        editTextCode.requestFocus();
-                        return;
-                    }
-
-                    //verifying the code entered manually
-                    verifyVerificationCode(code);
-                }
-            });
-            txt_resend_otp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    sendVerificationCode(config.readCustomer_phone());
-                }
-            });
-
         }
+        findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String code = editTextCode.getText().toString().trim();
+                if (code.isEmpty() || code.length() < 6) {
+                    editTextCode.setError("Enter valid code");
+                    editTextCode.requestFocus();
+                    return;
+                }
+
+                //verifying the code entered manually
+                verifyVerificationCode(code);
+            }
+        });
+
+
+        txt_resend_otp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (status.contains("promoter")){
+                    resendVerificationCode(config.readPromoterPhone(),token);
+
+                }else if (status.contains("ADVERTISER")||status.contains("PROMOTER")||status.contains("CUSTOMER")){
+                    resendVerificationCode(number,token);
+                }
+                else if (status.contains("advertisement")){
+                    resendVerificationCode(config.readAdvertiserPhone(),token);
+                }
+                else if (status.contains("customer")){
+                    resendVerificationCode(config.readCustomer_phone(),token);
+                }
+            }
+        });
+
     }
+
+    private void resendVerificationCode(String phoneNumber,
+                PhoneAuthProvider.ForceResendingToken token) {
+            PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                    phoneNumber,        // Phone number to verify
+                    60,                 // Timeout duration
+                    TimeUnit.SECONDS,   // Unit of timeout
+                    this,               // Activity (for callback binding)
+                    mCallbacks,         // OnVerificationStateChangedCallbacks
+                    token);             // ForceResendingToken from callbacks
+        }
+
 
     private void sendVerificationCode(String readPromoterPhone) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -196,10 +158,9 @@ public class OtpActivity extends BaseActivity {
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-
             //Getting the code sent by SMS
             String code = phoneAuthCredential.getSmsCode();
-
+            saveUserDetails();
             //sometime the code is not detected automatically
             //in this case the code will be null
             //so user has to manually enter the code
@@ -221,9 +182,9 @@ public class OtpActivity extends BaseActivity {
             super.onCodeSent(s, forceResendingToken);
 
             AppUtils.showToast(context,"Code sent");
-
             //storing the verification id that is sent to the user
             mVerificationId = s;
+            token=forceResendingToken;
         }
     };
 
@@ -325,6 +286,7 @@ public class OtpActivity extends BaseActivity {
         }
         else if (status.contains("ADVERTISER")||status.contains("PROMOTER")||status.contains("CUSTOMER")){
             AppUtils.dismissCustomProgress(mCustomProgressDialog);
+
             Intent referenceList=new Intent(OtpActivity.this,ReferenceList.class);
             referenceList.putExtra("number",number);
             referenceList.putExtra("status",status);
@@ -499,5 +461,7 @@ public class OtpActivity extends BaseActivity {
                      });
          }
     }
+
+
 }
 

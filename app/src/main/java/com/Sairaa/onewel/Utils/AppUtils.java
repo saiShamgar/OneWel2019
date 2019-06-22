@@ -117,6 +117,24 @@ public class AppUtils {
     }
 
 
+    public static Dialog customNavigation(Context context){
+        final Dialog dialog_ok_cancel_dialog;
+        dialog_ok_cancel_dialog = new Dialog(context, R.style.custompopup_style);
+        dialog_ok_cancel_dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        dialog_ok_cancel_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        dialog_ok_cancel_dialog.setContentView(R.layout.custom_navigation_view);
+
+        Window window = dialog_ok_cancel_dialog.getWindow();
+        WindowManager.LayoutParams wlp = window.getAttributes();
+        wlp.gravity = Gravity.START;
+        window.setAttributes(wlp);
+        dialog_ok_cancel_dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+
+        dialog_ok_cancel_dialog.show();
+
+        return null;
+    }
+
     public static Dialog showCustomOkCancelDialog(Context context, String title, String message,
                                                   String positiveBtnTxt,
                                                   String negativeBtnTxt,
