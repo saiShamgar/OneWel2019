@@ -1284,6 +1284,209 @@
 		<item>West Siang</item>
 	</string-array>
 	
+	<string-array name="profission_array">
+		<item>- Select -</item>
+		<item>Abattoir worker</item>
+		<item>Aboriginal and Torres Strait Islander health worker</item>
+		<item>Accountant (general)</item>
+		<item>Accounts clerk</item>
+		<item>Actor</item>
+		<item>Actuary</item>
+		<item>Acupuncturist</item>
+		<item>Advertising specialist</item>
+		<item>Aeronautical engineer</item>
+		<item>Aeroplane pilot</item>
+		<item>Aged care worker</item>
+		<item>Agricultural consultant</item>
+		<item>Agricultural engineer</item>
+		<item>Agricultural scientist</item>
+		<item>Air combat officer</item>
+		<item>Air force - general entrant</item>
+		<item>Air force technician/tradesperson</item>
+		<item>Air traffic controller</item>
+		<item>Air-conditioning and refrigeration mechanic</item>
+		<item>Aircraft baggage handler and airline ground crew</item>
+		<item>Aircraft maintenance engineer (avionics)</item>
+		<item>Aircraft maintenance engineer (mechanical)</item>
+		<item>Aircraft maintenance engineer (structural)</item>
+		<item>Alarm, security or surveillance monitor</item>
+		<item>Ambulance officer</item>
+		<item>Anaesthetist</item>
+		<item>Animal attendants and trainers</item>
+		<item>Aquaculture farmer</item>
+		<item>Arborist</item>
+		<item>Archaeologist</item>
+		<item>Architect</item>
+		<item>Architectural draftsperson</item>
+		<item>Archivist</item>
+		<item>Army officer</item>
+		<item>Army Soldier - Technician</item>
+		<item>Art director (film, television, stage)</item>
+		<item>Art teacher</item>
+		<item>Auctioneer</item>
+		<item>Audiologist</item>
+		<item>Audiovisual technician</item>
+		<item>Auditor (external and internal)</item>
+		<item>Author</item>
+		<item>Automotive electrician</item>
+		<item>Baker</item>
+		<item>Bank worker</item>
+		<item>Bar attendant</item>
+		<item>Barista</item>
+		<item>Barrister</item>
+		<item>Beauty therapist</item>
+		<item>Beef cattle farmer</item>
+		<item>Bicycle mechanic</item>
+		<item>Binder and finisher</item>
+		<item>Biomedical engineer</item>
+		<item>Biosecurity officer</item>
+		<item>Biotechnologist</item>
+		<item>Boat builder and repairer</item>
+		<item>Body artist or tattooist</item>
+		<item>Boiler or engine operator</item>
+		<item>Book or script editor</item>
+		<item>Bookkeeper</item>
+		<item>Bookmaker</item>
+		<item>Botanist</item>
+		<item>Brewer</item>
+		<item>Bricklayer</item>
+		<item>Broadcast transmitter operator</item>
+		<item>Builder's Labourer</item>
+		<item>Building insulation installer</item>
+		<item>Building surveyor</item>
+		<item>Bus driver</item>
+		<item>Business machine mechanic</item>
+		<item>Butcher or smallgoods maker</item>
+		<item>Cabinetmaker</item>
+		<item>Cafe or restaurant manager</item>
+		<item>Call or contact centre operator</item>
+		<item>Call or contact centre team leader</item>
+		<item>Camera operator (film, television or video)</item>
+		<item>Canvas goods fabricator</item>
+		<item>Car park attendant</item>
+		<item>Cardiologist</item>
+		<item>Cardiothoracic surgeon</item>
+		<item>Careers counsellor</item>
+		<item>Carpenter</item>
+		<item>Cartographer</item>
+		<item>Chef</item>
+		<item>Chemical engineer</item>
+		<item>Chemist</item>
+		<item>Chief executive or managing director</item>
+		<item>Child care centre manager</item>
+		<item>Child protection worker</item>
+		<item>Chiropractor</item>
+		<item>Cinema or theatre manager</item>
+		<item>Civil celebrant</item>
+		<item>Civil engineer</item>
+		<item>Civil engineering draftsperson</item>
+		<item>Civil engineering technician</item>
+		<item>Clay, concrete, glass or stone machine operator</item>
+		<item>Clinical haematologist</item>
+		<item>Clinical psychologist</item>
+		<item>Clothing production worker</item>
+		<item>Coastal engineer</item>
+		<item>Commercial cleaner</item>
+		<item>Commercial housekeeper (hotel/motel room attendant)</item>
+		<item>Commodities trader</item>
+		<item>Communications operator</item>
+		<item>Community corrections officer</item>
+		<item>Community worker</item>
+		<item>Computer engineer</item>
+		<item>Computer-aided design (CAD) technician</item>
+		<item>Concierge</item>
+		<item>Concreter</item>
+		<item>Confectionery maker</item>
+		<item>Conference and event organiser</item>
+		<item>Conservation Officer</item>
+		<item>Conservator</item>
+		<item>Construction estimator</item>
+		<item>Construction project manager</item>
+		<item>Construction rigger</item>
+		<item>Contract Administrator</item>
+		<item>Cook</item>
+		<item>Copywriter</item>
+		<item>Corporate general manager</item>
+		<item>Counsellor</item>
+		<item>Court bailiff or sheriff (Aus)</item>
+		<item>Coxswain</item>
+		<item>Crane chaser (dogger)</item>
+		<item>Crane, hoist or lift operator</item>
+		<item>Customer service manager</item>
+		<item>Customs officer (Border Force officer)</item>
+		<item>Dairy cattle farmer</item>
+		<item>Dancer or choreographer</item>
+		<item>Debt collector</item>
+		<item>Deck hand</item>
+		<item>Delivery driver</item>
+		<item>Dental assistant</item>
+		<item>Dental hygienist</item>
+		<item>Dental specialist</item>
+		<item>Dental technician</item>
+		<item>Dental therapist</item>
+		<item>Dentist</item>
+		<item>Dermatologist</item>
+		<item>Developer programmerc</item>
+		<item>Diesel motor mechanic</item>
+		<item>Dietitian</item>
+		<item>Director (film, television, radio or stage)</item>
+		<item>Disability services officer</item>
+		<item>Disability worker</item>
+		<item>Diver</item>
+		<item>Diversional therapist</item>
+		<item>Dog handler or trainer</item>
+		<item>Domestic cleaner</item>
+		<item>Doorperson or luggage porter</item>
+		<item>Driller</item>
+		<item>Drilling engineer</item>
+		<item>Driving instructor</item>
+		<item>Drug and alcohol counsellor</item>
+		<item>Drycleaner</item>
+		<item>Early childhood (pre-primary school) teacher</item>
+		<item>Early childhood educator</item>
+		<item>Earth science technician</item>
+		<item>Earthmoving plant operator</item>
+		<item>Economist</item>
+		<item>Electorate officer</item>
+		<item>Electrical engineer</item>
+		<item>Electrical engineering draftsperson</item>
+		<item>Electrical engineering technician</item>
+		<item>Electrical linesworker (Aus)</item>
+		<item>Electrician (general)</item>
+		<item>Electronic engineering technician</item>
+		<item>Electronic equipment trades worker</item>
+		<item>Electronic instrument trades worker (general)</item>
+		<item>Electronics engineer</item>
+		<item>Electroplater</item>
+		<item>Embalmer</item>
+		<item>Emergency medicine specialist</item>
+		<item>Endocrinologist</item>
+		<item>Engineering manager</item>
+		<item>Engineering patternmaker</item>
+		<item>Engraver</item>
+		<item>Enrolled nurse</item>
+		<item>Entertainer or variety artist</item>
+		<item>Entrepreneur</item>
+		<item>Environmental consultant</item>
+		<item>Environmental engineer</item>
+		<item>Environmental health officer</item>
+		<item>Environmental manager</item>
+		<item>Environmental research scientist</item>
+		<item>Exercise scientist</item>
+	</string-array>
+	
+	<string-array name="study_array">
+		<item>- Select -</item>
+		<item>10th </item>
+		<item>Inter</item>
+		<item>Degree</item>
+		<item>Diploma</item>
+		<item>B.Tech</item>
+		<item>M.Tech</item>
+		<item></item>
+		<item></item>
+	</string-array>
+	
 	
 	<string-array name="Assam">
 		<item>- Select -</item>
