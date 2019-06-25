@@ -60,7 +60,7 @@
 	</string-array>
 	
 	<string-array name="feet_array">
-		<item>- Select -</item>
+		<item>Feet</item>
 		<item>3 Feet</item>
 		<item>4 Feet</item>
 		<item>5 Feet</item>
@@ -68,7 +68,7 @@
 	</string-array>
 	
 	<string-array name="inches_array">
-		<item>- Select -</item>
+		<item>Inch</item>
 		<item>0 Inch</item>
 		<item>1 Inch</item>
 		<item>2 Inch</item>
@@ -180,6 +180,34 @@
 		<item>Tamil</item>
 		<item>Urdu</item>
 		<item>Bengali</item>
+	</string-array>
+	
+	<string-array name="annual_income">
+		<item>- Select -</item>
+		<item>Below 1 Lakh</item>
+		<item>1 Lakh to 2 Lakh</item>
+		<item>2 Lakh to 3 Lakh</item>
+		<item>3 Lakh to 5 Lakh</item>
+		<item>5 Lakh to 7 Lakh</item>
+		<item>7 Lakh to 10 Lakh</item>
+		<item>10 Lakh to 12 Lakh </item>
+		<item>12 Lakh to 15 Lakh</item>
+		<item>Above 15 Lakh</item>
+	</string-array>
+	
+	<string-array name="qualification">
+		<item>- Select -</item>
+		<item>Illiterate</item>
+		<item>10th/SSC</item>
+		<item>10+2/Inter</item>
+		<item>B.Tech</item>
+		<item>CA</item>
+		<item>Diploma</item>
+		<item>Degree</item>
+		<item>MBA</item>
+		<item>M.Tech</item>
+		<item>Graduation</item>
+		<item>Post Graduation</item>
 	</string-array>
 	<string-array name="hindi_hindu_castes">
 		<item>- Select -</item>
@@ -1351,7 +1379,7 @@
 		<item>Brewer</item>
 		<item>Bricklayer</item>
 		<item>Broadcast transmitter operator</item>
-		<item>Builder's Labourer</item>
+		<item>Builders Labourer</item>
 		<item>Building insulation installer</item>
 		<item>Building surveyor</item>
 		<item>Bus driver</item>
@@ -1473,6 +1501,379 @@
 		<item>Environmental manager</item>
 		<item>Environmental research scientist</item>
 		<item>Exercise scientist</item>
+		<item>Facilities manager</item>
+		<item>Farm manager</item>
+		<item>Fashion designer</item>
+		<item>Fast food cook</item>
+		<item>Fibrous plasterer</item>
+		<item>Film and video producer</item>
+		<item>Finance broker</item>
+		<item>Financial institution branch manager</item>
+		<item>Financial investment adviser</item>
+		<item>Financial investment manager</item>
+		<item>Fire fighter</item>
+		<item>Fisheries officer</item>
+		<item>Fishing hand</item>
+		<item>Fitness instructor</item>
+		<item>Fleet manager</item>
+		<item>Flight attendant</item>
+		<item>Floor finisher</item>
+		<item>Florist</item>
+		<item>Flying instructor</item>
+		<item>Food processing worker</item>
+		<item>Food technologist</item>
+		<item>Forensic scientist</item>
+		<item>Forester (Aus)</item>
+		<item>Forklift driver</item>
+		<item>Fruit and vegetable picker</item>
+		<item>Funeral director</item>
+		<item>Furniture finisher</item>
+		<item>Furniture removalist</item>
+		<item>Gallery or museum curator</item>
+		<item>Gallery or museum guide</item>
+		<item>Gallery or museum technician</item>
+		<item>Game developer</item>
+		<item>Gaming worker</item>
+		<item>Gardener (general)</item>
+		<item>Gasfitter</item>
+		<item>Gastroenterologist</item>
+		<item>General clerk</item>
+		<item>General medical practitioner</item>
+		<item>Geologist</item>
+		<item>Geophysicist</item>
+		<item>Geotechnical engineer</item>
+		<item>Glazier</item>
+		<item>Goldsmith</item>
+		<item>Grain oilseed or pasture grower</item>
+		<item>Grape grower</item>
+		<item>Graphic designer</item>
+		<item>Graphic pre-press trades worker</item>
+		<item>Greenkeeper</item>
+		<item>Gunsmith</item>
+		<item>Gynaecologist</item>
+		<item>Hair or beauty salon manager</item>
+		<item>Hairdresser</item>
+		<item>Handyperson</item>
+		<item>Health information manager</item>
+		<item>Health promotion officer</item>
+		<item>Helicopter pilot</item>
+		<item>Historian</item>
+		<item>Horse trainer</item>
+		<item>Hospital pharmacist</item>
+		<item>Hotel or motel manager</item>
+		<item>Human resource adviser</item>
+		<item>Human resource manager</item>
+		<item>Hydrologist</item>
+		<item>ICT business analyst</item>
+		<item>ICT project manager</item>
+		<item>ICT security specialist</item>
+		<item>Immigration officer (Border Force officer)</item>
+		<item>ICT support technician</item>
+		<item>ICT systems test engineer</item>
+		<item>Industrial designer</item>
+		<item>Industrial engineer</item>
+		<item>Industrial pharmacist</item>
+		<item>Information technology administrator</item>
+		<item>Insurance agent</item>
+		<item>Insurance broker</item>
+		<item>Intelligence officer</item>
+		<item>Intensive care specialist</item>
+		<item>Interior designer</item>
+		<item>Interpreter</item>
+		<item>Jackeroo/Jillaroo</item>
+		<item>Jewellery designer</item>
+		<item>Jockey</item>
+		<item>Joiner</item>
+		<item>Journalist</item>
+		<item>Judge</item>
+		<item>Kitchenhand</item>
+		<item>Laboratory manager</item>
+		<item>Laboratory technician</item>
+		<item>Landscape architect</item>
+		<item>Landscape gardener</item>
+		<item>Laundry worker (general)</item>
+		<item>Law clerk</item>
+		<item>Legal secretary</item>
+		<item>Librarian</item>
+		<item>Library assistant</item>
+		<item>Library technician</item>
+		<item>Lifeguard</item>
+		<item>Lift mechanic</item>
+		<item>Light technician</item>
+		<item>Locksmith</item>
+		<item>Logistics clerk</item>
+		<item>Machine shorthand reporter</item>
+		<item>Maintenance planner</item>
+		<item>Make up artist</item>
+		<item>Marine biologist</item>
+		<item>Marine fabricator</item>
+		<item>Marine surveyor</item>
+		<item>Market research analyst</item>
+		<item>Marketing specialist</item>
+		<item>Massage therapist</item>
+		<item>Master fisher</item>
+		<item>Materials engineer</item>
+		<item>Materials recycler</item>
+		<item>Materials technician</item>
+		<item>Mathematician</item>
+		<item>Meat inspector</item>
+		<item>Mechanical engineer</item>
+		<item>Mechanical engineering draftsperson</item>
+		<item>Mechanical engineering technician</item>
+		<item>Mechanical fitter</item>
+		<item>Mechatronic engineer</item>
+		<item>Medical administrator</item>
+		<item>Medical diagnostic radiographer</item>
+		<item>Medical laboratory scientist</item>
+		<item>Medical oncologist</item>
+		<item>Medical radiation therapist</item>
+		<item>Medical receptionist</item>
+		<item>Member of parliament</item>
+		<item>Mental health worker</item>
+		<item>Metal engineering process worker</item>
+		<item>Metal fabricator</item>
+		<item>Metal machinist (first class)</item>
+		<item>Metallurgist</item>
+		<item>Meteorologist</item>
+		<item>Meter reader</item>
+		<item>Microbiologist</item>
+		<item>Midwife</item>
+		<item>Migration agent (Aus)</item>
+		<item>Milliner</item>
+		<item>Miner</item>
+		<item>Mining engineer (excluding petroleum)</item>
+		<item>Mining production manager</item>
+		<item>Mining support worker</item>
+		<item>Minister of religion</item>
+		<item>Mixed crop and livestock farm worker</item>
+		<item>Model</item>
+		<item>Mortgage broker</item>
+		<item>Mothercraft nurse</item>
+		<item>Motion picture projectionist</item>
+		<item>Motor mechanic (general)</item>
+		<item>Motorcycle mechanic</item>
+		<item>Multimedia specialist</item>
+		<item>Music teacher (private tuition)</item>
+		<item>Musician (instrumental)</item>
+		<item>Nanny</item>
+		<item>Naturopath</item>
+		<item>Naval architect</item>
+		<item>Navy sailor</item>
+		<item>Navy technician</item>
+		<item>Network administrator</item>
+		<item>Network engineer</item>
+		<item>Neurologist</item>
+		<item>Neurosurgeon</item>
+		<item>Nuclear medicine technologist</item>
+		<item>Nurse educator</item>
+		<item>Nurse manager</item>
+		<item>Nurse practitioner</item>
+		<item>Nurseryperson</item>
+		<item>Nursing clinical director</item>
+		<item>Nursing support worker</item>
+		<item>Nutritionist</item>
+		<item>Obstetrician</item>
+		<item>Occupational health and safety adviser</item>
+		<item>Occupational therapist</item>
+		<item>Office manager</item>
+		<item>Offset printer</item>
+		<item>Ophthalmologist</item>
+		<item>Optical mechanic</item>
+		<item>Optometrist</item>
+		<item>Orthopaedic surgeon</item>
+		<item>Orthoptist</item>
+		<item>Orthotist or prosthetist</item>
+		<item>Osteopath</item>
+		<item>Otorhinolaryngologist</item>
+		<item>Outdoor adventure instructor</item>
+		<item>Paediatric surgeon</item>
+		<item>Paediatrician</item>
+		<item>Painting trades worker</item>
+		<item>Panelbeater</item>
+		<item>Park ranger</item>
+		<item>Parking inspector</item>
+		<item>Pastrycook</item>
+		<item>Pathologist</item>
+		<item>Patient care assistant</item>
+		<item>Payroll clerk</item>
+		<item>Personal assistant</item>
+		<item>Pest controller</item>
+		<item>Pet groomer</item>
+		<item>Petroleum engineer</item>
+		<item>Petrophysicist</item>
+		<item>Pharmacist</item>
+		<item>Pharmacologist</item>
+		<item>Pharmacy technician</item>
+		<item>Photographer</item>
+		<item>Photographers assistant</item>
+		<item>Physical education (PE) teacher</item>
+		<item>Physicist</item>
+		<item>Physiotherapist</item>
+		<item>Picture framer</item>
+		<item>Plant mechanic</item>
+		<item>Plastic and reconstructive surgeon</item>
+		<item>Plastics technician</item>
+		<item>Plumber (general)</item>
+		<item>Podiatrist</item>
+		<item>Police officer</item>
+		<item>Policy analyst</item>
+		<item>Political scientist</item>
+		<item>Polymer factory worker</item>
+		<item>Postal delivery officer</item>
+		<item>Powder coater (spray painter)</item>
+		<item>Power generation plant operator</item>
+		<item>Precision instrument maker and repairer</item>
+		<item>Primary school teacher</item>
+		<item>Printing machinist</item>
+		<item>Prison officer</item>
+		<item>Private investigator</item>
+		<item>Process engineer (Mining Engineer)</item>
+		<item>Process plant operator</item>
+		<item>Product examiner</item>
+		<item>Production manager (manufacturing)</item>
+		<item>Production or plant engineer</item>
+		<item>Project builder</item>
+		<item>Project or program administrator</item>
+		<item>Prop and scenery maker</item>
+		<item>Property developer</item>
+		<item>Property manager</item>
+		<item>Psychiatrist</item>
+		<item>Psychologist</item>
+		<item>Public relations professional</item>
+		<item>Publisher</item>
+		<item>Quantity Surveyor</item>
+		<item>Radiation oncologist</item>
+		<item>Radio presenter</item>
+		<item>Radio producer</item>
+		<item>Radiologist</item>
+		<item>Railway track worker</item>
+		<item>Real estate representative</item>
+		<item>Records manager</item>
+		<item>Recreation officer (Aus)</item>
+		<item>Recruitment consultant</item>
+		<item>Recycling or rubbish collector</item>
+		<item>Registered nurse (community health)</item>
+		<item>Registered nurse (mental health)</item>
+		<item>Registered nurse (overview)</item>
+		<item>Renal medicine specialist</item>
+		<item>Resident medical officer</item>
+		<item>Retail buyer</item>
+		<item>Retail manager (general)</item>
+		<item>Retirement village manager</item>
+		<item>Rheumatologist</item>
+		<item>Road worker</item>
+		<item>Roof plumber</item>
+		<item>Roof tiler</item>
+		<item>Safety inspector</item>
+		<item>Sales and marketing manager</item>
+		<item>Sales assistant (general)</item>
+		<item>Sales representative</item>
+		<item>Saw maker and repairer</item>
+		<item>Sawmill or timber yard worker</item>
+		<item>Scaffolder</item>
+		<item>School principal</item>
+		<item>Screen printer</item>
+		<item>Seafood process worker</item>
+		<item>Secondary school teacher</item>
+		<item>Security officer</item>
+		<item>Security systems installer</item>
+		<item>Set designer</item>
+		<item>Settlement agent</item>
+		<item>Shearer</item>
+		<item>Sheep farmer</item>
+		<item>Sheetmetal trades worker</item>
+		<item>Shelf filler</item>
+		<item>Ships engineer</item>
+		<item>Ships master</item>
+		<item>Ships officer</item>
+		<item>Shoe repairer</item>
+		<item>Shotfirer</item>
+		<item>Signwriter</item>
+		<item>Silversmith</item>
+		<item>Social worker</item>
+		<item>Soil scientist</item>
+		<item>Soldier</item>
+		<item>Solicitor</item>
+		<item>Solid plasterer</item>
+		<item>Sonographer</item>
+		<item>Sound technician</item>
+		<item>Special needs teacher</item>
+		<item>Speech pathologist (Aus)</item>
+		<item>Sports administrator</item>
+		<item>Sports coach or instructor</item>
+		<item>Sports development officer</item>
+		<item>Sportsperson</item>
+		<item>Statistician</item>
+		<item>Steel fixer</item>
+		<item>Stockbroking dealer</item>
+		<item>Stonemason</item>
+		<item>Storeperson</item>
+		<item>Streetsweeper operator</item>
+		<item>Structural engineer</item>
+		<item>Stunt performer</item>
+		<item>Supply and distribution manager</item>
+		<item>Surgeon (general)</item>
+		<item>Surveyor</item>
+		<item>Surveyors assistant</item>
+		<item>Systems administrator</item>
+		<item>Systems analyst</item>
+		<item>Talent agent</item>
+		<item>Taxi driver</item>
+		<item>Teacher of the deaf and hard-of hearing</item>
+		<item>Teacher of the vision impaired</item>
+		<item>Teachers aide</item>
+		<item>Technical cable jointer</item>
+		<item>Telecommunications engineer</item>
+		<item>Textile production worker</item>
+		<item>Textile, clothing and footwear mechanic</item>
+		<item>Thoracic medicine specialist</item>
+		<item>Ticket collector or usher</item>
+		<item>Tool pusher</item>
+		<item>Tour guide</item>
+		<item>Tourist information officer</item>
+		<item>Trade union official</item>
+		<item>Train controller</item>
+		<item>Train driver</item>
+		<item>Training and development professional</item>
+		<item>Transit officer</item>
+		<item>Translator</item>
+		<item>Transport company manager</item>
+		<item>Transport engineer</item>
+		<item>Travel consultant</item>
+		<item>Tree faller</item>
+		<item>Truck driver (general)</item>
+		<item>Turf grower</item>
+		<item>Tyre fitter</item>
+		<item>University lecturer</item>
+		<item>Upholsterer</item>
+		<item>Urban and regional planner</item>
+		<item>Urologist</item>
+		<item>Valuer</item>
+		<item>Vascular surgeon</item>
+		<item>Vehicle body builder</item>
+		<item>Veterinarian</item>
+		<item>Veterinary nurse</item>
+		<item>Video editor</item>
+		<item>Vineyard worker</item>
+		<item>Visual arts and crafts professional</item>
+		<item>Visual merchandiser</item>
+		<item>Vocational Education and Training (VET) lecturer</item>
+		<item>Waiter</item>
+		<item>Wall and floor tiler</item>
+		<item>Warehouse administrator</item>
+		<item>Waste water or water plant operator</item>
+		<item>Watch and clock maker and repairer</item>
+		<item>Water inspector</item>
+		<item>Waterside worker</item>
+		<item>Web designer</item>
+		<item>Weight loss consultant</item>
+		<item>Welder (first class) (Aus)</item>
+		<item>Welfare centre manager</item>
+		<item>Welfare worker</item>
+		<item>Wine maker</item>
+		<item>Wood machinist</item>
+		<item>Wood turner</item>
+		<item>Wool classer</item>
 	</string-array>
 	
 	<string-array name="study_array">

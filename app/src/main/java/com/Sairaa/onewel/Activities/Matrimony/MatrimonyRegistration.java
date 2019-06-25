@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.*;
 import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.R;
+import com.Sairaa.onewel.Utils.AppUtils;
 
 import java.util.ArrayList;
 
@@ -16,11 +17,18 @@ public class MatrimonyRegistration extends BaseActivity  {
     private EditText edt_mat_reg_name,edt_mat_reg_surname,edt_mat_reg_phone_num,edt_mat_reg_city,edt_mat_reg_gothra;
     private RadioGroup edt_mat_reg_gender,edt_mat_reg_marital_status,edt_mat_reg_physical_status,edt_mat_reg_eating,edt_mat_reg_drinking,edt_mat_reg_smoking;
     private Spinner edt_mat_reg_age,edt_mat_reg_height_in_feet,edt_mat_reg_heightin_inch,edt_mat_reg_religion,edt_mat_reg_mother_tongue,
-             edt_mat_reg_caste_devision,edt_mat_reg_highest_study,edt_mat_reg_occupation,edt_mat_reg_annual_income,edt_mat_reg_country
+             edt_mat_reg_caste_devision,edt_mat_reg_highest_study,edt_mat_reg_annual_income,edt_mat_reg_country
             ,edt_mat_reg_state,edt_mat_reg_district,edt_mat_reg_rashi,edt_mat_reg_star;
+    private AutoCompleteTextView edt_mat_reg_occupation;
+    private Button saveMatrimonyDetails;
+    private RadioButton gender_male,gender_female,radio_single,radio_divorced,radio_widowed,
+            radio_separated,radio_normal,radio_physically_cahllenged,radio_all,radio_veg,radio_non_veg,radio_non_drinker
+            ,radio_light_drinker,radio_heavy_drinker,radio_non_smoker,radio_light_smoker,radio_heavy_smoker;
 
     private Context context;
-    private String religion,motherTongue,state;
+    private String religion,motherTongue,state,age,height_in_feet,height_in_inch,
+            caste,study,income,country,district,rashi,nakshitram;
+    private boolean validate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +62,24 @@ public class MatrimonyRegistration extends BaseActivity  {
         edt_mat_reg_rashi=findViewById(R.id.edt_mat_reg_rashi);
         edt_mat_reg_star=findViewById(R.id.edt_mat_reg_star);
         edt_mat_reg_gothra=findViewById(R.id.edt_mat_reg_gothra);
+        saveMatrimonyDetails=findViewById(R.id.saveMatrimonyDetails);
+        gender_male=findViewById(R.id.gender_male);
+        gender_female=findViewById(R.id.gender_female);
+        radio_single=findViewById(R.id.radio_single);
+        radio_divorced=findViewById(R.id.radio_divorced);
+        radio_widowed=findViewById(R.id.radio_widowed);
+        radio_separated=findViewById(R.id.radio_separated);
+        radio_normal=findViewById(R.id.radio_normal);
+        radio_physically_cahllenged=findViewById(R.id.radio_physically_cahllenged);
+        radio_non_drinker=findViewById(R.id.radio_non_drinker);
+        radio_light_drinker=findViewById(R.id.radio_light_drinker);
+        radio_heavy_drinker=findViewById(R.id.radio_heavy_drinker);
+        radio_all=findViewById(R.id.radio_all);
+        radio_non_veg=findViewById(R.id.radio_non_veg);
+        radio_veg=findViewById(R.id.radio_veg);
+        radio_non_smoker=findViewById(R.id.radio_non_smoker);
+        radio_light_smoker=findViewById(R.id.radio_light_smoker);
+        radio_heavy_smoker=findViewById(R.id.radio_heavy_smoker);
 
         SetAdapter(edt_mat_reg_religion,getResources().getStringArray(R.array.religion_array));
         SetAdapter(edt_mat_reg_mother_tongue,getResources().getStringArray(R.array.mother_tongue_hindu));
@@ -64,7 +90,137 @@ public class MatrimonyRegistration extends BaseActivity  {
         SetAdapter(edt_mat_reg_age,getResources().getStringArray(R.array.age_array));
         SetAdapter(edt_mat_reg_height_in_feet,getResources().getStringArray(R.array.feet_array));
         SetAdapter(edt_mat_reg_heightin_inch,getResources().getStringArray(R.array.inches_array));
+        SetAdapter(edt_mat_reg_highest_study,getResources().getStringArray(R.array.qualification));
+        SetAdapter(edt_mat_reg_annual_income,getResources().getStringArray(R.array.annual_income));
 
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this, R.layout.show_count,
+                getResources().getStringArray(R.array.profission_array));
+
+        // textView = (AutoCompleteTextView) v.findViewById(R.id.txtViewNames);
+        edt_mat_reg_occupation.setAdapter(arrayAdapter);
+        edt_mat_reg_occupation.setThreshold(2);
+        edt_mat_reg_occupation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View arg0) {
+                edt_mat_reg_occupation.showDropDown();
+            }
+        });
+
+        saveMatrimonyDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (doValidation()){
+
+                }
+            }
+        });
+
+        edt_mat_reg_rashi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                rashi=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        edt_mat_reg_star.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                nakshitram=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        edt_mat_reg_district.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                district=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        edt_mat_reg_annual_income.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                income=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        edt_mat_reg_highest_study.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                study=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        edt_mat_reg_age.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int i, long l) {
+                age=parent.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        edt_mat_reg_height_in_feet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                height_in_feet=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        edt_mat_reg_heightin_inch.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                height_in_inch=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        edt_mat_reg_country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                country=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         edt_mat_reg_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -269,7 +425,108 @@ public class MatrimonyRegistration extends BaseActivity  {
             }
         });
 
+        edt_mat_reg_caste_devision.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                caste=adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         //radioGroupSelectedText(edt_mat_reg_gender);
+    }
+
+    boolean doValidation() {
+        validate = true;
+
+        if (edt_mat_reg_name.getText().toString().trim().length() == 0) {
+            validate = false;
+            edt_mat_reg_name.setError("Enter Name");
+            edt_mat_reg_name.requestFocus();
+
+        }else if (edt_mat_reg_phone_num.getText().toString().trim().length() != 10 ) {
+            validate = false;
+            edt_mat_reg_phone_num.requestFocus();
+            edt_mat_reg_phone_num.setError("Enter correct Phone number");
+
+        }else if (edt_mat_reg_surname.getText().toString().trim().length() == 0) {
+            validate = false;
+            edt_mat_reg_surname.requestFocus();
+            edt_mat_reg_surname.setError("Enter Address");
+
+        }else if (!gender_male.isChecked() && !gender_female.isChecked()){
+            validate = false;
+            AppUtils.showToast(context,"Please select gender");
+        }else if (age.contains("- Select -")){
+            validate = false;
+            AppUtils.showToast(context,"Please select age");
+        } else if (height_in_feet.equalsIgnoreCase("Feet")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Height in Feet");
+        } else if (height_in_inch.equalsIgnoreCase("Inch")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Height in Inch");
+        }else if (!radio_single.isChecked() && !radio_divorced.isChecked() && !radio_separated.isChecked() && !radio_widowed.isChecked()){
+            validate = false;
+            AppUtils.showToast(context,"Please select Marital status");
+        }else if (religion.contains("- Select -")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Religion");
+        }else if (motherTongue.contains("- Select -")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Mother Tongue");
+        }else if (caste.contains("- Select -")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Caste");
+        }else if (!radio_normal.isChecked() && !radio_physically_cahllenged.isChecked()){
+            validate = false;
+            AppUtils.showToast(context,"Please select Physical Status");
+        }else if (study.contains("- Select -")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Qualification");
+        }else if (edt_mat_reg_occupation.getText().toString().length()==0){
+            validate = false;
+            AppUtils.showToast(context,"Please select Profession");
+        }else if (income.contains("- Select -")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Annual Income");
+        }else if (state.contains("- Select -")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Your State");
+        }else if (district.contains("- Select -")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Your District");
+        }else if (edt_mat_reg_city.getText().toString().length()==0){
+            validate = false;
+            edt_mat_reg_city.requestFocus();
+            edt_mat_reg_city.setError("Enter City/Area");
+        }else if (rashi.contains("- Select -")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Your Rashi");
+        }else if (nakshitram.contains("- Select -")){
+            validate = false;
+            AppUtils.showToast(context,"Please select Your Nakshatram");
+        }else if (edt_mat_reg_gothra.getText().toString().trim().length() == 0) {
+            validate = false;
+            edt_mat_reg_gothra.requestFocus();
+            edt_mat_reg_gothra.setError("Enter Gothram");
+
+        }else if (!radio_all.isChecked() && !radio_non_veg.isChecked() && !radio_veg.isChecked()){
+            validate = false;
+            AppUtils.showToast(context,"Please select Your Eating Habit");
+        }else if (!radio_non_drinker.isChecked() && !radio_light_drinker.isChecked() && !radio_heavy_drinker.isChecked()){
+            validate = false;
+            AppUtils.showToast(context,"Please select Your Drinking Habit");
+        }else if (!radio_non_smoker.isChecked() && !radio_light_smoker.isChecked() && !radio_heavy_smoker.isChecked()){
+            validate = false;
+            AppUtils.showToast(context,"Please select Your Smoking Habit");
+        }
+
+        return validate;
     }
     private String radioGroupSelectedText(RadioGroup id){
         int radioButtonID = id.getCheckedRadioButtonId();
@@ -285,4 +542,5 @@ public class MatrimonyRegistration extends BaseActivity  {
        ArrayAdapter countAdapter = new ArrayAdapter<String>(context, R.layout.show_count, stringArray);
         edt_mat_reg_caste_devision.setAdapter(countAdapter);
     }
+
 }
