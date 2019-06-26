@@ -23,6 +23,7 @@ import com.Sairaa.onewel.Activities.Promoter.PromoterRegistrationSuccess;
 import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.Model.Advertisement.AdvertisementDetails;
 import com.Sairaa.onewel.Model.Customer.CustomerDetails;
+import com.Sairaa.onewel.Model.MatrimonyInsertionData;
 import com.Sairaa.onewel.Model.promoter.PromoterPersonalDetails;
 import com.Sairaa.onewel.R;
 import com.Sairaa.onewel.Utils.AppUtils;
@@ -48,6 +49,7 @@ import java.util.concurrent.TimeUnit;
 public class OtpActivity extends BaseActivity {
 
     private String mVerificationId;
+    private MatrimonyInsertionData insertionData;
 
     //The edittext to input the code
     private EditText editTextCode;
@@ -78,6 +80,7 @@ public class OtpActivity extends BaseActivity {
 
         status=getIntent().getExtras().getString("status");
         number=getIntent().getExtras().getString("number");
+        insertionData=(MatrimonyInsertionData) getIntent().getSerializableExtra("reg_data");
 
         editTextCode = findViewById(R.id.edt_verify_otp);
         txt_resend_otp = findViewById(R.id.txt_resend_otp);
@@ -96,6 +99,8 @@ public class OtpActivity extends BaseActivity {
         }
         else if (status.contains("customer")){
             sendVerificationCode(config.readCustomer_phone());
+        }else if (status.contains("Matrimony")){
+            sendVerificationCode(number);
         }
         findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +132,8 @@ public class OtpActivity extends BaseActivity {
                 }
                 else if (status.contains("customer")){
                     resendVerificationCode(config.readCustomer_phone(),token);
+                }else if (status.contains("Matrimony")){
+                    sendVerificationCode(number);
                 }
             }
         });
@@ -291,7 +298,34 @@ public class OtpActivity extends BaseActivity {
             referenceList.putExtra("number",number);
             referenceList.putExtra("status",status);
             startActivity(referenceList);
+        }else if (status.contains("Matrimony")){
+            if (insertionData!=null){
+                saveMatrimonyData(insertionData);
+
+            }
+
         }
+    }
+
+    private void saveMatrimonyData(MatrimonyInsertionData insertionData) {
+        FirebaseDatabase.getInstance().getReference().child(Contants.MATRIMONY)
+                .child(number)
+                .setValue(insertionData)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                    //verification successful we will start the profile activity
+                    Intent intent = new Intent(OtpActivity.this, PromoterRegistrationSuccess.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                }else {
+                    AppUtils.showToast(context,"Registration Failed");
+                }
+            }
+        });
     }
 
     public Bitmap StringToBitMap(String encodedString){

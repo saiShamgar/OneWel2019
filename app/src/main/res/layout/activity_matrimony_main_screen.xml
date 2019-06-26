@@ -60,10 +60,11 @@
 					android:weightSum="2"
 					android:orientation="horizontal"
 					android:background="@color/color_white"
-					android:padding="@dimen/margin_large">
+					android:padding="@dimen/card_elevation_4dp"
+					android:focusableInTouchMode="true">
 				
 				<AutoCompleteTextView
-						android:id="@+id/main_act_enter_items"
+						android:id="@+id/matrimony_search_items"
 						android:layout_height="@dimen/margin_xxxxxlarge"
 						android:imeOptions="actionNext"
 						android:layout_width="0dp"
@@ -83,8 +84,8 @@
 				</AutoCompleteTextView>
 				
 				<TextView
-						android:id="@+id/main_act_go"
-						android:padding="@dimen/margin_large"
+						android:id="@+id/matrimony_go"
+						android:padding="6dp"
 						android:layout_width="0dp"
 						android:layout_height="wrap_content"
 						android:layout_weight="0.5"

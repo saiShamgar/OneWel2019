@@ -352,4 +352,18 @@ public class SharedPreferenceConfig {
         return url;
     }
 
+    public void writeGoogle_email(String url) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getResources().getString(R.string.Google_email), String.valueOf(url));
+        Log.i("SharedPreferenceWrite: ", "" + url);
+        editor.apply();
+    }
+
+    public String readGoogle_email() {
+        String url;
+        url = sharedPreferences.getString(context.getResources().getString(R.string.Google_email), "no");
+        Log.i("SharedPreferenceRead: ", "" + url);
+        return url;
+    }
+
 }

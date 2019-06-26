@@ -41,6 +41,7 @@
 	<string name="Customer_phone">com.Sairaa.onewel.Utils.Customer_phone</string>
 	<string name="Customer_ref">com.Sairaa.onewel.Utils.Customer_ref</string>
 	<string name="Google_image">com.Sairaa.onewel.Utils.Google_image</string>
+	<string name="Google_email">com.Sairaa.onewel.Utils.Google_email</string>
 	<string name="shop_prompt">Choose a Shop</string>
 	<string-array name="shop_arrays">
 		<item>Choose a Shop</item>
@@ -65,6 +66,45 @@
 		<item>4 Feet</item>
 		<item>5 Feet</item>
 		<item>6 Feet</item>
+	</string-array>
+	
+	<string-array name="matrimony_search">
+		<item>Andaman and Nicobar Islands</item>
+		<item>Andhra Pradesh</item>
+		<item>Arunachal Pradesh</item>
+		<item>Assam</item>
+		<item>Bihar</item>
+		<item>Chandigarh</item>
+		<item>Chhattisgarh</item>
+		<item>Dadra and Nagar Haveli</item>
+		<item>Daman and Diu</item>
+		<item>Delhi</item>
+		<item>Goa</item>
+		<item>Gujarat</item>
+		<item>Haryana</item>
+		<item>Himachal Pradesh</item>
+		<item>Jammu and Kashmir</item>
+		<item>Jharkhand</item>
+		<item>Karnataka</item>
+		<item>Kerala</item>
+		<item>Lakshadweep</item>
+		<item>Madhya Pradesh</item>
+		<item>Maharashtra</item>
+		<item>Manipur</item>
+		<item>Meghalaya</item>
+		<item>Mizoram</item>
+		<item>Nagaland</item>
+		<item>Orissa</item>
+		<item>Pondicherry</item>
+		<item>Punjab</item>
+		<item>Rajasthan</item>
+		<item>Sikkim</item>
+		<item>Tamil Nadu</item>
+		<item>Telangana</item>
+		<item>Tripura</item>
+		<item>Uttaranchal</item>
+		<item>Uttar Pradesh</item>
+		<item>West Bengal</item>
 	</string-array>
 	
 	<string-array name="inches_array">
@@ -1314,6 +1354,7 @@
 	
 	<string-array name="profission_array">
 		<item>- Select -</item>
+		<item>Un Employee</item>
 		<item>Abattoir worker</item>
 		<item>Aboriginal and Torres Strait Islander health worker</item>
 		<item>Accountant (general)</item>
@@ -1407,6 +1448,10 @@
 		<item>Cinema or theatre manager</item>
 		<item>Civil celebrant</item>
 		<item>Civil engineer</item>
+		<item>Lawyer</item>
+		<item>Doctor</item>
+		<item>Tailor</item>
+		<item>House Wife</item>
 		<item>Civil engineering draftsperson</item>
 		<item>Civil engineering technician</item>
 		<item>Clay, concrete, glass or stone machine operator</item>

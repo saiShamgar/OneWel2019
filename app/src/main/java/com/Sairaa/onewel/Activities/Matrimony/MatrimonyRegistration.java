@@ -1,12 +1,16 @@
 package com.Sairaa.onewel.Activities.Matrimony;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+import com.Sairaa.onewel.Activities.OtpActivity;
 import com.Sairaa.onewel.BaseActivity;
+import com.Sairaa.onewel.Model.MatrimonyInsertionData;
 import com.Sairaa.onewel.R;
 import com.Sairaa.onewel.Utils.AppUtils;
 
@@ -112,10 +116,64 @@ public class MatrimonyRegistration extends BaseActivity  {
             }
         });
 
+        edt_mat_reg_father_occupation.setAdapter(arrayAdapter);
+        edt_mat_reg_father_occupation.setThreshold(2);
+        edt_mat_reg_father_occupation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View arg0) {
+                edt_mat_reg_father_occupation.showDropDown();
+            }
+        });
+
+        edt_mat_reg_mother_profession.setAdapter(arrayAdapter);
+        edt_mat_reg_mother_profession.setThreshold(2);
+        edt_mat_reg_mother_profession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View arg0) {
+                edt_mat_reg_mother_profession.showDropDown();
+            }
+        });
+
         saveMatrimonyDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (doValidation()){
+                    MatrimonyInsertionData insertionData=new MatrimonyInsertionData();
+                    insertionData.setName(edt_mat_reg_name.getText().toString());
+                    insertionData.setSurname(edt_mat_reg_surname.getText().toString());
+                    insertionData.setPhone_num(edt_mat_reg_phone_num.getText().toString());
+                    insertionData.setGender(radioGroupSelectedText(edt_mat_reg_gender));
+                    insertionData.setAge(age);
+                    insertionData.setHeight_in_feet(height_in_feet);
+                    insertionData.setHeight_in_inch(height_in_inch);
+                    insertionData.setMarital_status(radioGroupSelectedText(edt_mat_reg_marital_status));
+                    insertionData.setReligion(religion);
+                    insertionData.setMother_tongue(motherTongue);
+                    insertionData.setCaste_division(caste);
+                    insertionData.setPhysical_staus(radioGroupSelectedText(edt_mat_reg_physical_status));
+                    insertionData.setFather_profession(edt_mat_reg_father_occupation.getText().toString());
+                    insertionData.setMother_profession(edt_mat_reg_mother_profession.getText().toString());
+                    insertionData.setSisters(edt_mat_reg_sisters.getText().toString());
+                    insertionData.setBrothers(edt_mat_reg_brothers.getText().toString());
+                    insertionData.setStudy(study);
+                    insertionData.setProfession(edt_mat_reg_occupation.getText().toString());
+                    insertionData.setAnnual_income(income);
+                    insertionData.setCountry(country);
+                    insertionData.setState(state);
+                    insertionData.setDistrict(district);
+                    insertionData.setCity(edt_mat_reg_city.getText().toString());
+                    insertionData.setRashi(rashi);
+                    insertionData.setNakshatra(nakshitram);
+                    insertionData.setGothra(edt_mat_reg_gothra.getText().toString());
+                    insertionData.setEating(radioGroupSelectedText(edt_mat_reg_eating));
+                    insertionData.setDrinking(radioGroupSelectedText(edt_mat_reg_drinking));
+                    insertionData.setSmoking(radioGroupSelectedText(edt_mat_reg_smoking));
+
+                    Intent otpActivity=new Intent(MatrimonyRegistration.this, OtpActivity.class);
+                    otpActivity.putExtra("status","Matrimony");
+                    otpActivity.putExtra("reg_data",insertionData);
+                    otpActivity.putExtra("number",edt_mat_reg_phone_num.getText().toString());
+                    startActivityForResult(otpActivity,100);
 
                 }
             }
@@ -490,6 +548,22 @@ public class MatrimonyRegistration extends BaseActivity  {
         }else if (!radio_normal.isChecked() && !radio_physically_cahllenged.isChecked()){
             validate = false;
             AppUtils.showToast(context,"Please select Physical Status");
+        }else if (edt_mat_reg_father_occupation.getText().toString().length()==0){
+            validate=false;
+            edt_mat_reg_father_occupation.requestFocus();
+            edt_mat_reg_father_occupation.setError("Enter Father Profession");
+        }else if (edt_mat_reg_mother_profession.getText().toString().length()==0){
+            validate=false;
+            edt_mat_reg_mother_profession.requestFocus();
+            edt_mat_reg_mother_profession.setError("Enter Mother Profession");
+        }else if (edt_mat_reg_sisters.getText().toString().length()==0){
+            validate=false;
+            edt_mat_reg_sisters.requestFocus();
+            edt_mat_reg_sisters.setError("Enter No of Sisters");
+        }else if (edt_mat_reg_brothers.getText().toString().length()==0){
+            validate=false;
+            edt_mat_reg_brothers.requestFocus();
+            edt_mat_reg_brothers.setError("Enter No of Brothers");
         }else if (study.contains("- Select -")){
             validate = false;
             AppUtils.showToast(context,"Please select Qualification");
@@ -530,22 +604,6 @@ public class MatrimonyRegistration extends BaseActivity  {
         }else if (!radio_non_smoker.isChecked() && !radio_light_smoker.isChecked() && !radio_heavy_smoker.isChecked()){
             validate = false;
             AppUtils.showToast(context,"Please select Your Smoking Habit");
-        }else if (edt_mat_reg_father_occupation.getText().toString().length()==0){
-            validate=false;
-            edt_mat_reg_father_occupation.requestFocus();
-            edt_mat_reg_father_occupation.setError("Enter Father Profession");
-        }else if (edt_mat_reg_mother_profession.getText().toString().length()==0){
-            validate=false;
-            edt_mat_reg_mother_profession.requestFocus();
-            edt_mat_reg_mother_profession.setError("Enter Mother Profession");
-        }else if (edt_mat_reg_sisters.getText().toString().length()==0){
-            validate=false;
-            edt_mat_reg_sisters.requestFocus();
-            edt_mat_reg_sisters.setError("Enter No of Sisters");
-        }else if (edt_mat_reg_brothers.getText().toString().length()==0){
-            validate=false;
-            edt_mat_reg_brothers.requestFocus();
-            edt_mat_reg_brothers.setError("Enter No of Brothers");
         }
 
         return validate;
@@ -565,4 +623,11 @@ public class MatrimonyRegistration extends BaseActivity  {
         edt_mat_reg_caste_devision.setAdapter(countAdapter);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode==100){
+
+        }
+    }
 }
