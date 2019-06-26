@@ -19,7 +19,8 @@ public class MatrimonyRegistration extends BaseActivity  {
     private Spinner edt_mat_reg_age,edt_mat_reg_height_in_feet,edt_mat_reg_heightin_inch,edt_mat_reg_religion,edt_mat_reg_mother_tongue,
              edt_mat_reg_caste_devision,edt_mat_reg_highest_study,edt_mat_reg_annual_income,edt_mat_reg_country
             ,edt_mat_reg_state,edt_mat_reg_district,edt_mat_reg_rashi,edt_mat_reg_star;
-    private AutoCompleteTextView edt_mat_reg_occupation;
+    private AutoCompleteTextView edt_mat_reg_occupation,edt_mat_reg_father_occupation,edt_mat_reg_mother_profession;
+    private EditText edt_mat_reg_sisters,edt_mat_reg_brothers;
     private Button saveMatrimonyDetails;
     private RadioButton gender_male,gender_female,radio_single,radio_divorced,radio_widowed,
             radio_separated,radio_normal,radio_physically_cahllenged,radio_all,radio_veg,radio_non_veg,radio_non_drinker
@@ -80,6 +81,10 @@ public class MatrimonyRegistration extends BaseActivity  {
         radio_non_smoker=findViewById(R.id.radio_non_smoker);
         radio_light_smoker=findViewById(R.id.radio_light_smoker);
         radio_heavy_smoker=findViewById(R.id.radio_heavy_smoker);
+        edt_mat_reg_father_occupation=findViewById(R.id.edt_mat_reg_father_occupation);
+        edt_mat_reg_mother_profession=findViewById(R.id.edt_mat_reg_mother_profession);
+        edt_mat_reg_sisters=findViewById(R.id.edt_mat_reg_sisters);
+        edt_mat_reg_brothers=findViewById(R.id.edt_mat_reg_brothers);
 
         SetAdapter(edt_mat_reg_religion,getResources().getStringArray(R.array.religion_array));
         SetAdapter(edt_mat_reg_mother_tongue,getResources().getStringArray(R.array.mother_tongue_hindu));
@@ -490,7 +495,8 @@ public class MatrimonyRegistration extends BaseActivity  {
             AppUtils.showToast(context,"Please select Qualification");
         }else if (edt_mat_reg_occupation.getText().toString().length()==0){
             validate = false;
-            AppUtils.showToast(context,"Please select Profession");
+            edt_mat_reg_occupation.requestFocus();
+            edt_mat_reg_occupation.setError("Enter Your Profession");
         }else if (income.contains("- Select -")){
             validate = false;
             AppUtils.showToast(context,"Please select Annual Income");
@@ -524,6 +530,22 @@ public class MatrimonyRegistration extends BaseActivity  {
         }else if (!radio_non_smoker.isChecked() && !radio_light_smoker.isChecked() && !radio_heavy_smoker.isChecked()){
             validate = false;
             AppUtils.showToast(context,"Please select Your Smoking Habit");
+        }else if (edt_mat_reg_father_occupation.getText().toString().length()==0){
+            validate=false;
+            edt_mat_reg_father_occupation.requestFocus();
+            edt_mat_reg_father_occupation.setError("Enter Father Profession");
+        }else if (edt_mat_reg_mother_profession.getText().toString().length()==0){
+            validate=false;
+            edt_mat_reg_mother_profession.requestFocus();
+            edt_mat_reg_mother_profession.setError("Enter Mother Profession");
+        }else if (edt_mat_reg_sisters.getText().toString().length()==0){
+            validate=false;
+            edt_mat_reg_sisters.requestFocus();
+            edt_mat_reg_sisters.setError("Enter No of Sisters");
+        }else if (edt_mat_reg_brothers.getText().toString().length()==0){
+            validate=false;
+            edt_mat_reg_brothers.requestFocus();
+            edt_mat_reg_brothers.setError("Enter No of Brothers");
         }
 
         return validate;
