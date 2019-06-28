@@ -299,15 +299,17 @@ public class OtpActivity extends BaseActivity {
             referenceList.putExtra("status",status);
             startActivity(referenceList);
         }else if (status.contains("Matrimony")){
-            if (insertionData!=null){
-                saveMatrimonyData(insertionData);
 
+            bitmap=StringToBitMap(config.readMatrimonyImage());
+            if (bitmap!=null){
+                pushImageToFirebase();
             }
 
         }
     }
 
     private void saveMatrimonyData(MatrimonyInsertionData insertionData) {
+        insertionData.setImage(image_path);
         FirebaseDatabase.getInstance().getReference().child(Contants.MATRIMONY)
                 .child(number)
                 .setValue(insertionData)
@@ -386,40 +388,49 @@ public class OtpActivity extends BaseActivity {
 
                 image_path=uri.toString();
 
-                AdvertisementDetails details=new AdvertisementDetails(
-                        config.readAdvertiserName(),
-                        config.readAdvertiserPhone(),
-                        config.readAdvertiserRef_num(),
-                        config.readAdvertiserShopType(),
-                        config.readAdvertiserAddress(),
-                        config.readAdvertiserLat(),
-                        config.readAdvertiserLon(),
-                        config.readAdvertiserLandmark(),
-                        config.readAdvertiserFromTime(),
-                        config.readAdvertiserToTime(),
-                        config.readAdvertiserShopDesc(),
-                        image_path);
+                if (status.contains("advertisement")){
+                    AdvertisementDetails details=new AdvertisementDetails(
+                            config.readAdvertiserName(),
+                            config.readAdvertiserPhone(),
+                            config.readAdvertiserRef_num(),
+                            config.readAdvertiserShopType(),
+                            config.readAdvertiserAddress(),
+                            config.readAdvertiserLat(),
+                            config.readAdvertiserLon(),
+                            config.readAdvertiserLandmark(),
+                            config.readAdvertiserFromTime(),
+                            config.readAdvertiserToTime(),
+                            config.readAdvertiserShopDesc(),
+                            image_path);
 
-                FirebaseDatabase.getInstance().getReference().child(Contants.ADVERTISER)
-                        .child(config.readAdvertiserPhone())
-                        .setValue(details)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
+                    FirebaseDatabase.getInstance().getReference().child(Contants.ADVERTISER)
+                            .child(config.readAdvertiserPhone())
+                            .setValue(details)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
 
-                                    if (config.readAdvertiserRef_num()!=null){
-                                        saveRefNum(config.readAdvertiserPhone(),config.readAdvertiserRef_num(),2);
+                                        if (config.readAdvertiserRef_num()!=null){
+                                            saveRefNum(config.readAdvertiserPhone(),config.readAdvertiserRef_num(),2);
+                                        }
+                                    }
+                                    else {
+                                        AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                                        AppUtils.showToast(context,"Registration Failed please try again");
                                     }
 
                                 }
-                                else {
-                                    AppUtils.dismissCustomProgress(mCustomProgressDialog);
-                                    AppUtils.showToast(context,"Registration Failed please try again");
-                                }
+                            });
+                }
+                else if (status.contains("Matrimony")){
+                    if (insertionData!=null){
+                        saveMatrimonyData(insertionData);
 
-                            }
-                        });
+                    }
+                }
+
+
 
             }
         }).addOnFailureListener(new OnFailureListener() {

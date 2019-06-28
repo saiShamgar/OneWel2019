@@ -2,13 +2,11 @@
 	<string name="app_name">OneWel</string>
 	<string name="registration_ok">Thanks For Your Registration</string>
 	<string name="razorpaykeytext">rzp_test_XZhkhiMzBkJjZf</string>
-	
 	<string name="razorpaykeyLive">rzp_live_ES25AxnwXmZbHA</string>
 	<string name="registration_ok_message">
 		We are very much happy for being with us.
 		You can check your status by using your registered phone number
 	</string>
-	
 	<string name="navigation_drawer_open">Drawer Open</string>
 	<string name="navigation_drawer_close">Drawer Closed</string>
 	<string name="shop_category">Shop/category</string>
@@ -42,6 +40,7 @@
 	<string name="Customer_ref">com.Sairaa.onewel.Utils.Customer_ref</string>
 	<string name="Google_image">com.Sairaa.onewel.Utils.Google_image</string>
 	<string name="Google_email">com.Sairaa.onewel.Utils.Google_email</string>
+	<string name="MatrimonyImage">com.Sairaa.onewel.Utils.MatrimonyImage</string>
 	<string name="shop_prompt">Choose a Shop</string>
 	<string-array name="shop_arrays">
 		<item>Choose a Shop</item>
@@ -59,7 +58,6 @@
 		<item>Furniture</item>
 		<item>Home Appliances</item>
 	</string-array>
-	
 	<string-array name="feet_array">
 		<item>Feet</item>
 		<item>3 Feet</item>
@@ -67,7 +65,6 @@
 		<item>5 Feet</item>
 		<item>6 Feet</item>
 	</string-array>
-	
 	<string-array name="matrimony_search">
 		<item>Andaman and Nicobar Islands</item>
 		<item>Andhra Pradesh</item>
@@ -105,9 +102,7 @@
 		<item>Uttaranchal</item>
 		<item>Uttar Pradesh</item>
 		<item>West Bengal</item>
-		
 	</string-array>
-	
 	<string-array name="inches_array">
 		<item>Inch</item>
 		<item>0 Inch</item>
@@ -123,7 +118,6 @@
 		<item>10 Inch</item>
 		<item>11Inch</item>
 	</string-array>
-	
 	<string-array name="age_array">
 		<item>- Select -</item>
 		<item>18 years</item>
@@ -160,8 +154,6 @@
 		<item>49 years</item>
 		<item>50 years</item>
 		<item>50+ years</item>
-		
-		
 	</string-array>
 	<string-array name="type_of_user">
 		<item>Type of user</item>
@@ -222,7 +214,6 @@
 		<item>Urdu</item>
 		<item>Bengali</item>
 	</string-array>
-	
 	<string-array name="annual_income">
 		<item>- Select -</item>
 		<item>Below 1 Lakh</item>
@@ -231,11 +222,10 @@
 		<item>3 Lakh to 5 Lakh</item>
 		<item>5 Lakh to 7 Lakh</item>
 		<item>7 Lakh to 10 Lakh</item>
-		<item>10 Lakh to 12 Lakh </item>
+		<item>10 Lakh to 12 Lakh</item>
 		<item>12 Lakh to 15 Lakh</item>
 		<item>Above 15 Lakh</item>
 	</string-array>
-	
 	<string-array name="qualification">
 		<item>- Select -</item>
 		<item>Illiterate</item>
@@ -1217,12 +1207,9 @@
 		<item>Vishwakarma</item>
 		<item>Do not wish to specify</item>
 	</string-array>
-	
-	
 	<string-array name="countries">
 		<item>India</item>
 	</string-array>
-	
 	<string-array name="india_states">
 		<item>- Select -</item>
 		<item>Andaman and Nicobar Islands</item>
@@ -1262,13 +1249,10 @@
 		<item>Uttar Pradesh</item>
 		<item>West Bengal</item>
 	</string-array>
-	
 	<string-array name="Lakshadweep">
 		<item>- Select -</item>
 		<item>Lakshadweep</item>
 	</string-array>
-	
-	
 	<string-array name="AndhraPradesh">
 		<item>- Select -</item>
 		<item>Anantapur</item>
@@ -1285,8 +1269,6 @@
 		<item>Vizianagaram</item>
 		<item>West Godavari</item>
 	</string-array>
-	
-	
 	<string-array name="Telangana">
 		<item>- Select -</item>
 		<item>Adilabad</item>
@@ -1321,9 +1303,6 @@
 		<item>Warangal Urban</item>
 		<item>Yadadri Bhuvanagiri</item>
 	</string-array>
-	
-	
-	
 	<string-array name="ArunachalPradesh">
 		<item>- Select -</item>
 		<item>Anjaw</item>
@@ -1352,7 +1331,6 @@
 		<item>West Kameng</item>
 		<item>West Siang</item>
 	</string-array>
-	
 	<string-array name="profission_array">
 		<item>- Select -</item>
 		<item>Un Employee</item>
@@ -1921,10 +1899,9 @@
 		<item>Wood turner</item>
 		<item>Wool classer</item>
 	</string-array>
-	
 	<string-array name="study_array">
 		<item>- Select -</item>
-		<item>10th </item>
+		<item>10th</item>
 		<item>Inter</item>
 		<item>Degree</item>
 		<item>Diploma</item>
@@ -1933,8 +1910,6 @@
 		<item></item>
 		<item></item>
 	</string-array>
-	
-	
 	<string-array name="Assam">
 		<item>- Select -</item>
 		<item>Baksa</item>
@@ -1971,8 +1946,6 @@
 		<item>Udalguri</item>
 		<item>West Karbi Anglong</item>
 	</string-array>
-	
-	
 	<string-array name="Bihar">
 		<item>- Select -</item>
 		<item>Araria</item>
@@ -2014,7 +1987,6 @@
 		<item>Vaishali</item>
 		<item>West Champaran</item>
 	</string-array>
-	
 	<string-array name="Chhattisgarh">
 		<item>- Select -</item>
 		<item>Balod</item>
@@ -2045,14 +2017,11 @@
 		<item>Surajpur</item>
 		<item>Surguja</item>
 	</string-array>
-	
 	<string-array name="Goa">
 		<item>- Select -</item>
 		<item>North Goa</item>
 		<item>South Goa</item>
 	</string-array>
-	
-	
 	<string-array name="Gujarat">
 		<item>- Select -</item>
 		<item>Ahmedabad</item>
@@ -2089,7 +2058,6 @@
 		<item>Vadodara</item>
 		<item>Valsad</item>
 	</string-array>
-	
 	<string-array name="Haryana">
 		<item>- Select -</item>
 		<item>Ambala</item>
@@ -2114,7 +2082,6 @@
 		<item>Sonipat</item>
 		<item>Yamunanagar</item>
 	</string-array>
-	
 	<string-array name="Himachal_Pradesh">
 		<item>- Select -</item>
 		<item>Bilaspur</item>
@@ -2130,7 +2097,6 @@
 		<item>Solan</item>
 		<item>Una</item>
 	</string-array>
-	
 	<string-array name="Jammu_Kashmir">
 		<item>- Select -</item>
 		<item>Anantnag</item>
@@ -2156,7 +2122,6 @@
 		<item>Srinagar</item>
 		<item>Udhampur</item>
 	</string-array>
-	
 	<string-array name="Jharkhand">
 		<item>- Select -</item>
 		<item>Bokaro</item>
@@ -2184,7 +2149,6 @@
 		<item>Simdega</item>
 		<item>West Singhbhum</item>
 	</string-array>
-	
 	<string-array name="Karnataka">
 		<item>- Select -</item>
 		<item>Bagalkot</item>
@@ -2218,7 +2182,6 @@
 		<item>Vijayapura *</item>
 		<item>Yadgir</item>
 	</string-array>
-	
 	<string-array name="Kerala">
 		<item>- Select -</item>
 		<item>Alappuzha</item>
@@ -2236,7 +2199,6 @@
 		<item>Thrissur</item>
 		<item>Wayanad</item>
 	</string-array>
-	
 	<string-array name="Madhya_Pradesh">
 		<item>- Select -</item>
 		<item>Agar Malwa</item>
@@ -2292,7 +2254,6 @@
 		<item>Umaria</item>
 		<item>Vidisha</item>
 	</string-array>
-	
 	<string-array name="Maharashtra">
 		<item>- Select -</item>
 		<item>Ahmednagar</item>
@@ -2332,8 +2293,6 @@
 		<item>Washim</item>
 		<item>Yavatmal</item>
 	</string-array>
-	
-	
 	<string-array name="Manipur">
 		<item>- Select -</item>
 		<item>Bishnupur</item>
@@ -2353,8 +2312,6 @@
 		<item>Thoubal</item>
 		<item>Ukhrul</item>
 	</string-array>
-	
-	
 	<string-array name="Meghalaya">
 		<item>- Select -</item>
 		<item>East Garo Hills</item>
@@ -2369,7 +2326,6 @@
 		<item>West Jaintia Hills</item>
 		<item>West Khasi Hills</item>
 	</string-array>
-	
 	<string-array name="Mizoram">
 		<item>- Select -</item>
 		<item>Aizawl</item>
@@ -2381,7 +2337,6 @@
 		<item>Saiha</item>
 		<item>Serchhip</item>
 	</string-array>
-	
 	<string-array name="Nagaland">
 		<item>- Select -</item>
 		<item>Mon</item>
@@ -2396,7 +2351,6 @@
 		<item>Wokha</item>
 		<item>Zunheboto</item>
 	</string-array>
-	
 	<string-array name="Odisha">
 		<item>- Select -</item>
 		<item>Angul</item>
@@ -2430,8 +2384,6 @@
 		<item>Subarnapur</item>
 		<item>Sundergarh</item>
 	</string-array>
-	
-	
 	<string-array name="Punjab">
 		<item>- Select -</item>
 		<item>Amritsar</item>
@@ -2457,8 +2409,6 @@
 		<item>Shaheed Bhagat Singh Nagar</item>
 		<item>Tarn Taran</item>
 	</string-array>
-	
-	
 	<string-array name="Rajasthan">
 		<item>- Select -</item>
 		<item>Ajmer</item>
@@ -2495,8 +2445,6 @@
 		<item>Tonk</item>
 		<item>Udaipur</item>
 	</string-array>
-	
-	
 	<string-array name="Sikkim">
 		<item>- Select -</item>
 		<item>East Sikkim</item>
@@ -2504,8 +2452,6 @@
 		<item>South Sikkim</item>
 		<item>West Sikkim</item>
 	</string-array>
-	
-	
 	<string-array name="Tamil_Nadu">
 		<item>- Select -</item>
 		<item>Ariyalur</item>
@@ -2542,7 +2488,6 @@
 		<item>Viluppuram</item>
 		<item>Virudhunagar</item>
 	</string-array>
-	
 	<string-array name="Tripura">
 		<item>- Select -</item>
 		<item>Dhalai</item>
@@ -2554,7 +2499,6 @@
 		<item>Unakoti</item>
 		<item>West Tripura</item>
 	</string-array>
-	
 	<string-array name="Uttar_Pradesh">
 		<item>- Select -</item>
 		<item>Agra</item>
@@ -2633,8 +2577,6 @@
 		<item>Unnao</item>
 		<item>Varanasi</item>
 	</string-array>
-	
-	
 	<string-array name="Uttarakhand">
 		<item>- Select -</item>
 		<item>Almora</item>
@@ -2651,8 +2593,6 @@
 		<item>Udham Singh Nagar</item>
 		<item>Uttarkashi</item>
 	</string-array>
-	
-	
 	<string-array name="West_Bengal">
 		<item>- Select -</item>
 		<item>Alipurduar</item>
@@ -2679,30 +2619,25 @@
 		<item>South 24 Parganas</item>
 		<item>Uttar Dinajpur</item>
 	</string-array>
-	
 	<string-array name="Andaman_Nicobar">
 		<item>- Select -</item>
 		<item>Nicobar</item>
 		<item>North Middle Andaman</item>
 		<item>South Andaman</item>
 	</string-array>
-	
 	<string-array name="Chandigarh">
 		<item>- Select -</item>
 		<item>Chandigarh</item>
 	</string-array>
-	
 	<string-array name="Dadra_Nagar_Haveli">
 		<item>- Select -</item>
 		<item>Dadra Nagar Haveli</item>
 	</string-array>
-	
 	<string-array name="Daman_Diu">
 		<item>- Select -</item>
 		<item>Daman</item>
 		<item>Diu</item>
 	</string-array>
-	
 	<string-array name="Delhi">
 		<item>- Select -</item>
 		<item>Central Delhi</item>
@@ -2717,7 +2652,6 @@
 		<item>South West Delhi</item>
 		<item>West Delhi</item>
 	</string-array>
-	
 	<string-array name="Puducherry">
 		<item>- Select -</item>
 		<item>Karaikal</item>
@@ -2725,7 +2659,6 @@
 		<item>Puducherry</item>
 		<item>Yanam</item>
 	</string-array>
-	
 	<string-array name="Rashi">
 		<item>- Select -</item>
 		<item>Aries / Mesh Rashi</item>
@@ -2741,7 +2674,6 @@
 		<item>Aquarius / Kumbh Rashi</item>
 		<item>Pisces / Meena Rashi</item>
 	</string-array>
-	
 	<string-array name="Nakshatras">
 		<item>- Select -</item>
 		<item>Ashvini</item>

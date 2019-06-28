@@ -19,9 +19,14 @@
 			android:supportsRtl="true"
 			android:theme="@style/AppTheme"
 			tools:ignore="GoogleAppIndexingWarning">
-		<activity android:name=".Activities.Matrimony.MatrimonyMainScreen"
-					android:theme="@style/AppThemeWithNoAction"
-					android:screenOrientation="portrait">
+		<activity android:name=".Activities.Matrimony.ViewmatrimonyImage"
+		          android:theme="@style/AppThemeWithNoAction"
+				  android:screenOrientation="portrait">
+		</activity>
+		<activity
+				android:name=".Activities.Matrimony.MatrimonyMainScreen"
+				android:screenOrientation="portrait"
+				android:theme="@style/AppThemeWithNoAction">
 		</activity>
 		<activity
 				android:name=".Activities.Matrimony.MatrimonyRegistration"
@@ -124,9 +129,8 @@
 					android:name="android.support.FILE_PROVIDER_PATHS"
 					android:resource="@xml/file_paths"/>
 		</provider>
-		
 		<meta-data
 				android:name="com.razorpay.ApiKey"
-				android:value="@string/razorpaykeytext" />
+				android:value="@string/razorpaykeytext"/>
 	</application>
 </manifest>

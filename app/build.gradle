@@ -55,8 +55,8 @@ dependencies {
 
     //razorpay
 
-   // implementation 'com.razorpay:checkout:1.5.5'
- //   implementation files('libs\\razorpay-upi-intent-sdk.jar')
+    // implementation 'com.razorpay:checkout:1.5.5'
+    // implementation files('libs\\razorpay-upi-intent-sdk.jar')
 
 }
 

@@ -366,4 +366,18 @@ public class SharedPreferenceConfig {
         return url;
     }
 
+    public void writeMatrimonyImage(String url) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getResources().getString(R.string.MatrimonyImage), String.valueOf(url));
+        Log.i("SharedPreferenceWrite: ", "" + url);
+        editor.apply();
+    }
+
+    public String readMatrimonyImage() {
+        String url;
+        url = sharedPreferences.getString(context.getResources().getString(R.string.MatrimonyImage), "no");
+        Log.i("SharedPreferenceRead: ", "" + url);
+        return url;
+    }
+
 }

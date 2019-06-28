@@ -1,10 +1,17 @@
 package com.Sairaa.onewel.Activities.Matrimony;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v4.content.FileProvider;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
@@ -13,7 +20,12 @@ import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.Model.MatrimonyInsertionData;
 import com.Sairaa.onewel.R;
 import com.Sairaa.onewel.Utils.AppUtils;
+import com.Sairaa.onewel.Utils.SharedPreferenceConfig;
+import com.bumptech.glide.Glide;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MatrimonyRegistration extends BaseActivity  {
@@ -26,6 +38,8 @@ public class MatrimonyRegistration extends BaseActivity  {
     private AutoCompleteTextView edt_mat_reg_occupation,edt_mat_reg_father_occupation,edt_mat_reg_mother_profession;
     private EditText edt_mat_reg_sisters,edt_mat_reg_brothers;
     private Button saveMatrimonyDetails;
+    private TextView txt_add_matrimony_image;
+    private ImageView img_matrimony_image;
     private RadioButton gender_male,gender_female,radio_single,radio_divorced,radio_widowed,
             radio_separated,radio_normal,radio_physically_cahllenged,radio_all,radio_veg,radio_non_veg,radio_non_drinker
             ,radio_light_drinker,radio_heavy_drinker,radio_non_smoker,radio_light_smoker,radio_heavy_smoker;
@@ -35,12 +49,20 @@ public class MatrimonyRegistration extends BaseActivity  {
             caste,study,income,country,district,rashi,nakshitram;
     private boolean validate;
 
+    final static int REQUEST_TAKE_PHOTO_FILE = 2;
+    String mCurrentPhotoPath;
+    private Uri imagecaptureuri;
+    private Bitmap bitmap;
+
+    private SharedPreferenceConfig config;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matrimony_registration);
 
         context=MatrimonyRegistration.this;
+        config=new SharedPreferenceConfig(this);
 
         edt_mat_reg_phone_num=findViewById(R.id.edt_mat_reg_phone_num);
         edt_mat_reg_surname=findViewById(R.id.edt_mat_reg_surname);
@@ -89,6 +111,15 @@ public class MatrimonyRegistration extends BaseActivity  {
         edt_mat_reg_mother_profession=findViewById(R.id.edt_mat_reg_mother_profession);
         edt_mat_reg_sisters=findViewById(R.id.edt_mat_reg_sisters);
         edt_mat_reg_brothers=findViewById(R.id.edt_mat_reg_brothers);
+        txt_add_matrimony_image=findViewById(R.id.txt_add_matrimony_image);
+        img_matrimony_image=findViewById(R.id.img_matrimony_image);
+
+        txt_add_matrimony_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dispatchCameraIntent();
+            }
+        });
 
         SetAdapter(edt_mat_reg_religion,getResources().getStringArray(R.array.religion_array));
         SetAdapter(edt_mat_reg_mother_tongue,getResources().getStringArray(R.array.mother_tongue_hindu));
@@ -168,6 +199,7 @@ public class MatrimonyRegistration extends BaseActivity  {
                     insertionData.setEating(radioGroupSelectedText(edt_mat_reg_eating));
                     insertionData.setDrinking(radioGroupSelectedText(edt_mat_reg_drinking));
                     insertionData.setSmoking(radioGroupSelectedText(edt_mat_reg_smoking));
+                    config.writeMatrimonyImage(imageToString(bitmap));
 
                     Intent otpActivity=new Intent(MatrimonyRegistration.this, OtpActivity.class);
                     otpActivity.putExtra("status","Matrimony");
@@ -502,11 +534,43 @@ public class MatrimonyRegistration extends BaseActivity  {
 
         //radioGroupSelectedText(edt_mat_reg_gender);
     }
+    private void dispatchCameraIntent() {
+        //getting images
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/*");
+        startActivityForResult(intent.createChooser(intent, "select file"), REQUEST_TAKE_PHOTO_FILE);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        try {
+            switch (requestCode) {
+                case REQUEST_TAKE_PHOTO_FILE:
+                    imagecaptureuri=intent.getData();
+                    try {
+                        bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imagecaptureuri);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Glide.with(this)
+                            .load(imagecaptureuri)
+                            .into(img_matrimony_image);
 
+            }
+
+        } catch (Exception error) {
+            error.printStackTrace();
+        }
+    }
     boolean doValidation() {
         validate = true;
 
-        if (edt_mat_reg_name.getText().toString().trim().length() == 0) {
+        if (bitmap==null){
+            validate = false;
+            AppUtils.showToast(context,"Please Add Your Image");
+        }
+
+       else if (edt_mat_reg_name.getText().toString().trim().length() == 0) {
             validate = false;
             edt_mat_reg_name.setError("Enter Name");
             edt_mat_reg_name.requestFocus();
@@ -623,11 +687,12 @@ public class MatrimonyRegistration extends BaseActivity  {
         edt_mat_reg_caste_devision.setAdapter(countAdapter);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode==100){
-
-        }
+    //upload images
+    public String  imageToString(Bitmap bitmap)
+    {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+        byte[] imgbyte=byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(imgbyte,Base64.DEFAULT);
     }
 }

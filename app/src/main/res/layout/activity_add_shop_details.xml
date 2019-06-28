@@ -246,11 +246,15 @@
 									android:layout_width="match_parent"
 									android:layout_height="165dp"
 									android:scaleType="centerCrop"
-									android:src="@drawable/bg_img"/>
+									android:src="@drawable/ic_gallery"/>
 							
 							<Button
 									android:id="@+id/Add_image"
 									android:text="Add pic"
+									android:textColor="@color/color_white"
+									android:paddingLeft="@dimen/margin_xxlarge"
+									android:paddingRight="@dimen/margin_xxlarge"
+									android:background="@drawable/gradient_background"
 									android:layout_width="wrap_content"
 							        android:layout_height="wrap_content"
 									android:layout_alignParentRight="true"

@@ -14,8 +14,17 @@ public class MatrimonyInsertionData implements Serializable {
     String father_profession,mother_profession,sisters,brothers;
     String study,profession,annual_income,country,state,district,city;
     String rashi,nakshatra,gothra,eating,drinking,smoking;
+    String Image;
 
     public MatrimonyInsertionData() {
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
     }
 
     public String getName() {
