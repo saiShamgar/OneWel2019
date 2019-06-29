@@ -19,9 +19,14 @@
 			android:supportsRtl="true"
 			android:theme="@style/AppTheme"
 			tools:ignore="GoogleAppIndexingWarning">
-		<activity android:name=".Activities.Matrimony.ViewmatrimonyImage"
-		          android:theme="@style/AppThemeWithNoAction"
-				  android:screenOrientation="portrait">
+		<activity android:name=".PaymentActivity"
+		android:theme="@style/AppThemeWithNoAction"
+		android:screenOrientation="portrait">
+		</activity>
+		<activity
+				android:name=".Activities.Matrimony.ViewmatrimonyImage"
+				android:screenOrientation="portrait"
+				android:theme="@style/AppThemeWithNoAction">
 		</activity>
 		<activity
 				android:name=".Activities.Matrimony.MatrimonyMainScreen"
