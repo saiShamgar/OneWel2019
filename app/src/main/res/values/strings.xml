@@ -41,6 +41,8 @@
 	<string name="Google_image">com.Sairaa.onewel.Utils.Google_image</string>
 	<string name="Google_email">com.Sairaa.onewel.Utils.Google_email</string>
 	<string name="MatrimonyImage">com.Sairaa.onewel.Utils.MatrimonyImage</string>
+	<string name="UserUniqueKey">com.Sairaa.onewel.Utils.UserUniqueKey</string>
+	<string name="Google_name">com.Sairaa.onewel.Utils.Google_name</string>
 	<string name="shop_prompt">Choose a Shop</string>
 	<string-array name="shop_arrays">
 		<item>Choose a Shop</item>

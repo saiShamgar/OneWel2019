@@ -2,16 +2,14 @@ package com.Sairaa.onewel.Activities.Add;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.*;
 import com.Sairaa.onewel.Activities.Promoter.PromoterSignUp;
 import com.Sairaa.onewel.Activities.Promoter.PromoterUPI;
 import com.Sairaa.onewel.BaseActivity;
@@ -31,6 +29,7 @@ public class AddSignUpPD extends BaseActivity implements AdapterView.OnItemSelec
     private boolean validate;
     private Context mContext;
     private SharedPreferenceConfig config;
+    private ImageView img_ic_close_add;
 
     private int position;
 
@@ -49,6 +48,14 @@ public class AddSignUpPD extends BaseActivity implements AdapterView.OnItemSelec
         edt_phone_num_add=findViewById(R.id.edt_phone_num_add);
         edt_ref_num_add=findViewById(R.id.edt_ref_num_add);
         spin_shop_category_add=findViewById(R.id.spin_shop_category_add);
+        img_ic_close_add=findViewById(R.id.img_ic_close_add);
+
+        img_ic_close_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         spin_shop_category_add.setOnItemSelectedListener(this);
 

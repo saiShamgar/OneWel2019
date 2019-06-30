@@ -14,9 +14,17 @@ public class MatrimonyInsertionData implements Serializable {
     String father_profession,mother_profession,sisters,brothers;
     String study,profession,annual_income,country,state,district,city;
     String rashi,nakshatra,gothra,eating,drinking,smoking;
-    String Image;
+    String Image,status;
 
     public MatrimonyInsertionData() {
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getImage() {

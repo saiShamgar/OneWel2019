@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import android.widget.EditText;
+import android.widget.ImageView;
 import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.R;
 import com.Sairaa.onewel.Utils.AppUtils;
@@ -21,6 +22,7 @@ public class CutomerVerification extends BaseActivity {
     private Button btn_next_cus_details,btn_signup_cus_details;
     private EditText edt_name_cus;
     private boolean validate;
+    private ImageView img_ic_close_cus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,14 @@ public class CutomerVerification extends BaseActivity {
         btn_next_cus_details=findViewById(R.id.btn_next_cus_details);
         btn_signup_cus_details=findViewById(R.id.btn_signup_cus_details);
         edt_name_cus=findViewById(R.id.edt_name_cus);
+        img_ic_close_cus=findViewById(R.id.img_ic_close_cus);
+
+        img_ic_close_cus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         btn_next_cus_details.setOnClickListener(new View.OnClickListener() {
             @Override

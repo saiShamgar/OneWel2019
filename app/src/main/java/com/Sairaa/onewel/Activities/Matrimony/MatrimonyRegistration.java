@@ -55,6 +55,7 @@ public class MatrimonyRegistration extends BaseActivity  {
     private Bitmap bitmap;
 
     private SharedPreferenceConfig config;
+    private ImageView back_matrimony_reg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +114,14 @@ public class MatrimonyRegistration extends BaseActivity  {
         edt_mat_reg_brothers=findViewById(R.id.edt_mat_reg_brothers);
         txt_add_matrimony_image=findViewById(R.id.txt_add_matrimony_image);
         img_matrimony_image=findViewById(R.id.img_matrimony_image);
+        back_matrimony_reg=findViewById(R.id.back_matrimony_reg);
+
+        back_matrimony_reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         txt_add_matrimony_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,6 +208,7 @@ public class MatrimonyRegistration extends BaseActivity  {
                     insertionData.setEating(radioGroupSelectedText(edt_mat_reg_eating));
                     insertionData.setDrinking(radioGroupSelectedText(edt_mat_reg_drinking));
                     insertionData.setSmoking(radioGroupSelectedText(edt_mat_reg_smoking));
+                    insertionData.setStatus("0");
                     config.writeMatrimonyImage(imageToString(bitmap));
 
                     Intent otpActivity=new Intent(MatrimonyRegistration.this, OtpActivity.class);

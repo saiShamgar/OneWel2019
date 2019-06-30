@@ -51,6 +51,7 @@ public class PromoterSignUp extends BaseActivity implements
 
     private Context mContext;
     private SharedPreferenceConfig config;
+    private ImageView img_ic_close_promoter;
 
 
 
@@ -67,6 +68,14 @@ public class PromoterSignUp extends BaseActivity implements
         edt_phone_num_promoter=findViewById(R.id.edt_phone_num_promoter);
         edt_ref_num_promoter=findViewById(R.id.edt_ref_num_promoter);
         edt_address_promoter=findViewById(R.id.edt_address_promoter);
+        img_ic_close_promoter=findViewById(R.id.img_ic_close_promoter);
+
+        img_ic_close_promoter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         btn_next_promoter_details.setOnClickListener(new View.OnClickListener() {
             @Override

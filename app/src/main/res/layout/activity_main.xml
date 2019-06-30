@@ -11,262 +11,299 @@
         android:background="@color/color_white"
         android:id="@+id/drawer_layout">
     
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:layout_marginRight="@dimen/margin_xxxxxxlarge"
-            android:layout_gravity="start"
-            android:background="@color/act_background"
-            android:padding="@dimen/margin_large">
-        
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:weightSum="3"
-                android:gravity="bottom">
-            
-            <ImageView
-                    android:id="@+id/img_view_navigation"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:src="@drawable/ic_profile"/>
-            
-            <TextView
-                    android:id="@+id/txt_profile_name"
-                    android:layout_toRightOf="@+id/img_view_navigation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Name"
-                    android:textStyle="bold"
-                    android:padding="@dimen/margin_large"
-                    android:textSize="16dp"
-                    android:layout_weight="1"/>
-            
-            <TextView
-                    android:layout_toRightOf="@+id/img_view_navigation"
-                    android:layout_below="@+id/txt_profile_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Name"
-                    android:textSize="12dp"
-                    android:padding="@dimen/margin_large"
-                    android:layout_weight="1"/>
-        
-        </RelativeLayout>
-        
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/edt_line_color"/>
-        
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.5"
-                android:orientation="vertical"
-                android:weightSum="3">
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:weightSum="2"
-                    android:gravity="center_vertical">
-                
-                <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="0.5"
-                        android:src="@drawable/ic_nav_promoter"/>
-                
-                <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Promoter"/>
-            
-            </LinearLayout>
-            
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:weightSum="2"
-                    android:gravity="center_vertical">
-                
-                <ImageView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_nag_advertisement"/>
-                <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Advertiser"/>
-            
-            </LinearLayout>
-            
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:weightSum="2"
-                    android:gravity="center_vertical">
-                
-                <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="0.5"
-                        android:src="@drawable/ic_nag_customer"/>
-                <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Customer"/>
-            
-            </LinearLayout>
-        
-        
-        
-        </LinearLayout>
-        
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/edt_line_color"/>
-        
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:weightSum="2">
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:weightSum="2"
-                    android:gravity="center_vertical">
-                
-                <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="0.5"
-                        android:src="@drawable/ic_nag_matrimoney"/>
-                
-                <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Matrimony Edit"/>
-            
-            </LinearLayout>
-            
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:weightSum="2"
-                    android:gravity="center_vertical">
-                
-                <ImageView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_nag_matr_close"/>
-                <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Close Account"/>
-            
-            </LinearLayout>
-        
-        
-        </LinearLayout>
-        
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/edt_line_color"/>
-        
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.5"
-                android:orientation="vertical"
-                android:weightSum="3">
-            
-            
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:weightSum="2"
-                    android:gravity="center_vertical">
-                
-                <ImageView
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_nag_about"/>
-                <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="About"/>
-            
-            </LinearLayout>
-            
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:weightSum="2"
-                    android:gravity="center_vertical">
-                
-                <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="0.5"
-                        android:src="@drawable/ic_nag_privacy"/>
-                <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Privacy-policy"/>
-            
-            </LinearLayout>
-            
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:weightSum="2"
-                    android:gravity="center_vertical">
-                
-                <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="0.5"
-                        android:src="@drawable/ic_nag_logout"/>
-                
-                <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Log Out"/>
-            
-            </LinearLayout>
-        
-        
-        
-        </LinearLayout>
-    
-    </LinearLayout>
+    <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginRight="@dimen/margin_xxxlarge"-->
+            <!--android:layout_gravity="start"-->
+            <!--android:background="@color/act_background"-->
+            <!--android:padding="@dimen/margin_large">-->
+        <!---->
+        <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:weightSum="3"-->
+                <!--android:gravity="bottom">-->
+            <!---->
+            <!--<de.hdodenhof.circleimageview.CircleImageView-->
+                    <!--android:id="@+id/img_view_navigation"-->
+                    <!--android:layout_width="70dp"-->
+                    <!--android:layout_height="70dp"-->
+                    <!--android:src="@drawable/ic_profile"/>-->
+            <!---->
+            <!--<TextView-->
+                    <!--android:id="@+id/txt_profile_name"-->
+                    <!--android:layout_toRightOf="@+id/img_view_navigation"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Name"-->
+                    <!--android:textStyle="bold"-->
+                   <!--android:paddingLeft="@dimen/margin_large"-->
+                    <!--android:layout_marginTop="@dimen/margin_xlarge"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:layout_weight="1"/>-->
+            <!---->
+            <!--<TextView-->
+                    <!--android:id="@+id/txt_profile_email"-->
+                    <!--android:layout_toRightOf="@+id/img_view_navigation"-->
+                    <!--android:layout_below="@+id/txt_profile_name"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Name"-->
+                    <!--android:textSize="12dp"-->
+                    <!--android:padding="@dimen/margin_large"-->
+                    <!--android:layout_weight="1"/>-->
+        <!---->
+        <!--</RelativeLayout>-->
+        <!---->
+        <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/edt_line_color"/>-->
+        <!---->
+        <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1.5"-->
+                <!--android:orientation="vertical"-->
+                <!--android:weightSum="4.5">-->
+            <!--<LinearLayout-->
+                    <!--android:id="@+id/navigation_promoter_layout"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:weightSum="2"-->
+                    <!--android:gravity="center_vertical">-->
+                <!---->
+                <!--<ImageView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:layout_weight="0.5"-->
+                        <!--android:src="@drawable/ic_nav_promoter"/>-->
+                <!---->
+                <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="Promoter"/>-->
+            <!---->
+            <!--</LinearLayout>-->
+            <!---->
+            <!--<LinearLayout-->
+                    <!--android:id="@+id/navigation_advertisement_layout"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:weightSum="2"-->
+                    <!--android:gravity="center_vertical">-->
+                <!---->
+                <!--<ImageView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="0.5"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:src="@drawable/ic_nag_advertisement"/>-->
+                <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="Advertiser"/>-->
+            <!---->
+            <!--</LinearLayout>-->
+            <!---->
+            <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:weightSum="2"-->
+                    <!--android:gravity="center_vertical">-->
+                <!---->
+                <!--<ImageView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:layout_weight="0.5"-->
+                        <!--android:src="@drawable/ic_nag_customer"/>-->
+                <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="Customer"/>-->
+            <!---->
+            <!--</LinearLayout>-->
+    <!---->
+            <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="1.5"-->
+                    <!--android:weightSum="2"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:gravity="center">-->
+        <!---->
+                <!--<TextView-->
+                        <!--android:id="@+id/navigation_cus_reg_layout"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="center"-->
+                        <!--android:layout_marginBottom="@dimen/card_elevation_4dp"-->
+                        <!--android:padding="@dimen/card_radius_8dp"-->
+                        <!--android:text="Customer Registration"/>-->
+                <!--<TextView-->
+                        <!--android:id="@+id/navigation_cus_verfi_layout"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="center"-->
+                        <!--android:padding="@dimen/card_radius_8dp"-->
+                        <!--android:text="Customer Verification"/>-->
+    <!---->
+            <!--</LinearLayout>-->
+        <!---->
+        <!---->
+        <!---->
+        <!--</LinearLayout>-->
+        <!---->
+        <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/edt_line_color"/>-->
+        <!---->
+        <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="vertical"-->
+                <!--android:weightSum="2">-->
+            <!--<LinearLayout-->
+                    <!--android:id="@+id/navigation_matrimony_edit"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:weightSum="2"-->
+                    <!--android:gravity="center_vertical">-->
+                <!---->
+                <!--<ImageView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:layout_weight="0.5"-->
+                        <!--android:src="@drawable/ic_nag_matrimoney"/>-->
+                <!---->
+                <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="Matrimony Edit"/>-->
+            <!---->
+            <!--</LinearLayout>-->
+            <!---->
+            <!--<LinearLayout-->
+                    <!--android:id="@+id/navigation_matrimony_close"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:weightSum="2"-->
+                    <!--android:gravity="center_vertical">-->
+                <!---->
+                <!--<ImageView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="0.5"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:src="@drawable/ic_nag_matr_close"/>-->
+                <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="Close Account"/>-->
+            <!---->
+            <!--</LinearLayout>-->
+        <!---->
+        <!---->
+        <!--</LinearLayout>-->
+        <!---->
+        <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@color/edt_line_color"/>-->
+        <!---->
+        <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1.5"-->
+                <!--android:orientation="vertical"-->
+                <!--android:weightSum="3">-->
+            <!---->
+            <!---->
+            <!--<LinearLayout-->
+                    <!--android:id="@+id/navigation_about_us"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:weightSum="2"-->
+                    <!--android:gravity="center_vertical">-->
+                <!---->
+                <!--<ImageView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_weight="0.5"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:src="@drawable/ic_nag_about"/>-->
+                <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="About"/>-->
+            <!---->
+            <!--</LinearLayout>-->
+            <!---->
+            <!--<LinearLayout-->
+                    <!--android:id="@+id/navigation_privacy_policy"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:weightSum="2"-->
+                    <!--android:gravity="center_vertical">-->
+                <!---->
+                <!--<ImageView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:layout_weight="0.5"-->
+                        <!--android:src="@drawable/ic_nag_privacy"/>-->
+                <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="Privacy-policy"/>-->
+            <!---->
+            <!--</LinearLayout>-->
+            <!---->
+            <!--<LinearLayout-->
+                    <!--android:id="@+id/navigation_signout"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:weightSum="2"-->
+                    <!--android:gravity="center_vertical">-->
+                <!---->
+                <!--<ImageView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:layout_weight="0.5"-->
+                        <!--android:src="@drawable/ic_nag_logout"/>-->
+                <!---->
+                <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:text="Log Out"/>-->
+            <!---->
+            <!--</LinearLayout>-->
+        <!---->
+        <!---->
+        <!---->
+        <!--</LinearLayout>-->
+    <!---->
+    <!--</LinearLayout>-->
     
     <ScrollView
             android:id="@+id/scroll"
@@ -654,4 +691,14 @@
         
     </ScrollView>
     
+    <android.support.design.widget.NavigationView
+            android:id="@+id/nvView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@android:color/white"
+            app:headerLayout="@layout/header_layout"
+            app:menu="@menu/navigation_menu_item" />
+
+
 </android.support.v4.widget.DrawerLayout>

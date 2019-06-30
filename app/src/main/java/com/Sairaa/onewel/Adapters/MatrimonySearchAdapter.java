@@ -13,8 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.Sairaa.onewel.Activities.Matrimony.ViewmatrimonyImage;
 import com.Sairaa.onewel.Model.MatrimonyInsertionData;
+import com.Sairaa.onewel.PaymentActivity;
 import com.Sairaa.onewel.R;
+import com.Sairaa.onewel.Utils.AppUtils;
+import com.Sairaa.onewel.Utils.Contants;
+import com.Sairaa.onewel.Utils.CustomProgressDialog;
+import com.Sairaa.onewel.Utils.SharedPreferenceConfig;
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.*;
 
 import java.util.ArrayList;
 
@@ -22,10 +28,14 @@ public class MatrimonySearchAdapter extends RecyclerView.Adapter<MatrimonySearch
 
     private Context context;
     private ArrayList<MatrimonyInsertionData> list;
+    private String uniqueKey;
+    private CustomProgressDialog customProgressDialog;
 
-    public MatrimonySearchAdapter(Context context, ArrayList<MatrimonyInsertionData> list) {
+    public MatrimonySearchAdapter(Context context, ArrayList<MatrimonyInsertionData> list, String s, CustomProgressDialog mCustomProgressDialog) {
         this.context = context;
         this.list = list;
+        uniqueKey=s;
+        this.customProgressDialog=mCustomProgressDialog;
     }
 
     @NonNull
@@ -56,11 +66,60 @@ public class MatrimonySearchAdapter extends RecyclerView.Adapter<MatrimonySearch
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewImage=new Intent(context, ViewmatrimonyImage.class);
-                viewImage.putExtra("details",list.get(i));
-                context.startActivity(viewImage);
+                checkUserBuyedOrNot(i);
             }
         });
+    }
+
+    private void checkUserBuyedOrNot(final int i) {
+        AppUtils.showCustomProgressDialog(customProgressDialog,"Loading");
+         Query query= FirebaseDatabase.getInstance().getReference().child(Contants.USERS).child(uniqueKey);
+        ValueEventListener valueEventListener=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    if (dataSnapshot.hasChild(Contants.BUYED_LIST)){
+                       if (dataSnapshot.child(Contants.BUYED_LIST).hasChild(list.get(i).getPhone_num())){
+                           AppUtils.dismissCustomProgress(customProgressDialog);
+
+                           Intent viewImage=new Intent(context, ViewmatrimonyImage.class);
+                           viewImage.putExtra("details",list.get(i));
+                           context.startActivity(viewImage);
+
+                       }else {
+                          // AppUtils.showToast(context,"Payment page");
+                           AppUtils.dismissCustomProgress(customProgressDialog);
+                           Intent viewImage=new Intent(context, PaymentActivity.class);
+                           viewImage.putExtra("status",Contants.MATRIMONY);
+                           viewImage.putExtra("number",list.get(i).getPhone_num());
+                           context.startActivity(viewImage);
+
+                       }
+
+                    }
+                    else {
+                        AppUtils.dismissCustomProgress(customProgressDialog);
+                        Intent viewImage=new Intent(context, PaymentActivity.class);
+                        viewImage.putExtra("status",Contants.MATRIMONY);
+                        viewImage.putExtra("number",list.get(i).getPhone_num());
+                        context.startActivity(viewImage);
+                      //  AppUtils.showToast(context,"There are no Purchased Details");
+                    }
+                }else {
+                    AppUtils.dismissCustomProgress(customProgressDialog);
+                    AppUtils.showToast(context,"Data not exits");
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                AppUtils.showToast(context,databaseError.toString());
+                AppUtils.dismissCustomProgress(customProgressDialog);
+            }
+        };
+
+        query.addListenerForSingleValueEvent(valueEventListener);
     }
 
     @Override

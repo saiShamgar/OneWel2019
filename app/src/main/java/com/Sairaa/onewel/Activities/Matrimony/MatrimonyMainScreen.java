@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.Sairaa.onewel.Adapters.MatrimonySearchAdapter;
 import com.Sairaa.onewel.BaseActivity;
@@ -17,6 +18,7 @@ import com.Sairaa.onewel.Model.MatrimonyInsertionData;
 import com.Sairaa.onewel.R;
 import com.Sairaa.onewel.Utils.AppUtils;
 import com.Sairaa.onewel.Utils.Contants;
+import com.Sairaa.onewel.Utils.SharedPreferenceConfig;
 import com.google.firebase.database.*;
 
 import java.util.ArrayList;
@@ -32,17 +34,28 @@ public class MatrimonyMainScreen extends BaseActivity {
     private RecyclerView mat_search_recycler_view;
     private ArrayList<MatrimonyInsertionData> searchList=new ArrayList<>();
     private Context context;
+    private SharedPreferenceConfig config;
+    private ImageView ic_matrimony_back_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matrimony_main_screen);
         context=MatrimonyMainScreen.this;
+        config=new SharedPreferenceConfig(this);
 
         matrimony_reg_btn=findViewById(R.id.matrimony_reg_btn);
         matrimony_search_items=findViewById(R.id.matrimony_search_items);
         matrimony_go=findViewById(R.id.matrimony_go);
         mat_search_recycler_view=findViewById(R.id.mat_search_recycler_view);
+        ic_matrimony_back_button=findViewById(R.id.ic_matrimony_back_button);
+
+        ic_matrimony_back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         matrimony_reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +117,7 @@ public class MatrimonyMainScreen extends BaseActivity {
         });
 
 
-        adapter=new MatrimonySearchAdapter(context,searchList);
+        adapter=new MatrimonySearchAdapter(context,searchList,config.readUserUniqueKey(),mCustomProgressDialog);
         mat_search_recycler_view.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         mat_search_recycler_view.setHasFixedSize(true);
         mat_search_recycler_view.setAdapter(adapter);
@@ -121,10 +134,12 @@ public class MatrimonyMainScreen extends BaseActivity {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()){
+                                searchList.clear();
                                 for (DataSnapshot listsd: dataSnapshot.getChildren()){
-                                    searchList.clear();
-                                    if (listsd.child("state").getValue().toString().equalsIgnoreCase(matrimony_search_items.getText().toString())
-                                            || listsd.child("district").getValue().toString().equalsIgnoreCase(matrimony_search_items.getText().toString())){
+                                   Log.e("key",listsd.getKey());
+                                    if ((listsd.child("state").getValue().toString().equalsIgnoreCase(matrimony_search_items.getText().toString())
+                                            || listsd.child("district").getValue().toString().equalsIgnoreCase(matrimony_search_items.getText().toString()))
+                                         && listsd.child("status").getValue().toString().equalsIgnoreCase("0")){
                                         AppUtils.dismissCustomProgress(mCustomProgressDialog);
                                         MatrimonyInsertionData data=new MatrimonyInsertionData();
                                         data.setName(listsd.child("name").getValue().toString());
@@ -161,9 +176,8 @@ public class MatrimonyMainScreen extends BaseActivity {
                                         adapter.notifyDataSetChanged();
                                     }
                                     else {
-                                        adapter.notifyDataSetChanged();
                                         AppUtils.dismissCustomProgress(mCustomProgressDialog);
-                                        AppUtils.showToast(context,"No data there");
+
                                     }
 
                                 }

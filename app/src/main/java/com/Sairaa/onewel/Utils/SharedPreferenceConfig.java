@@ -366,6 +366,20 @@ public class SharedPreferenceConfig {
         return url;
     }
 
+    public void writeGoogle_name(String url) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getResources().getString(R.string.Google_name), String.valueOf(url));
+        Log.i("SharedPreferenceWrite: ", "" + url);
+        editor.apply();
+    }
+
+    public String readGoogle_name() {
+        String url;
+        url = sharedPreferences.getString(context.getResources().getString(R.string.Google_name), "no");
+        Log.i("SharedPreferenceRead: ", "" + url);
+        return url;
+    }
+
     public void writeMatrimonyImage(String url) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(context.getResources().getString(R.string.MatrimonyImage), String.valueOf(url));
@@ -379,5 +393,20 @@ public class SharedPreferenceConfig {
         Log.i("SharedPreferenceRead: ", "" + url);
         return url;
     }
+
+    public void writeUserUniqueKey(String url) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getResources().getString(R.string.UserUniqueKey), String.valueOf(url));
+        Log.i("SharedPreferenceWrite: ", "" + url);
+        editor.apply();
+    }
+
+    public String readUserUniqueKey() {
+        String url;
+        url = sharedPreferences.getString(context.getResources().getString(R.string.UserUniqueKey), "no");
+        Log.i("SharedPreferenceRead: ", "" + url);
+        return url;
+    }
+
 
 }

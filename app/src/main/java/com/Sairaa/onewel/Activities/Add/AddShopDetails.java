@@ -74,6 +74,7 @@ public class AddShopDetails extends AppCompatActivity implements
     private Context context;
     private AlertDialog dialog;
     private Uri imagecaptureuri;
+    private ImageView img_ic_close_add_shop_details;
 
 
     @Override
@@ -92,6 +93,14 @@ public class AddShopDetails extends AppCompatActivity implements
         spin_add_to_time=findViewById(R.id.spin_add_to_time);
         Add_image=findViewById(R.id.Add_image);
         shop_image=findViewById(R.id.shop_image);
+        img_ic_close_add_shop_details=findViewById(R.id.img_ic_close_add_shop_details);
+
+        img_ic_close_add_shop_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 
         spin_add_from_time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

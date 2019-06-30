@@ -1,5 +1,6 @@
 package com.Sairaa.onewel;
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,11 +20,16 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
 import com.Sairaa.onewel.Activities.Add.AddSignUpPD;
+import com.Sairaa.onewel.Activities.Customer.CustomerRegistration;
+import com.Sairaa.onewel.Activities.Customer.CutomerVerification;
 import com.Sairaa.onewel.Activities.Matrimony.MatrimonyMainScreen;
 import com.Sairaa.onewel.Activities.Matrimony.MatrimonyRegistration;
+import com.Sairaa.onewel.Activities.Promoter.PromoterSignUp;
 import com.Sairaa.onewel.Activities.SearchListActivity;
 import com.Sairaa.onewel.Activities.UserHistory;
 import com.Sairaa.onewel.Activities.ViewAllActivity;
@@ -79,10 +86,14 @@ public class MainActivity extends AppCompatActivity implements
 
     FirebaseAuth mAuth;
     private Toolbar toolBarLayout;
-
-
     private SharedPreferenceConfig config;
+    private CircleImageView img_view_navigation;
+    private TextView txt_profile_name,txt_profile_email,navigation_cus_reg_layout,navigation_cus_verfi_layout;
+    private LinearLayout navigation_promoter_layout,navigation_advertisement_layout,navigation_matrimony_edit,navigation_matrimony_close
+            ,navigation_about_us,navigation_privacy_policy,navigation_signout;
+    private NavigationView nvView;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +120,8 @@ public class MainActivity extends AppCompatActivity implements
         img_ic_electronics=findViewById(R.id.img_ic_electronics);
         txt_matrimony=findViewById(R.id.txt_matrimony);
         toolBarLayout=findViewById(R.id.toolBarLayout);
+        nvView=findViewById(R.id.nvView);
+
 
         setSupportActionBar(toolBarLayout);
 
@@ -117,6 +130,24 @@ public class MainActivity extends AppCompatActivity implements
                 this, drawer, toolBarLayout,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        View header = nvView.getHeaderView(0);
+        TextView name = (TextView) header.findViewById(R.id.txt_profile_name);
+        TextView profile = (TextView) header.findViewById(R.id.txt_profile_email);
+        img_view_navigation=header.findViewById(R.id.img_view_navigation);
+        name.setText(config.readGoogle_name());
+        profile.setText(config.readGoogle_email());
+
+        nvView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        selectDrawerItem(menuItem);
+                        return true;
+                    }
+                });
+
+
 
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
@@ -137,6 +168,11 @@ public class MainActivity extends AppCompatActivity implements
                 .load(config.readGoogle_image())
                 .error(R.drawable.ic_profile)
                 .into(img_ic_profile);
+
+        Glide.with(this)
+                .load(config.readGoogle_image())
+                .error(R.drawable.ic_profile)
+                .into(img_view_navigation);
 
         main_act_go.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -267,6 +303,31 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
+    private void selectDrawerItem(MenuItem menuItem) {
+
+        switch(menuItem.getItemId()) {
+            case R.id.nav_promoter:
+                Intent promoter=new Intent(MainActivity.this,PromoterSignUp.class);
+                startActivity(promoter);
+                break;
+            case R.id.nav_advertiser:
+                Intent add=new Intent(MainActivity.this,AddSignUpPD.class);
+                add.putExtra("position",0);
+                startActivity(add);
+                break;
+            case R.id.customer_reg:
+                Intent cus=new Intent(MainActivity.this,CustomerRegistration.class);
+                startActivity(cus);
+                break;
+
+            case R.id.customer_verfi:
+                Intent ver=new Intent(MainActivity.this,CutomerVerification.class);
+                startActivity(ver);
+                break;
+        }
+
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -308,6 +369,11 @@ public class MainActivity extends AppCompatActivity implements
                 .load(config.readGoogle_image())
                 .error(R.drawable.ic_profile)
                 .into(img_ic_profile);
+
+        Glide.with(this)
+                .load(config.readGoogle_image())
+                .error(R.drawable.ic_profile)
+                .into(img_view_navigation);
     }
 
     @Override

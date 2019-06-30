@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import com.Sairaa.onewel.Activities.OtpActivity;
 import com.Sairaa.onewel.R;
 import com.Sairaa.onewel.Utils.SharedPreferenceConfig;
@@ -17,6 +18,7 @@ public class PromoterUPI extends AppCompatActivity {
 
     private boolean validate;
     private SharedPreferenceConfig config;
+    private ImageView img_ic_close_promoter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,14 @@ public class PromoterUPI extends AppCompatActivity {
 
         btn_next_promoter_details=findViewById(R.id.btn_next_promoter_details);
         edt_uip_num_promoter=findViewById(R.id.edt_uip_num_promoter);
+        img_ic_close_promoter=findViewById(R.id.img_ic_close_promoter);
+
+        img_ic_close_promoter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         btn_next_promoter_details.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -18,7 +18,9 @@
 			android:gravity="center"
 			android:background="@color/color_white">
 		
-		<ImageView android:layout_width="0dp"
+		<ImageView
+				android:id="@+id/back_matrimony_reg"
+				android:layout_width="0dp"
 		           android:layout_height="match_parent"
 		           android:layout_weight="0.3"
 		           android:src="@drawable/ic_back"

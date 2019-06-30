@@ -2,6 +2,7 @@ package com.Sairaa.onewel.Activities.Customer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import android.widget.EditText;
+import android.widget.ImageView;
 import com.Sairaa.onewel.Activities.Promoter.PromoterRegistrationSuccess;
 import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.MainActivity;
@@ -30,6 +32,7 @@ public class CustomerPayingDetails extends BaseActivity {
     private SharedPreferenceConfig config;
     private String number;
     private Context context;
+    private ImageView img_ic_close_customer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,14 @@ public class CustomerPayingDetails extends BaseActivity {
         edt_total_price_customer=findViewById(R.id.edt_total_price_customer);
         edt_discount_price_customer=findViewById(R.id.edt_discount_price_customer);
         edt_discription_customer=findViewById(R.id.edt_discription_customer);
+        img_ic_close_customer=findViewById(R.id.img_ic_close_customer);
+
+        img_ic_close_customer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         btn_next_customer_details.setOnClickListener(new View.OnClickListener() {
             @Override

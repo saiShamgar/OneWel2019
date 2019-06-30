@@ -3,11 +3,13 @@ package com.Sairaa.onewel.Activities.Customer;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.CharacterPickerDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import android.widget.EditText;
+import android.widget.ImageView;
 import com.Sairaa.onewel.Activities.Add.AddShopDetails;
 import com.Sairaa.onewel.Activities.Add.AddSignUpPD;
 import com.Sairaa.onewel.Activities.OtpActivity;
@@ -27,7 +29,7 @@ public class CustomerRegistration extends BaseActivity {
     private EditText edt_name_customer_reg,edt_phone_num_customer_reg,edt_ref_num_customer_reg;
     boolean validate;
     private SharedPreferenceConfig config;
-
+    private ImageView img_ic_close_customer_Reg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,14 @@ public class CustomerRegistration extends BaseActivity {
         edt_name_customer_reg=findViewById(R.id.edt_name_customer_reg);
         edt_phone_num_customer_reg=findViewById(R.id.edt_phone_num_customer_reg);
         edt_ref_num_customer_reg=findViewById(R.id.edt_ref_num_customer_reg);
+        img_ic_close_customer_Reg=findViewById(R.id.img_ic_close_customer_Reg);
+
+        img_ic_close_customer_Reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         btn_customer_reg_details.setOnClickListener(new View.OnClickListener() {
             @Override

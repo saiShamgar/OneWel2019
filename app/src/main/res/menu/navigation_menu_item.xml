@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<group android:checkableBehavior="single">
+		<item
+				android:id="@+id/nav_promoter"
+				android:icon="@drawable/ic_nav_promoter"
+				android:title="Promoter" />
+		<item
+				android:id="@+id/nav_advertiser"
+				android:icon="@drawable/ic_nag_advertisement"
+				android:title="Advertisement" />
+		<item
+				android:title="Customer" >
+			<menu>
+				<group android:checkableBehavior="single">
+					<item
+							android:id="@+id/customer_reg"
+							android:icon="@drawable/ic_nag_customer"
+							android:title="Customer Registration" />
+					<item
+							android:icon="@drawable/ic_nag_customer"
+							android:id="@+id/customer_verfi"
+							android:title="Customer Verification" />
+				</group>
+			</menu>
+		</item>
+		
+		<item
+				android:id="@+id/nav_matrimony"
+				android:title="Matrimony" >
+			<menu>
+				<group android:checkableBehavior="single">
+					<item
+							android:id="@+id/matrimony_edit"
+							android:icon="@drawable/ic_nag_matrimoney"
+							android:title="Edit Account" />
+					<item
+							android:icon="@drawable/ic_nag_matr_close"
+							android:id="@+id/matrimony_close"
+							android:title="Close Account" />
+				</group>
+			</menu>
+		</item>
+		
+		<item
+				android:id="@+id/nav_info"
+				android:title="Info" >
+			<menu>
+				<group android:checkableBehavior="single">
+					<item
+							android:id="@+id/about_us"
+							android:icon="@drawable/ic_nag_about"
+							android:title="About Us" />
+					<item
+							android:icon="@drawable/ic_nag_privacy"
+							android:id="@+id/privacy_policy"
+							android:title="Privacy Policy" />
+				</group>
+			</menu>
+		</item>
+		
+		<item
+				android:id="@+id/nav_settings"
+				android:title="Setting" >
+			<menu>
+				<group android:checkableBehavior="single">
+					<item
+							android:id="@+id/log_out"
+							android:icon="@drawable/ic_nag_logout"
+							android:title="Log out" />
+				</group>
+			</menu>
+		</item>
+		
+		<item
+				android:id="@+id/nav_share_app"
+				android:icon="@drawable/ic_nav_promoter"
+				android:title="Share App" />
+		
+	</group>
+
+</menu>

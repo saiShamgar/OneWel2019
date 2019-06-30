@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
 		xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:tools="http://schemas.android.com/tools"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,4 +13,133 @@
 			android:layout_height="match_parent">
 		
 	</WebView>
-</RelativeLayout>
+	<RelativeLayout
+			android:id="@+id/paymentLayout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			tools:context=".Activities.Promoter.PromoterSignUp"
+			android:background="@color/act_background">
+		
+		<ScrollView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:scrollbars="none">
+			
+			<FrameLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+				<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
+					<ImageView
+							android:id="@+id/img_ic_close_promoter"
+							android:layout_alignParentRight="true"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:src="@drawable/ic_close"
+							android:layout_marginTop="@dimen/margin_xxxlarge"
+							android:layout_marginRight="@dimen/margin_xxxxlarge"/>
+					
+					<TextView
+							android:id="@+id/txt_promoter_heading"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_below="@+id/img_ic_close_promoter"
+							android:text="Matrimony Registration"
+							android:textColor="@color/colorPrimary"
+							android:textSize="20dp"
+							android:textStyle="bold"
+							android:layout_margin="@dimen/margin_xxxxlarge"
+							android:layout_centerHorizontal="true"/>
+					
+					<android.support.v7.widget.CardView
+							android:layout_below="@+id/txt_promoter_heading"
+							android:id="@+id/signup_layout_promoter"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							app:cardCornerRadius="@dimen/margin_xlarge"
+							app:cardBackgroundColor="@color/color_white"
+							app:cardElevation="3dp"
+							android:layout_marginTop="@dimen/margin_xxxxxxlarge"
+							android:layout_marginRight="@dimen/margin_xxxxlarge"
+							android:layout_marginLeft="@dimen/margin_xxxxlarge"
+							android:layout_marginBottom="@dimen/margin_xxxlarge">
+						
+						<RelativeLayout
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:paddingLeft="@dimen/margin_xxlarge"
+								android:focusableInTouchMode="true">
+							
+							<TextView
+									android:id="@+id/upi_money_heading"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:layout_marginTop="70dp"
+									android:textSize="35dp"
+									android:text="100"
+									android:textColor="@color/app_color_violet"
+									android:layout_centerHorizontal="true"
+									android:textStyle="bold"/>
+							
+							<ImageView
+									android:layout_width="25dp"
+									android:layout_height="25dp"
+									android:layout_marginTop="85dp"
+									android:src="@drawable/ic_money"
+									android:layout_toRightOf="@+id/upi_money_heading"/>
+							
+							<TextView
+									android:id="@+id/upi_money_description"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:layout_marginTop="@dimen/margin_xxlarge"
+									android:textSize="18dp"
+									android:gravity="center"
+									android:text="We are very much happy for being with us.You have to pay above mentioned amount for registration."
+									android:textColor="@color/font_color"
+									android:layout_centerHorizontal="true"
+									android:textStyle="bold"
+									android:layout_below="@+id/upi_money_heading"/>
+							
+							
+							<Button
+									android:id="@+id/btn_next_matrimony_details"
+									android:layout_width="match_parent"
+									android:layout_height="wrap_content"
+									android:layout_below="@+id/upi_money_description"
+									android:background="@drawable/gradient_background"
+									android:layout_marginTop="@dimen/margin_xxxxxxlarge"
+									android:layout_marginBottom="@dimen/margin_xxxlarge"
+									android:layout_marginLeft="@dimen/margin_xxxlarge"
+									android:layout_marginRight="@dimen/margin_xxxlarge"
+									android:text="Pay rs. 100"
+									android:textColor="@color/color_white"/>
+						
+						
+						</RelativeLayout>
+					
+					
+					</android.support.v7.widget.CardView>
+				
+				
+				
+				</RelativeLayout>
+				
+				<ImageView
+						android:layout_width="120dp"
+						android:layout_height="100dp"
+						android:src="@drawable/bg_money"
+						android:layout_gravity="center_horizontal"
+						android:layout_marginTop="130dp"/>
+			</FrameLayout>
+		
+		
+		
+		
+		
+		</ScrollView>
+	
+	
+	</RelativeLayout>
+</FrameLayout>

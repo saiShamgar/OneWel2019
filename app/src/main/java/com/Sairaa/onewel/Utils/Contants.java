@@ -11,6 +11,7 @@ public interface Contants {
     String REFERENCES="REFERENCES";
     String CUSTOMER_PAYING_DETAILS="CUSTOMER_PAYING_DETAILS";
     String ADDVERTISER_PAYING_DETAILS="ADDVERTISER_PAYING_DETAILS";
+    String BUYED_LIST="BUYED_LIST";
 
 
     //User child nodes
