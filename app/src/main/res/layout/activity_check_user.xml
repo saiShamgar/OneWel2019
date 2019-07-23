@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:paddingTop="@dimen/margin_large"
+		android:paddingBottom="@dimen/margin_large"
+		android:background="@drawable/round_background">
+	
+	<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Verify Number"
+			android:gravity="center"
+			android:textColor="@color/color_black"
+			android:textSize="16dp"/>
+	
+	<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/dialog_edt_reg_num"
+			android:gravity="center"
+			android:textSize="14dp"
+			android:inputType="number"
+			android:maxLength="10"
+			android:imeOptions="actionDone"
+			android:layout_marginTop="@dimen/margin_xxxxlarge"
+			android:layout_marginLeft="@dimen/margin_xxxlarge"
+			android:layout_marginRight="@dimen/margin_xxxlarge"
+			android:hint="Enter Phone number"/>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:weightSum="2"
+			android:layout_marginTop="@dimen/margin_xxxlarge">
+		
+		<TextView
+				android:id="@+id/cancel_dialog"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="Cancel"
+				android:gravity="center"
+				android:textSize="16dp"
+				android:padding="@dimen/card_elevation_4dp"
+				android:textColor="@color/color_black"
+				android:layout_marginLeft="@dimen/margin_xxlarge"
+				android:layout_marginRight="@dimen/margin_xxlarge"/>
+		
+		<TextView
+				android:id="@+id/verify_dialog"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:text="Verify"
+				android:gravity="center"
+				android:textSize="16dp"
+				android:background="@drawable/gradient_color"
+				android:textColor="@color/color_white"
+				android:padding="@dimen/card_elevation_4dp"
+				android:layout_marginLeft="@dimen/margin_xxlarge"
+				android:layout_marginRight="@dimen/margin_xxlarge"/>
+	
+	
+	</LinearLayout>
+
+
+</LinearLayout>

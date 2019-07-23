@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.Sairaa.onewel.Activities.Add.AddShopDetails;
+import com.Sairaa.onewel.Activities.Matrimony.EdtiMatrimonyAccount;
 import com.Sairaa.onewel.Activities.Promoter.PromoterRegistrationSuccess;
 import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.Model.Advertisement.AdvertisementDetails;
@@ -101,6 +102,8 @@ public class OtpActivity extends BaseActivity {
             sendVerificationCode(config.readCustomer_phone());
         }else if (status.contains("Matrimony")){
             sendVerificationCode(number);
+        }else if (status.contains("CheckUser")){
+            sendVerificationCode(number);
         }
         findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +136,10 @@ public class OtpActivity extends BaseActivity {
                 else if (status.contains("customer")){
                     resendVerificationCode(config.readCustomer_phone(),token);
                 }else if (status.contains("Matrimony")){
-                    sendVerificationCode(number);
+                    resendVerificationCode(number,token);
+                }
+                else if (status.contains("CheckUser")){
+                    resendVerificationCode(number,token);
                 }
             }
         });
@@ -305,6 +311,13 @@ public class OtpActivity extends BaseActivity {
                 pushImageToFirebase();
             }
 
+        }
+        else if (status.contains("CheckUser")){
+            AppUtils.dismissCustomProgress(mCustomProgressDialog);
+
+            Intent editAccount=new Intent(OtpActivity.this, EdtiMatrimonyAccount.class);
+            editAccount.putExtra("number",number);
+            startActivity(editAccount);
         }
     }
 

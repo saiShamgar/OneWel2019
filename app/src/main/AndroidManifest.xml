@@ -15,14 +15,23 @@
 			android:allowBackup="true"
 			android:icon="@mipmap/ic_launcher"
 			android:label="@string/app_name"
-			android:usesCleartextTraffic="true"
 			android:roundIcon="@mipmap/ic_launcher_round"
 			android:supportsRtl="true"
 			android:theme="@style/AppTheme"
+			android:usesCleartextTraffic="true"
 			tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-		<activity android:name=".PaymentActivity"
+		<activity android:name=".Activities.Matrimony.CheckUserActivity"
 		android:theme="@style/AppThemeWithNoAction"
 		android:screenOrientation="portrait">
+		</activity>
+		<activity android:name=".Activities.Matrimony.EdtiMatrimonyAccount"
+				android:theme="@style/AppThemeWithNoAction"
+				android:screenOrientation="portrait">
+		</activity>
+		<activity
+				android:name=".PaymentActivity"
+				android:screenOrientation="portrait"
+				android:theme="@style/AppThemeWithNoAction">
 		</activity>
 		<activity
 				android:name=".Activities.Matrimony.ViewmatrimonyImage"

@@ -27,6 +27,7 @@ import android.widget.*;
 import com.Sairaa.onewel.Activities.Add.AddSignUpPD;
 import com.Sairaa.onewel.Activities.Customer.CustomerRegistration;
 import com.Sairaa.onewel.Activities.Customer.CutomerVerification;
+import com.Sairaa.onewel.Activities.Matrimony.CheckUserActivity;
 import com.Sairaa.onewel.Activities.Matrimony.MatrimonyMainScreen;
 import com.Sairaa.onewel.Activities.Matrimony.MatrimonyRegistration;
 import com.Sairaa.onewel.Activities.Promoter.PromoterSignUp;
@@ -323,6 +324,11 @@ public class MainActivity extends AppCompatActivity implements
             case R.id.customer_verfi:
                 Intent ver=new Intent(MainActivity.this,CutomerVerification.class);
                 startActivity(ver);
+                break;
+
+            case R.id.matrimony_edit:
+              Intent checkUser=new Intent(MainActivity.this, CheckUserActivity.class);
+              startActivity(checkUser);
                 break;
         }
 

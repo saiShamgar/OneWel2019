@@ -18,8 +18,10 @@ import android.widget.*;
 import com.Sairaa.onewel.Activities.Add.AddSignUpPD;
 import com.Sairaa.onewel.Activities.Customer.CutomerVerification;
 import com.Sairaa.onewel.Activities.Promoter.PromoterSignUp;
+import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.Interfaces.RadioButtonInterface;
 import com.Sairaa.onewel.R;
+import com.google.firebase.database.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -100,6 +102,70 @@ public class AppUtils {
 
         return null;
     }
+
+    public static Dialog checkRegisteredNumberOrNot(final Context context, final View.OnClickListener positivecallback) {
+        final Dialog dialog_ok_dialog;
+        dialog_ok_dialog = new Dialog(context, R.style.custompopup_style);
+
+        dialog_ok_dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        dialog_ok_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        dialog_ok_dialog.setContentView(R.layout.cus_layout_check_reg_user);
+        dialog_ok_dialog.setCancelable(true);
+
+        Window window = dialog_ok_dialog.getWindow();
+        WindowManager.LayoutParams wlp = window.getAttributes();
+        wlp.gravity = Gravity.CENTER;
+        window.setAttributes(wlp);
+        dialog_ok_dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+
+        final EditText dialog_edt_reg_num=(EditText)dialog_ok_dialog.findViewById(R.id.dialog_edt_reg_num);
+        TextView cancel_dialog=(TextView)dialog_ok_dialog.findViewById(R.id.cancel_dialog);
+        TextView verify_dialog=(TextView)dialog_ok_dialog.findViewById(R.id.verify_dialog);
+
+        verify_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog_ok_dialog.dismiss();
+                if (positivecallback != null) {
+                    positivecallback.onClick(v);
+                }
+
+//                if (dialog_edt_reg_num.getText().toString().length()==10){
+//                    Query  query=FirebaseDatabase.getInstance().getReference().child(Contants.MATRIMONY);
+//                    ValueEventListener valueEventListener=new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(DataSnapshot dataSnapshot) {
+//                            if (dataSnapshot.exists()){
+//                                if (dataSnapshot.hasChild(dialog_edt_reg_num.getText().toString().trim())){
+//                                    Toast.makeText(context,"registered number",Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(DatabaseError databaseError) {
+//
+//                        }
+//                    };
+//                    query.addListenerForSingleValueEvent(valueEventListener);
+//                }
+//                else {
+//                    dialog_edt_reg_num.setError("Enter Valid number");
+//                }
+            }
+        });
+
+
+
+
+        dialog_ok_dialog.show();
+
+        return null;
+    }
+
+
 
     /**
      * Method to show the custom progress dialog.
