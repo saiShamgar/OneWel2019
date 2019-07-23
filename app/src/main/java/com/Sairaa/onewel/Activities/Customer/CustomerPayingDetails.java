@@ -24,6 +24,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class CustomerPayingDetails extends BaseActivity {
 
     private Button btn_next_customer_details;
@@ -69,6 +72,7 @@ public class CustomerPayingDetails extends BaseActivity {
         });
     }
 
+
     private void savePayingDetails() {
 
         AppUtils.showCustomProgressDialog(mCustomProgressDialog,"Loading");
@@ -80,10 +84,20 @@ public class CustomerPayingDetails extends BaseActivity {
                 if (dataSnapshot.exists()){
                     if (dataSnapshot.hasChild(edt_name_customer.getText().toString().trim())){
 
+                        final String saveCurrentTime,saveCurrentDate;
+                        Calendar calendar=Calendar.getInstance();
+                        SimpleDateFormat currentDate=new SimpleDateFormat("MMM dd,yyyy");
+                        saveCurrentDate=currentDate.format(calendar.getTime());
+
+                        SimpleDateFormat currentTime=new SimpleDateFormat("hh:mm a");
+                        saveCurrentTime=currentTime.format(calendar.getTime());
+
                         final CUSTOMER_PAYING_DETAILS details=new CUSTOMER_PAYING_DETAILS(edt_name_customer.getText().toString().trim(),
                                 edt_total_price_customer.getText().toString().trim(),
                                 edt_discount_price_customer.getText().toString().trim(),
-                                edt_discription_customer.getText().toString().trim());
+                                edt_discription_customer.getText().toString().trim(),
+                                saveCurrentDate,
+                                saveCurrentTime);
 
                         FirebaseDatabase.getInstance().getReference().child(Contants.CUSTOMER_PAYING_DETAILS)
                         .child(number).push().setValue(details)
@@ -95,7 +109,9 @@ public class CustomerPayingDetails extends BaseActivity {
                                     ADDVERTISER_PAYING_DETAILS details1=new ADDVERTISER_PAYING_DETAILS(number,
                                             edt_total_price_customer.getText().toString().trim(),
                                             edt_discount_price_customer.getText().toString().trim(),
-                                            edt_discription_customer.getText().toString().trim());
+                                            edt_discription_customer.getText().toString().trim(),
+                                            saveCurrentDate,
+                                            saveCurrentTime);
                                    FirebaseDatabase.getInstance().getReference().child(Contants.ADDVERTISER_PAYING_DETAILS)
                                            .child(edt_name_customer.getText().toString().trim())
                                            .push()

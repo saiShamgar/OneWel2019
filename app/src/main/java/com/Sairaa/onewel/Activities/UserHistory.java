@@ -32,7 +32,6 @@ public class UserHistory extends BaseActivity {
         btn_next_history_details=findViewById(R.id.btn_next_history_details);
 
         context=UserHistory.this;
-
         btn_next_history_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,9 +45,7 @@ public class UserHistory extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 type_of_user=parent.getSelectedItem().toString();
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 

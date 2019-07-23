@@ -6,12 +6,15 @@ public class ADDVERTISER_PAYING_DETAILS {
     String total_price;
     String discount_price;
     String description;
+    String date,time;
 
-    public ADDVERTISER_PAYING_DETAILS(String custer_number, String total_price, String discount_price, String description) {
+    public ADDVERTISER_PAYING_DETAILS(String custer_number, String total_price, String discount_price, String description, String date, String time) {
         this.custer_number = custer_number;
         this.total_price = total_price;
         this.discount_price = discount_price;
         this.description = description;
+        this.date = date;
+        this.time = time;
     }
 
     public String getCuster_number() {
@@ -44,5 +47,21 @@ public class ADDVERTISER_PAYING_DETAILS {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

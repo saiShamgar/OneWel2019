@@ -40,6 +40,8 @@ public class ReferenceListAdapter extends RecyclerView.Adapter<ReferenceListAdap
         holder.ref_number.setText("PH NO\n"+details.get(i).getCuster_number());
         holder.ref_discountPrice.setText("Discount price\n"+details.get(i).getDiscount_price());
         holder.ref_totalPrice.setText("Total Price\n"+details.get(i).getTotal_price());
+        holder.paymentDate.setText(details.get(i).getDate());
+        holder.paymentTime.setText(details.get(i).getTime());
 
     }
 
@@ -50,7 +52,7 @@ public class ReferenceListAdapter extends RecyclerView.Adapter<ReferenceListAdap
 
     public class viewHolder extends RecyclerView.ViewHolder{
 
-        private TextView ref_description,ref_number,ref_totalPrice,ref_discountPrice;
+        private TextView ref_description,ref_number,ref_totalPrice,ref_discountPrice,paymentDate,paymentTime;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
@@ -59,6 +61,8 @@ public class ReferenceListAdapter extends RecyclerView.Adapter<ReferenceListAdap
             ref_number=itemView.findViewById(R.id.ref_number);
             ref_totalPrice=itemView.findViewById(R.id.ref_totalPrice);
             ref_discountPrice=itemView.findViewById(R.id.ref_discountPrice);
+            paymentDate=itemView.findViewById(R.id.paymentDate);
+            paymentTime=itemView.findViewById(R.id.paymentTime);
         }
     }
 }

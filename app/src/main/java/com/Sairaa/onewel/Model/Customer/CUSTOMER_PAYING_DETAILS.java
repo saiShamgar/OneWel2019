@@ -5,13 +5,17 @@ public class CUSTOMER_PAYING_DETAILS {
     String totalPrice;
     String discountPrice;
     String Description;
+    String date,time;
 
-    public CUSTOMER_PAYING_DETAILS(String name, String totalPrice, String discountPrice, String description) {
+    public CUSTOMER_PAYING_DETAILS(String name, String totalPrice, String discountPrice, String description, String date, String time) {
         this.name = name;
         this.totalPrice = totalPrice;
         this.discountPrice = discountPrice;
         Description = description;
+        this.date = date;
+        this.time = time;
     }
+
 
     public String getName() {
         return name;
@@ -43,5 +47,21 @@ public class CUSTOMER_PAYING_DETAILS {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

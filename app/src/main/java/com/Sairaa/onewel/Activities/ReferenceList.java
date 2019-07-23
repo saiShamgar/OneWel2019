@@ -142,7 +142,9 @@ public class ReferenceList extends BaseActivity {
                                         payingDetails.child("custer_number").getValue().toString(),
                                         payingDetails.child("total_price").getValue().toString(),
                                         payingDetails.child("discount_price").getValue().toString(),
-                                        payingDetails.child("description").getValue().toString()
+                                        payingDetails.child("description").getValue().toString(),
+                                        payingDetails.child("date").getValue().toString(),
+                                        payingDetails.child("time").getValue().toString()
                                 );
                                 paying_details_list.add(details);
                             }
@@ -158,12 +160,13 @@ public class ReferenceList extends BaseActivity {
 
                                 Log.e("totalPrice", payingDetails.child("totalPrice").getValue().toString());
 
-
                                 CUSTOMER_PAYING_DETAILS details = new CUSTOMER_PAYING_DETAILS(
                                         payingDetails.child("name").getValue().toString(),
                                         payingDetails.child("totalPrice").getValue().toString(),
                                         payingDetails.child("discountPrice").getValue().toString(),
-                                        payingDetails.child("description").getValue().toString()
+                                        payingDetails.child("description").getValue().toString(),
+                                        payingDetails.child("date").getValue().toString(),
+                                        payingDetails.child("time").getValue().toString()
                                 );
 
                                 paying_details_list1.add(details);

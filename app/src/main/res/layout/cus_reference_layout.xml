@@ -5,7 +5,6 @@
 		android:layout_height="wrap_content"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		app:cardBackgroundColor="@color/color_white"
-		app:cardElevation="@dimen/card_radius_8dp"
 		app:cardCornerRadius="@dimen/card_radius_8dp"
 		android:layout_margin="@dimen/card_elevation_4dp">
 	
@@ -19,7 +18,9 @@
 				android:orientation="horizontal"
 				android:weightSum="2"
 				android:padding="@dimen/margin_large"
-				android:layout_margin="@dimen/margin_large">
+				android:layout_marginLeft="@dimen/margin_large"
+				android:layout_marginTop="@dimen/margin_large"
+				android:layout_marginRight="@dimen/margin_large">
 			
 			<TextView android:layout_width="0dp"
 			          android:layout_weight="1"
@@ -47,10 +48,42 @@
 				android:weightSum="2"
 				android:padding="@dimen/margin_large"
 				android:layout_marginLeft="@dimen/margin_large"
+				android:layout_marginBottom="@dimen/margin_large"
+				android:layout_marginRight="@dimen/margin_large">
+			
+			<TextView
+					android:id="@+id/paymentDate"
+					android:layout_width="0dp"
+			          android:layout_weight="1"
+			          android:layout_height="wrap_content"
+			          android:text="Paying Date"
+			          android:textColor="@color/color_black"
+			          android:textSize="14dp"/>
+			
+			<TextView
+					android:id="@+id/paymentTime"
+					android:layout_width="0dp"
+			          android:layout_weight="1"
+			          android:layout_height="wrap_content"
+			          android:text="Paying Time"
+			          android:textColor="@color/color_black"
+			          android:textSize="14dp"
+			          android:gravity="right"
+			/>
+		
+		</LinearLayout>
+		
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:weightSum="2"
+				android:padding="@dimen/margin_large"
+				android:layout_marginLeft="@dimen/margin_large"
 				android:layout_marginRight="@dimen/margin_large">
 			
 			<TextView android:layout_width="0dp"
-			          android:layout_weight="0.5"
+			          android:layout_weight="0.8"
 			          android:layout_height="wrap_content"
 			          android:text="Description : "
 			          android:textColor="@color/color_black"
@@ -60,9 +93,11 @@
 			<TextView
 					android:id="@+id/ref_description"
 					android:layout_width="0dp"
-			          android:layout_weight="1.5"
+			          android:layout_weight="1.2"
 			          android:layout_height="wrap_content"
 			          android:text=""
+					android:ellipsize="end"
+					android:singleLine="true"
 					android:gravity="center_vertical"
 			          android:textColor="@color/color_black"
 			          android:textSize="14dp"/>
