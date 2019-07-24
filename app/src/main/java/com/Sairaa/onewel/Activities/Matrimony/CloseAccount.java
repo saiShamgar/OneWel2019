@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.Sairaa.onewel.Activities.OtpActivity;
 import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.R;
@@ -15,24 +14,25 @@ import com.Sairaa.onewel.Utils.AppUtils;
 import com.Sairaa.onewel.Utils.Contants;
 import com.google.firebase.database.*;
 
-public class CheckUserActivity extends BaseActivity {
+public class CloseAccount extends BaseActivity {
+
+    private Context context;
 
     private EditText dialog_edt_reg_num;
-    private TextView cancel_dialog,verify_dialog;
-    private Context context;
+    private TextView cancel_dialog,ok_dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_user);
+        setContentView(R.layout.activity_close_account);
 
-        context=CheckUserActivity.this;
+        context=CloseAccount.this;
 
-         dialog_edt_reg_num=findViewById(R.id.dialog_edt_reg_num);
-         cancel_dialog=findViewById(R.id.cancel_dialog);
-         verify_dialog=findViewById(R.id.verify_dialog);
+        dialog_edt_reg_num=findViewById(R.id.dialog_edt_reg_num);
+        cancel_dialog=findViewById(R.id.cancel_dialog);
+        ok_dialog=findViewById(R.id.ok_dialog);
 
-        verify_dialog.setOnClickListener(new View.OnClickListener() {
+        ok_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (dialog_edt_reg_num.getText().toString().length()==10){
@@ -47,8 +47,8 @@ public class CheckUserActivity extends BaseActivity {
                                     AppUtils.dismissCustomProgress(mCustomProgressDialog);
                                     AppUtils.showToast(context,"registered number");
 
-                                    Intent otpActivity=new Intent(CheckUserActivity.this, OtpActivity.class);
-                                    otpActivity.putExtra("status","CheckUser");
+                                    Intent otpActivity=new Intent(CloseAccount.this, OtpActivity.class);
+                                    otpActivity.putExtra("status","CloseAccount");
                                     otpActivity.putExtra("number",dialog_edt_reg_num.getText().toString().trim());
                                     startActivity(otpActivity);
                                 }
@@ -81,6 +81,5 @@ public class CheckUserActivity extends BaseActivity {
                 onBackPressed();
             }
         });
-
     }
 }

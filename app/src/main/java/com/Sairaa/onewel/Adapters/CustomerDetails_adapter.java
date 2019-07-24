@@ -36,6 +36,8 @@ public class CustomerDetails_adapter extends RecyclerView.Adapter<CustomerDetail
         holder.ref_number.setText("PH NO\n"+details.get(i).getName());
         holder.ref_discountPrice.setText("Discount price\n"+details.get(i).getDiscountPrice());
         holder.ref_totalPrice.setText("Total Price\n"+details.get(i).getTotalPrice());
+        holder.paymentDate.setText(details.get(i).getDate());
+        holder.paymentTime.setText(details.get(i).getTime());
     }
 
     @Override
@@ -45,7 +47,7 @@ public class CustomerDetails_adapter extends RecyclerView.Adapter<CustomerDetail
 
     public class ViewHOlder extends RecyclerView.ViewHolder{
 
-        private TextView ref_description,ref_number,ref_totalPrice,ref_discountPrice;
+        private TextView ref_description,ref_number,ref_totalPrice,ref_discountPrice,paymentDate,paymentTime;
 
         public ViewHOlder(@NonNull View itemView) {
             super(itemView);
@@ -54,6 +56,8 @@ public class CustomerDetails_adapter extends RecyclerView.Adapter<CustomerDetail
             ref_number=itemView.findViewById(R.id.ref_number);
             ref_totalPrice=itemView.findViewById(R.id.ref_totalPrice);
             ref_discountPrice=itemView.findViewById(R.id.ref_discountPrice);
+            paymentDate=itemView.findViewById(R.id.paymentDate);
+            paymentTime=itemView.findViewById(R.id.paymentTime);
         }
     }
 }

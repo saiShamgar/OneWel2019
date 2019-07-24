@@ -53,19 +53,15 @@ public class CustomerRegistration extends BaseActivity {
         btn_customer_reg_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (doValidation()){
                        saveCusPersonalDetails();
                 }
-
-
             }
         });
 
     }
 
     private void saveCusPersonalDetails() {
-
         AppUtils.showCustomProgressDialog(mCustomProgressDialog,"Loading...");
         Query query= FirebaseDatabase.getInstance().getReference().child(Contants.CUMTOMER);
         ValueEventListener valueEventListener=new ValueEventListener() {

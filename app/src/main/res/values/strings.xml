@@ -44,6 +44,22 @@
 	<string name="UserUniqueKey">com.Sairaa.onewel.Utils.UserUniqueKey</string>
 	<string name="Google_name">com.Sairaa.onewel.Utils.Google_name</string>
 	<string name="shop_prompt">Choose a Shop</string>
+	<string name="about_us">
+		*1 wel is a 24x7 Public Relation app like (P.R.O)\n\n
+		* All type of advertisements can be posted in our app\n\n
+		* Those who can provide discounts to our customers are eligible to give advertisement in our app\n\n
+		* The Persons who want ot become self employe and earn money can join as promoter in our app\n\n
+		* The persons who want discounts on all items (which are advertised) can register as customers in our app.\n\n
+		Benefits of 1 Wel\n\n
+		* Customers can save their money through discounts in their daily expenditure (Provided by our app).\n\n
+		* Providers can increase their business by providing discounts and giving advertising in our app.\n\n
+		* Promoters in our 1 wel app can work as a permanent employee and even can get the extra benefits.\n\n
+		* In our app, all type of adds are given (Hospitals, Education, Food, Sevices, all basic needs etc.)\n\n
+		1 wel Matrimony:\n\n
+		* In our 1 wel matrimony, People can register for free and upload their details.\n\n
+		* Through searching in our app, one can get a no.of matches and can select their partner of their own choice
+		with in a short span of time.
+	</string>
 	<string-array name="shop_arrays">
 		<item>Choose a Shop</item>
 		<item>Electronic</item>

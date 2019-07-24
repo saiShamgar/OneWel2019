@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+import com.Sairaa.onewel.Activities.OtpActivity;
 import com.Sairaa.onewel.Adapters.PlaceArrayAdapter;
 import com.Sairaa.onewel.BaseActivity;
 import com.Sairaa.onewel.MainActivity;
@@ -132,7 +133,8 @@ public class PromoterSignUp extends BaseActivity implements
                                 config.writePromoterLat(String.valueOf(lat));
                                 config.writePromoterLon(String.valueOf(lon));
 
-                                Intent gotoUpi=new Intent(PromoterSignUp.this,PromoterUPI.class);
+                                Intent gotoUpi=new Intent(PromoterSignUp.this, OtpActivity.class);
+                                gotoUpi.putExtra("status","promoter");
                                 startActivity(gotoUpi);
                             }
                         }else {

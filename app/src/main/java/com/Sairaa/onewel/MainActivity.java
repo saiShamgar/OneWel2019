@@ -4,6 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Handler;
@@ -24,10 +27,12 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
+import com.Sairaa.onewel.Activities.AboutUs;
 import com.Sairaa.onewel.Activities.Add.AddSignUpPD;
 import com.Sairaa.onewel.Activities.Customer.CustomerRegistration;
 import com.Sairaa.onewel.Activities.Customer.CutomerVerification;
 import com.Sairaa.onewel.Activities.Matrimony.CheckUserActivity;
+import com.Sairaa.onewel.Activities.Matrimony.CloseAccount;
 import com.Sairaa.onewel.Activities.Matrimony.MatrimonyMainScreen;
 import com.Sairaa.onewel.Activities.Matrimony.MatrimonyRegistration;
 import com.Sairaa.onewel.Activities.Promoter.PromoterSignUp;
@@ -62,6 +67,9 @@ import com.karumi.dexter.listener.PermissionRequestErrorListener;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements
@@ -93,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements
     private LinearLayout navigation_promoter_layout,navigation_advertisement_layout,navigation_matrimony_edit,navigation_matrimony_close
             ,navigation_about_us,navigation_privacy_policy,navigation_signout;
     private NavigationView nvView;
+    private boolean statusShare=false;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -330,6 +339,51 @@ public class MainActivity extends AppCompatActivity implements
               Intent checkUser=new Intent(MainActivity.this, CheckUserActivity.class);
               startActivity(checkUser);
                 break;
+
+            case R.id.matrimony_close:
+                Intent closeAccount=new Intent(MainActivity.this, CloseAccount.class);
+                startActivity(closeAccount);
+
+                break;
+
+            case R.id.nav_share_app:
+                ShareApp();
+                break;
+
+            case R.id.log_out:
+                mAuth.signOut();
+                Intent logout=new Intent(MainActivity.this,GoogleSignIN.class);
+                logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(logout);
+                break;
+
+            case R.id.about_us:
+                Intent about_us=new Intent(MainActivity.this, AboutUs.class);
+                startActivity(about_us);
+
+        }
+
+    }
+
+    private void ShareApp() {
+        PackageManager pm=getPackageManager();
+        try {
+
+            Intent waIntent = new Intent(Intent.ACTION_SEND);
+            waIntent.setType("text/plain");
+            String text = "Play store Link";
+
+            PackageInfo info=pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+            //Check if package exists or not. If not then code
+            //in catch block will be called
+           // waIntent.setPackage("com.whatsapp");
+
+            waIntent.putExtra(Intent.EXTRA_TEXT, text);
+            startActivity(Intent.createChooser(waIntent, "Share with"));
+
+        } catch (PackageManager.NameNotFoundException e) {
+            Toast.makeText(this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
+                    .show();
         }
 
     }
@@ -467,7 +521,8 @@ public class MainActivity extends AppCompatActivity implements
                 .withPermissions(
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.CAMERA)
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.CALL_PHONE)
                 .withListener(new MultiplePermissionsListener() {
                     @Override
                     public void onPermissionsChecked(MultiplePermissionsReport report) {

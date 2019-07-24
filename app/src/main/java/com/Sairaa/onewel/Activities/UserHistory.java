@@ -21,6 +21,7 @@ public class UserHistory extends BaseActivity {
     private String type_of_user;
     private Context context;
     private Button btn_next_history_details;
+    private ImageView img_ic_close_history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +31,16 @@ public class UserHistory extends BaseActivity {
         edt_number_history=findViewById(R.id.edt_number_history);
         spinner_type_of_user=findViewById(R.id.spinner_type_of_user);
         btn_next_history_details=findViewById(R.id.btn_next_history_details);
+        img_ic_close_history=findViewById(R.id.img_ic_close_history);
 
         context=UserHistory.this;
+
+        img_ic_close_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         btn_next_history_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

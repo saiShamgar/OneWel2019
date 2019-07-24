@@ -562,9 +562,7 @@ public class EdtiMatrimonyAccount extends BaseActivity {
 
     private void updateDatabase(final MatrimonyInsertionData insertionData) {
         Bitmap bitmap = ((GlideBitmapDrawable)img_matrimony_image.getDrawable().getCurrent()).getBitmap();
-
         AppUtils.showCustomProgressDialog(mCustomProgressDialog,"Loading...");
-
         FirebaseStorage storage = FirebaseStorage.getInstance();
         // Create a storage reference from our app
         StorageReference storageRef = storage.getReference();

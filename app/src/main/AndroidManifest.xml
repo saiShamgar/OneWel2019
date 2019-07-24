@@ -10,23 +10,35 @@
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.permission.CAMERA"/>
 	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+	<uses-permission android:name="android.permission.CALL_PHONE"/>
 	<application
 			android:name="android.support.multidex.MultiDexApplication"
 			android:allowBackup="true"
-			android:icon="@mipmap/ic_launcher"
+			android:icon="@drawable/ic_logo"
 			android:label="@string/app_name"
-			android:roundIcon="@mipmap/ic_launcher_round"
+			android:roundIcon="@drawable/ic_logo"
 			android:supportsRtl="true"
 			android:theme="@style/AppTheme"
 			android:usesCleartextTraffic="true"
 			tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-		<activity android:name=".Activities.Matrimony.CheckUserActivity"
+		<activity android:name=".Activities.AboutUs"
 		android:theme="@style/AppThemeWithNoAction"
 		android:screenOrientation="portrait">
 		</activity>
-		<activity android:name=".Activities.Matrimony.EdtiMatrimonyAccount"
-				android:theme="@style/AppThemeWithNoAction"
-				android:screenOrientation="portrait">
+		<activity
+				android:name=".Activities.Matrimony.CloseAccount"
+				android:screenOrientation="portrait"
+				android:theme="@style/AppThemeWithNoAction">
+		</activity>
+		<activity
+				android:name=".Activities.Matrimony.CheckUserActivity"
+				android:screenOrientation="portrait"
+				android:theme="@style/AppThemeWithNoAction">
+		</activity>
+		<activity
+				android:name=".Activities.Matrimony.EdtiMatrimonyAccount"
+				android:screenOrientation="portrait"
+				android:theme="@style/AppThemeWithNoAction">
 		</activity>
 		<activity
 				android:name=".PaymentActivity"

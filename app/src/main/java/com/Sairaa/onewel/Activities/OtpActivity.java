@@ -22,10 +22,12 @@ import com.Sairaa.onewel.Activities.Add.AddShopDetails;
 import com.Sairaa.onewel.Activities.Matrimony.EdtiMatrimonyAccount;
 import com.Sairaa.onewel.Activities.Promoter.PromoterRegistrationSuccess;
 import com.Sairaa.onewel.BaseActivity;
+import com.Sairaa.onewel.MainActivity;
 import com.Sairaa.onewel.Model.Advertisement.AdvertisementDetails;
 import com.Sairaa.onewel.Model.Customer.CustomerDetails;
 import com.Sairaa.onewel.Model.MatrimonyInsertionData;
 import com.Sairaa.onewel.Model.promoter.PromoterPersonalDetails;
+import com.Sairaa.onewel.PaymentActivity;
 import com.Sairaa.onewel.R;
 import com.Sairaa.onewel.Utils.AppUtils;
 import com.Sairaa.onewel.Utils.Contants;
@@ -33,9 +35,7 @@ import com.Sairaa.onewel.Utils.SharedPreferenceConfig;
 import com.google.android.gms.tasks.*;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.*;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.*;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -45,6 +45,8 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.sql.Ref;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class OtpActivity extends BaseActivity {
@@ -105,6 +107,12 @@ public class OtpActivity extends BaseActivity {
         }else if (status.contains("CheckUser")){
             sendVerificationCode(number);
         }
+        else if (status.contains("CloseAccount")){
+            sendVerificationCode(number);
+        }
+        else if (status.contains("BlockUser")){
+            sendVerificationCode(number);
+        }
         findViewById(R.id.btn_verify_otp).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,6 +149,12 @@ public class OtpActivity extends BaseActivity {
                 else if (status.contains("CheckUser")){
                     resendVerificationCode(number,token);
                 }
+                else if (status.contains("CloseAccount")){
+                    resendVerificationCode(number,token);
+                }
+                else if (status.contains("BlockUser")){
+                    resendVerificationCode(number,token);
+                }
             }
         });
 
@@ -149,7 +163,7 @@ public class OtpActivity extends BaseActivity {
     private void resendVerificationCode(String phoneNumber,
                 PhoneAuthProvider.ForceResendingToken token) {
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                    phoneNumber,        // Phone number to verify
+                    "+91" +phoneNumber,        // Phone number to verify
                     60,                 // Timeout duration
                     TimeUnit.SECONDS,   // Unit of timeout
                     this,               // Activity (for callback binding)
@@ -225,14 +239,8 @@ public class OtpActivity extends BaseActivity {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 message = "Invalid code entered...";
                             }
-                            Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), message, Snackbar.LENGTH_LONG);
-                            snackbar.setAction("Dismiss", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                }
-                            });
-                            snackbar.show();
+                           AppUtils.showToast(context,message);
+                            AppUtils.dismissCustomProgress(mCustomProgressDialog);
                         }
                     }
                 });
@@ -275,31 +283,15 @@ public class OtpActivity extends BaseActivity {
         }
 
         else if (status.contains("customer")){
-
-            CustomerDetails customerDetails=new CustomerDetails(config.readCustomer_name(),
-                    config.readCustomer_phone(),
-                    config.readCustomer_ref());
-            FirebaseDatabase.getInstance().getReference().child(Contants.CUMTOMER)
-                    .child(config.readCustomer_phone())
-                    .setValue(customerDetails)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
-                                saveRefNum(config.readCustomer_phone(),config.readCustomer_ref(),3);
-                            }
-                            else {
-                                AppUtils.dismissCustomProgress(mCustomProgressDialog);
-                                AppUtils.showToast(context,"Registration Failed please try again");
-                            }
-
-                        }
-                    });
+            AppUtils.dismissCustomProgress(mCustomProgressDialog);
+            Intent viewImage=new Intent(context, PaymentActivity.class);
+            viewImage.putExtra("status",Contants.CUMTOMER);
+            viewImage.putExtra("number",number);
+            context.startActivity(viewImage);
 
         }
         else if (status.contains("ADVERTISER")||status.contains("PROMOTER")||status.contains("CUSTOMER")){
             AppUtils.dismissCustomProgress(mCustomProgressDialog);
-
             Intent referenceList=new Intent(OtpActivity.this,ReferenceList.class);
             referenceList.putExtra("number",number);
             referenceList.putExtra("status",status);
@@ -319,6 +311,58 @@ public class OtpActivity extends BaseActivity {
             editAccount.putExtra("number",number);
             startActivity(editAccount);
         }
+        else if (status.contains("CloseAccount")){
+            closeMatrimonyAccount();
+        }
+        else if (status.contains("BlockUser")){
+            DelectAccount();
+        }
+    }
+
+    private void DelectAccount() {
+        FirebaseDatabase.getInstance().getReference().child(Contants.ADVERTISER)
+        .child(number).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                    AppUtils.showToast(context,"Deleted Successfully...");
+                    Intent mainAtivity=new Intent(OtpActivity.this,MainActivity.class);
+                    mainAtivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(mainAtivity);
+                }
+                else {
+                    AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                    AppUtils.showToast(context,"Something went wrong");
+                }
+            }
+        });
+
+
+    }
+
+    private void closeMatrimonyAccount() {
+        Map<String, Object> postValues = new HashMap<String,Object>();
+        postValues.put("status","1");
+        FirebaseDatabase.getInstance().getReference().child(Contants.MATRIMONY)
+        .child(number).updateChildren(postValues).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                    AppUtils.showToast(context,"Matrimony Account Closed successfully...");
+                  Intent mainActivity=new Intent(OtpActivity.this, MainActivity.class);
+                  mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                  startActivity(mainActivity);
+
+                }else {
+                    AppUtils.dismissCustomProgress(mCustomProgressDialog);
+                    AppUtils.showToast(context,"Sorry Please try again later");
+                }
+            }
+        });
+
+
     }
 
     private void saveMatrimonyData(MatrimonyInsertionData insertionData) {
@@ -456,7 +500,6 @@ public class OtpActivity extends BaseActivity {
     }
 
     private void saveRefNum(String phone_num, String ref_num, int i) {
-
         if (i==2){
             FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
                     .child(ref_num).push()
@@ -498,26 +541,26 @@ public class OtpActivity extends BaseActivity {
                     });
 
         }
-         if (i==3){
-             FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
-                     .child(ref_num).push()
-                     .child("REFERRED")
-                     .setValue(phone_num)
-                     .addOnCompleteListener(new OnCompleteListener<Void>() {
-                         @Override
-                         public void onComplete(@NonNull Task<Void> task) {
-                             if (task.isSuccessful()){
-                                 AppUtils.dismissCustomProgress(mCustomProgressDialog);
-                                 //verification successful we will start the profile activity
-                                 Intent intent = new Intent(OtpActivity.this, PromoterRegistrationSuccess.class);
-                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                 startActivity(intent);
-                             }
-
-                         }
-                     });
-         }
+//         if (i==3){
+//             FirebaseDatabase.getInstance().getReference().child(Contants.REFERENCES)
+//                     .child(ref_num).push()
+//                     .child("REFERRED")
+//                     .setValue(phone_num)
+//                     .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                         @Override
+//                         public void onComplete(@NonNull Task<Void> task) {
+//                             if (task.isSuccessful()){
+//                                 AppUtils.dismissCustomProgress(mCustomProgressDialog);
+//                                 //verification successful we will start the profile activity
+//                                 Intent intent = new Intent(OtpActivity.this, PromoterRegistrationSuccess.class);
+//                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                                 startActivity(intent);
+//                             }
+//
+//                         }
+//                     });
+//         }
     }
 
 

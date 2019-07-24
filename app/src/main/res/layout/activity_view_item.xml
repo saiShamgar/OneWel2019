@@ -79,18 +79,7 @@
 						android:drawableLeft="@drawable/ic_time"
 						android:layout_margin="@dimen/margin_large"
 						android:paddingLeft="@dimen/margin_large"/>
-				
-				<TextView
-						android:id="@+id/view_item_shop_distance_in_meters"
-						android:layout_width="0dp"
-						android:layout_height="wrap_content"
-						android:layout_weight="1"
-						android:text="250 meters"
-						android:gravity="center_vertical"
-						android:layout_gravity="center_vertical"
-						android:drawableLeft="@drawable/ic_walk"
-						android:layout_margin="@dimen/margin_large"/>
-			
+					
 			</LinearLayout>
 				
 				<LinearLayout
@@ -110,13 +99,12 @@
 								android:id="@+id/item_report"
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
-								android:text="Report"
+								android:text="Block"
 								android:paddingLeft="@dimen/margin_xxlarge"
 								android:paddingTop="@dimen/card_elevation_4dp"
 								android:paddingBottom="@dimen/card_elevation_4dp"
 								android:paddingRight="@dimen/margin_xxlarge"
 								android:background="@drawable/stroke_background"
-								android:drawableLeft="@drawable/ic_report"
 								android:layout_marginLeft="@dimen/margin_xxlarge"/>
 						
 					</LinearLayout>
@@ -131,15 +119,15 @@
 								android:id="@+id/item_call"
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
-								android:text="   Call"
+								android:text="Call"
 								android:layout_gravity="right"
 								android:textColor="@color/color_white"
 								android:paddingLeft="@dimen/margin_xxlarge"
-								android:paddingTop="@dimen/card_elevation_4dp"
-								android:paddingBottom="@dimen/card_elevation_4dp"
+								android:paddingTop="@dimen/card_radius_8dp"
+								android:paddingBottom="@dimen/card_radius_8dp"
 								android:paddingRight="@dimen/margin_xxlarge"
 								android:background="@drawable/gradient_background"
-								android:drawableLeft="@drawable/ic_call"/>
+						/>
 					
 					</LinearLayout>
 					
