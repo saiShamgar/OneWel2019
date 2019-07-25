@@ -61,12 +61,15 @@ public class GoogleSignIN extends BaseActivity {
         //Now we will attach a click listener to the sign_in_button
         //and inside onClick() method we are calling the signIn() method that will open
         //google sign in intent
+
         findViewById(R.id.google_sign_in).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn();
             }
         });
+
+
     }
 
     @Override
@@ -75,6 +78,7 @@ public class GoogleSignIN extends BaseActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
+
 
 
     }

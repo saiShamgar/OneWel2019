@@ -34,6 +34,7 @@
 	<string name="AdvertiserLat">com.Sairaa.onewel.Utils.AdvertiserLat</string>
 	<string name="AdvertiserLon">com.Sairaa.onewel.Utils.AdvertiserLon</string>
 	<string name="AdvertiserImage">com.Sairaa.onewel.Utils.AdvertiserImage</string>
+	<string name="AdvertiserDiscount">com.Sairaa.onewel.Utils.AdvertiserDiscount</string>
 	//customer
 	<string name="Customer_name">com.Sairaa.onewel.Utils.Customer_name</string>
 	<string name="Customer_phone">com.Sairaa.onewel.Utils.Customer_phone</string>
@@ -61,20 +62,114 @@
 		with in a short span of time.
 	</string>
 	<string-array name="shop_arrays">
-		<item>Choose a Shop</item>
-		<item>Electronic</item>
+		<item>House Hold Appliances</item>
+		<item>Hardware appliances</item>
+		<item>Technical appliances</item>
+		<item>Beauty parlor</item>
+		<item>Cosmetics</item>
+		<item>Saloon</item>
+		<item>Fancy materials</item>
+		<item>Beauty Parlour</item>
+		<item>Boutique</item>
+		<item>Bags</item>
+		<item>Cement shop</item>
+		<item>Iron shop</item>
+		<item>Construction materials</item>
+		<item>Centering</item>
+		<item>Cell points</item>
+		<item>Schools</item>
+		<item>Colleges</item>
+		<item>Coaching Centres</item>
+		<item>Home tuition</item>
+		<item>Function Halls</item>
+		<item>All Events</item>
+		<item>Birthday Events</item>
+		<item>Marriage events</item>
+		<item>Dance Groups</item>
+		<item>Singers</item>
+		<item>Recording studios</item>
+		<item>Electrical shop</item>
+		<item>Electrician</item>
+		<item>Electronics Accesseries</item>
+		<item>Washing machine</item>
+		<item>Television</item>
+		<item>Purifiers etc.</item>
+		<item>wood furniture</item>
+		<item>Glass furniture</item>
+		<item>Food</item>
+		<item>Hotels</item>
+		<item>Restaurants</item>
+		<item>Tiffins</item>
+		<item>Bakery and sweets</item>
+		<item>Fast food</item>
+		<item>Fruits</item>
+		<item>Juice points</item>
+		<item>Groceries</item>
+		<item>Health</item>
+		<item>Hospitals</item>
+		<item>Doctors</item>
+		<item>Specialist</item>
+		<item>Clinics</item>
+		<item>Laboratory</item>
+		<item>Diagnostic centre</item>
+		<item>Medical shop</item>
+		<item>Pharmacy</item>
+		<item>Interior designing</item>
 		<item>Jewellery</item>
-		<item>Electrical</item>
-		<item>Mechanics</item>
-		<item>Grocery</item>
-		<item>Super Market</item>
-		<item>Fancy</item>
-		<item>Tailor</item>
-		<item>Beauty</item>
-		<item>Shoes</item>
+		<item>Gold</item>
+		<item>Diamond</item>
+		<item>Silver</item>
+		<item>Kitchen items</item>
+		<item>Labours</item>
+		<item>Car sale showroom</item>
+		<item>Bike sale showroom</item>
+		<item>Cycles sale showroom</item>
+		<item>Car mechanic</item>
+		<item>Bike mechanic</item>
+		<item>Cycle mechanic</item>
+		<item>Car wash</item>
+		<item>Bike wash</item>
+		<item>Matrimony</item>
+		<item>Modelers</item>
+		<item>Optical</item>
+		<item>Photo Studios</item>
+		<item>Private jobs</item>
+		<item>Teacher</item>
+		<item>Nurses</item>
+		<item>Tale callers</item>
+		<item>Others</item>
+		<item>Rent House and lease</item>
+		<item>Rent shop and lease</item>
+		<item>Real estate</item>
+		<item>land sales</item>
+		<item>Building sales</item>
+		<item>Supermarket</item>
+		<item>Shopping malls</item>
 		<item>Stationary</item>
-		<item>Furniture</item>
-		<item>Home Appliances</item>
+		<item>Shoes</item>
+		<item>Shoes</item>
+		<item>Sports items</item>
+		<item>Suppliers</item>
+		<item>Second Handle</item>
+		<item>Services</item>
+		<item>Plumber</item>
+		<item>Painter</item>
+		<item>Carpenter</item>
+		<item>Electrician</item>
+		<item>Washroom cleaners</item>
+		<item>Servants</item>
+		<item>Wall sealing</item>
+		<item>Centering</item>
+		<item>Orchestra</item>
+		<item>Scrap Iron</item>
+		<item>Gas Repair</item>
+		<item>A.C Mechanic</item>
+		<item>Lift Repairs</item>
+		<item>Travels</item>
+		<item>Tiles</item>
+		<item>Tailor</item>
+		<item>Watches</item>
+	
 	</string-array>
 	<string-array name="feet_array">
 		<item>Feet</item>
@@ -204,6 +299,28 @@
 		<item>10pm</item>
 		<item>11pm</item>
 		<item>12pm</item>
+	</string-array>
+	<string-array name="discount_array">
+		<item>-Select-</item>
+		<item>10%</item>
+		<item>15%</item>
+		<item>20%</item>
+		<item>25%</item>
+		<item>30%</item>
+		<item>35%</item>
+		<item>40%</item>
+		<item>45%</item>
+		<item>50%</item>
+		<item>55%</item>
+		<item>60%</item>
+		<item>65%</item>
+		<item>70%</item>
+		<item>75%</item>
+		<item>80%</item>
+		<item>85%</item>
+		<item>90%</item>
+		<item>95%</item>
+		<item>100%</item>
 	</string-array>
 	<string-array name="religion_array">
 		<item>- Select -</item>

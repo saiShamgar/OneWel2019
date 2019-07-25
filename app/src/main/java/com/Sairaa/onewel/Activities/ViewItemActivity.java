@@ -25,7 +25,7 @@ public class ViewItemActivity extends AppCompatActivity {
     private TextView view_item_shop_name,view_item_shop_desc,view_item_shop_timings,view_item_shop_distance_in_meters,
             view_item_shop_address;
     private TextView item_report;
-    private TextView item_call;
+    private TextView item_call,view_item_discount;
     private Context context;
 
     @Override
@@ -43,6 +43,7 @@ public class ViewItemActivity extends AppCompatActivity {
         view_item_shop_address=findViewById(R.id.view_item_shop_address);
         item_report=findViewById(R.id.item_report);
         item_call=findViewById(R.id.item_call);
+        view_item_discount=findViewById(R.id.view_item_discount);
 
         if (details!=null){
             CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(this);
@@ -59,6 +60,7 @@ public class ViewItemActivity extends AppCompatActivity {
             view_item_shop_desc.setText(details.getShop_desc());
             view_item_shop_timings.setText("Opens\n"+details.getOpens_from()+" to "+details.getCloses_to());
             view_item_shop_address.setText(details.getAddress());
+            view_item_discount.setText("  UP TO "+details.getDiscount());
 
         }
 

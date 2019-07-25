@@ -16,8 +16,9 @@ public class AdvertisementDetails implements Serializable {
     String  closes_to;
     String shop_desc;
     String image_url;
+    String discount;
 
-    public AdvertisementDetails(String shop_name, String phone_num, String ref_num, String shop_type, String address, String latitude, String longitude, String landmark, String opens_from, String closes_to, String shop_desc, String image_url) {
+    public AdvertisementDetails(String shop_name, String phone_num, String ref_num, String shop_type, String address, String latitude, String longitude, String landmark, String opens_from, String closes_to, String shop_desc, String image_url, String discount) {
         this.shop_name = shop_name;
         this.phone_num = phone_num;
         this.ref_num = ref_num;
@@ -30,10 +31,19 @@ public class AdvertisementDetails implements Serializable {
         this.closes_to = closes_to;
         this.shop_desc = shop_desc;
         this.image_url = image_url;
+        this.discount = discount;
     }
 
     public AdvertisementDetails() {
 
+    }
+
+    public String getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(String discount) {
+        this.discount = discount;
     }
 
     public String getShop_name() {

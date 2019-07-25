@@ -21,9 +21,15 @@
 			android:theme="@style/AppTheme"
 			android:usesCleartextTraffic="true"
 			tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-		<activity android:name=".Activities.AboutUs"
-		android:theme="@style/AppThemeWithNoAction"
-		android:screenOrientation="portrait">
+		<activity
+				android:name=".Activities.PrivacyPolicy"
+				android:theme="@style/AppThemeWithNoAction"
+				android:screenOrientation="portrait">
+		</activity>
+		<activity
+				android:name=".Activities.AboutUs"
+				android:screenOrientation="portrait"
+				android:theme="@style/AppThemeWithNoAction">
 		</activity>
 		<activity
 				android:name=".Activities.Matrimony.CloseAccount"

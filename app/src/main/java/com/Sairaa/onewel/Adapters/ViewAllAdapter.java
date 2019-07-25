@@ -12,13 +12,14 @@ import com.Sairaa.onewel.Activities.Add.AddSignUpPD;
 import com.Sairaa.onewel.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHolder> {
 
     private Context context;
-    private String[] arrayList;
+    private List<String> arrayList;
 
-    public ViewAllAdapter(Context context, String[] arrayList) {
+    public ViewAllAdapter(Context context, List<String> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
@@ -32,7 +33,7 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-        viewHolder.txt_cus_view_all.setText(arrayList[i]);
+        viewHolder.txt_cus_view_all.setText(arrayList.get(i));
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +47,7 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return arrayList.length;
+        return arrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

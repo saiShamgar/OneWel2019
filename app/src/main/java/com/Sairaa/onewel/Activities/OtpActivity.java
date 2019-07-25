@@ -103,7 +103,9 @@ public class OtpActivity extends BaseActivity {
         else if (status.contains("customer")){
             sendVerificationCode(config.readCustomer_phone());
         }else if (status.contains("Matrimony")){
+
             sendVerificationCode(number);
+
         }else if (status.contains("CheckUser")){
             sendVerificationCode(number);
         }
@@ -458,7 +460,8 @@ public class OtpActivity extends BaseActivity {
                             config.readAdvertiserFromTime(),
                             config.readAdvertiserToTime(),
                             config.readAdvertiserShopDesc(),
-                            image_path);
+                            image_path,
+                            config.readAdvertiserDiscount());
 
                     FirebaseDatabase.getInstance().getReference().child(Contants.ADVERTISER)
                             .child(config.readAdvertiserPhone())

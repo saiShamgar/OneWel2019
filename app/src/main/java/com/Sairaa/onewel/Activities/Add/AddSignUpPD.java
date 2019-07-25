@@ -19,6 +19,8 @@ import com.Sairaa.onewel.Utils.Contants;
 import com.Sairaa.onewel.Utils.SharedPreferenceConfig;
 import com.google.firebase.database.*;
 
+import java.util.*;
+
 public class AddSignUpPD extends BaseActivity implements AdapterView.OnItemSelectedListener {
 
     private Button btn_next_add_details;
@@ -32,6 +34,8 @@ public class AddSignUpPD extends BaseActivity implements AdapterView.OnItemSelec
     private ImageView img_ic_close_add;
 
     private int position;
+    private List<String> arrayList=new ArrayList<String>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +54,29 @@ public class AddSignUpPD extends BaseActivity implements AdapterView.OnItemSelec
         spin_shop_category_add=findViewById(R.id.spin_shop_category_add);
         img_ic_close_add=findViewById(R.id.img_ic_close_add);
 
+        arrayList.addAll(Arrays.asList(getResources().getStringArray(R.array.shop_arrays)));
+        Collections.sort(arrayList, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return s1.compareToIgnoreCase(s2);
+            }
+        });
+
+        arrayList.add(0,"Choose a Shop");
+
         img_ic_close_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
+                (this, R.layout.spinner_layout,
+                        arrayList); //selected item will look like a spinner set from XML
+        spinnerArrayAdapter.setDropDownViewResource(R.layout
+                .spinner_layout);
+        spin_shop_category_add.setAdapter(spinnerArrayAdapter);
 
         spin_shop_category_add.setOnItemSelectedListener(this);
 

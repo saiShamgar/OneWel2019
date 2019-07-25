@@ -137,10 +137,7 @@
 								android:layout_marginTop="@dimen/margin_xxxxlarge"
 								android:layout_marginLeft="@dimen/margin_xxxxxlarge"
 								android:layout_marginRight="@dimen/margin_xlarge"
-								android:hint="@string/shop_category"
 								android:textColorHint="@color/font_color"
-								android:prompt="@string/shop_prompt"
-								android:entries="@array/shop_arrays"
 								android:backgroundTint="@color/font_heading"/>
 						
 						<TextView

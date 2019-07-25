@@ -75,6 +75,8 @@ public class AddShopDetails extends AppCompatActivity implements
     private AlertDialog dialog;
     private Uri imagecaptureuri;
     private ImageView img_ic_close_add_shop_details;
+    private Spinner discount_spinner;
+    private String discount;
 
 
     @Override
@@ -94,6 +96,7 @@ public class AddShopDetails extends AppCompatActivity implements
         Add_image=findViewById(R.id.Add_image);
         shop_image=findViewById(R.id.shop_image);
         img_ic_close_add_shop_details=findViewById(R.id.img_ic_close_add_shop_details);
+        discount_spinner=findViewById(R.id.discount_spinner);
 
         img_ic_close_add_shop_details.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +122,18 @@ public class AddShopDetails extends AppCompatActivity implements
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 toTime=parent.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        discount_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                discount=parent.getSelectedItem().toString();
             }
 
             @Override
@@ -283,6 +298,7 @@ public class AddShopDetails extends AppCompatActivity implements
         config.writeAdvertiserLat(String.valueOf(lat));
         config.writeAdvertiserLon(String.valueOf(lon));
         config.writeAdvertiserImage(imageToString(bitmap));
+        config.writeAdvertiserDiscount(discount);
 
         Intent rigistrationSuccess=new Intent(AddShopDetails.this, OtpActivity.class);
         rigistrationSuccess.putExtra("status","advertisement");
@@ -363,27 +379,33 @@ public class AddShopDetails extends AppCompatActivity implements
              edt_name_add_shop_details.requestFocus();
              edt_name_add_shop_details.setError("Enter Address");
         }
-         if (edt_name_add_shop_details.getText().toString().trim().length() > 0) {
+        else if (edt_name_add_shop_details.getText().toString().trim().length() > 0) {
             if (lat==0){
                 validate = false;
                 edt_name_add_shop_details.requestFocus();
                 edt_name_add_shop_details.setError("Enter correct Address");
             }
-        } if (edt_landmark_add_shop_details.getText().toString().trim().length() == 0) {
+        }else if (edt_landmark_add_shop_details.getText().toString().trim().length() == 0) {
             validate = false;
             edt_landmark_add_shop_details.requestFocus();
             edt_landmark_add_shop_details.setError("Enter LandMark");
 
-        } if (edt_shop_description_add.getText().toString().trim().length() == 0) {
-            validate = false;
+        }else if (edt_shop_description_add.getText().toString().trim().length() == 0) {
+             validate = false;
              edt_shop_description_add.requestFocus();
              edt_shop_description_add.setError("Enter Shop Description");
 
-        }
-         if (bitmap==null){
-             validate=false;
-             AppUtils.showToast(context,"Please Set Image");
          }
+
+        if (discount.contains("-Select-")){
+             validate=false;
+             AppUtils.showToast(context,"Please Set Discount");
+         }
+
+        if (bitmap==null){
+            validate=false;
+            AppUtils.showToast(context,"Please Set Image");
+        }
         return validate;
     }
 

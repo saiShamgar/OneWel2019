@@ -22,7 +22,8 @@ public class PromoterRegistrationSuccess extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent go_to_home=new Intent(PromoterRegistrationSuccess.this, MainActivity.class);
-                go_to_home.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                go_to_home.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                go_to_home.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(go_to_home);
             }
         });

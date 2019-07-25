@@ -296,6 +296,20 @@ public class SharedPreferenceConfig {
         return url;
     }
 
+    public void writeAdvertiserDiscount(String url) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(context.getResources().getString(R.string.AdvertiserDiscount), String.valueOf(url));
+        Log.i("SharedPreferenceWrite: ", "" + url);
+        editor.apply();
+    }
+
+    public String readAdvertiserDiscount() {
+        String url;
+        url = sharedPreferences.getString(context.getResources().getString(R.string.AdvertiserDiscount), "no");
+        Log.i("SharedPreferenceRead: ", "" + url);
+        return url;
+    }
+
     public void writeCustomer_name(String url) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(context.getResources().getString(R.string.Customer_name), String.valueOf(url));

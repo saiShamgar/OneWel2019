@@ -193,6 +193,7 @@ public class SearchListActivity extends BaseActivity implements
                                 list5.setShop_desc(list.child("shop_desc").getValue().toString());
                                 list5.setShop_name(list.child("shop_name").getValue().toString());
                                 list5.setShop_type(list.child("shop_type").getValue().toString());
+                                list5.setDiscount(list.child("discount").getValue().toString());
 
                                 details.add(list5);
                             }

@@ -27,7 +27,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
-import com.Sairaa.onewel.Activities.AboutUs;
+import com.Sairaa.onewel.Activities.*;
 import com.Sairaa.onewel.Activities.Add.AddSignUpPD;
 import com.Sairaa.onewel.Activities.Customer.CustomerRegistration;
 import com.Sairaa.onewel.Activities.Customer.CutomerVerification;
@@ -36,9 +36,6 @@ import com.Sairaa.onewel.Activities.Matrimony.CloseAccount;
 import com.Sairaa.onewel.Activities.Matrimony.MatrimonyMainScreen;
 import com.Sairaa.onewel.Activities.Matrimony.MatrimonyRegistration;
 import com.Sairaa.onewel.Activities.Promoter.PromoterSignUp;
-import com.Sairaa.onewel.Activities.SearchListActivity;
-import com.Sairaa.onewel.Activities.UserHistory;
-import com.Sairaa.onewel.Activities.ViewAllActivity;
 import com.Sairaa.onewel.Adapters.PlaceArrayAdapter;
 import com.Sairaa.onewel.Adapters.PlaceAutocompleteAdapter;
 import com.Sairaa.onewel.Adapters.ViewAllAdapter;
@@ -46,6 +43,9 @@ import com.Sairaa.onewel.Utils.AppUtils;
 import com.Sairaa.onewel.Utils.SharedPreferenceConfig;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -56,6 +56,8 @@ import com.google.android.gms.location.places.PlaceBuffer;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.karumi.dexter.Dexter;
@@ -102,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements
             ,navigation_about_us,navigation_privacy_policy,navigation_signout;
     private NavigationView nvView;
     private boolean statusShare=false;
+    GoogleSignInClient mGoogleSignInClient;
+
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -109,6 +113,14 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context=MainActivity.this;
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        //Then we will get the GoogleSignInClient object from GoogleSignIn class
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         config=new SharedPreferenceConfig(this);
         requestMultiplePermissions();
@@ -352,14 +364,29 @@ public class MainActivity extends AppCompatActivity implements
 
             case R.id.log_out:
                 mAuth.signOut();
-                Intent logout=new Intent(MainActivity.this,GoogleSignIN.class);
-                logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(logout);
+                mGoogleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            Intent logout=new Intent(MainActivity.this,GoogleSignIN.class);
+                            logout.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(logout);
+                        }
+                    }
+                });
+
                 break;
 
             case R.id.about_us:
                 Intent about_us=new Intent(MainActivity.this, AboutUs.class);
                 startActivity(about_us);
+                break;
+
+            case R.id.privacy_policy:
+                Intent privacy_policy=new Intent(MainActivity.this, PrivacyPolicy.class);
+                startActivity(privacy_policy);
+                break;
 
         }
 
